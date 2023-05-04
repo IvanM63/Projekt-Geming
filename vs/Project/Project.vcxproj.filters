@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Demo Files">
+      <UniqueIdentifier>{34b4a4c9-782e-4ce9-bfa3-88e3da53d66a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{977b02f5-001c-414e-a414-603494b85a3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Background">
+      <UniqueIdentifier>{333307f0-71dc-49be-91fd-b2f465c8419c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sprite.frag">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="sprite.vert">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="text.frag">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="text.vert">
+      <Filter>Shader Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SATCollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson01.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson02.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson03.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson04.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Demo.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson05.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson06.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lesson07.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Testosteron.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SATCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson01.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson02.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson03.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson04.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Demo.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson05.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson06.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lesson07.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Testosteron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

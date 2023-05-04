@@ -1,0 +1,594 @@
+﻿Text.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Texture.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Lesson07.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Setting.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Shader.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Sprite.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Lesson03.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Lesson04.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Lesson05.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Lesson06.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Button.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Game.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Demo.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Input.obj : error LNK2001: unresolved external symbol "void * __cdecl operator new(unsigned __int64)" (??2@YAPEAX_K@Z)
+Text.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Texture.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Lesson07.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Setting.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Shader.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Sprite.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Lesson03.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Lesson04.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Lesson05.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Lesson06.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Button.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Game.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Demo.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Input.obj : error LNK2001: unresolved external symbol "void __cdecl operator delete(void *,unsigned __int64)" (??3@YAXPEAX_K@Z)
+Shader.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Sprite.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Text.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Texture.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Lesson07.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+BoundingBox.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+SATCollision.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Setting.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Lesson03.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Lesson04.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Lesson05.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Lesson06.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Button.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Game.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Demo.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Input.obj : error LNK2001: unresolved external symbol __imp__invalid_parameter
+Text.obj : error LNK2001: unresolved external symbol memcpy
+Texture.obj : error LNK2001: unresolved external symbol memcpy
+Lesson07.obj : error LNK2001: unresolved external symbol memcpy
+Setting.obj : error LNK2001: unresolved external symbol memcpy
+Shader.obj : error LNK2001: unresolved external symbol memcpy
+Sprite.obj : error LNK2001: unresolved external symbol memcpy
+Lesson03.obj : error LNK2001: unresolved external symbol memcpy
+Lesson04.obj : error LNK2001: unresolved external symbol memcpy
+Lesson05.obj : error LNK2001: unresolved external symbol memcpy
+Lesson06.obj : error LNK2001: unresolved external symbol memcpy
+Button.obj : error LNK2001: unresolved external symbol memcpy
+Game.obj : error LNK2001: unresolved external symbol memcpy
+Demo.obj : error LNK2001: unresolved external symbol memcpy
+Input.obj : error LNK2001: unresolved external symbol memcpy
+Text.obj : error LNK2001: unresolved external symbol memmove
+Texture.obj : error LNK2001: unresolved external symbol memmove
+Lesson07.obj : error LNK2001: unresolved external symbol memmove
+Setting.obj : error LNK2001: unresolved external symbol memmove
+Shader.obj : error LNK2001: unresolved external symbol memmove
+Sprite.obj : error LNK2001: unresolved external symbol memmove
+Lesson03.obj : error LNK2001: unresolved external symbol memmove
+Lesson04.obj : error LNK2001: unresolved external symbol memmove
+Lesson05.obj : error LNK2001: unresolved external symbol memmove
+Lesson06.obj : error LNK2001: unresolved external symbol memmove
+Button.obj : error LNK2001: unresolved external symbol memmove
+Game.obj : error LNK2001: unresolved external symbol memmove
+Demo.obj : error LNK2001: unresolved external symbol memmove
+Input.obj : error LNK2001: unresolved external symbol memmove
+Shader.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Sprite.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Text.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Texture.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Lesson07.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+BoundingBox.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+SATCollision.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Setting.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Lesson03.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Lesson04.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Lesson05.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Lesson06.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Button.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Game.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Demo.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Input.obj : error LNK2001: unresolved external symbol __imp__CrtDbgReport
+Shader.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Sprite.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Text.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Texture.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Lesson03.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Lesson06.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Lesson07.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Setting.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Button.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Demo.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::_Lockit(int)" (__imp_??0_Lockit@std@@QEAA@H@Z)
+Shader.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Sprite.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Text.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Texture.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Lesson03.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Lesson06.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Lesson07.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Setting.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Button.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Demo.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __cdecl std::_Lockit::~_Lockit(void)" (__imp_??1_Lockit@std@@QEAA@XZ)
+Text.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Texture.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Lesson07.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Setting.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Shader.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Sprite.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Lesson03.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Lesson04.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Lesson05.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Lesson06.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Button.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Game.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Demo.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Input.obj : error LNK2001: unresolved external symbol __std_exception_copy
+Text.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Texture.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Lesson07.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Setting.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Shader.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Sprite.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Lesson03.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Lesson04.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Lesson05.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Lesson06.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Button.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Game.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Demo.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Input.obj : error LNK2001: unresolved external symbol __std_exception_destroy
+Text.obj : error LNK2001: unresolved external symbol strlen
+Lesson07.obj : error LNK2001: unresolved external symbol strlen
+Setting.obj : error LNK2001: unresolved external symbol strlen
+Shader.obj : error LNK2001: unresolved external symbol strlen
+Sprite.obj : error LNK2001: unresolved external symbol strlen
+Lesson03.obj : error LNK2001: unresolved external symbol strlen
+Lesson04.obj : error LNK2001: unresolved external symbol strlen
+Lesson05.obj : error LNK2001: unresolved external symbol strlen
+Lesson06.obj : error LNK2001: unresolved external symbol strlen
+Button.obj : error LNK2001: unresolved external symbol strlen
+Game.obj : error LNK2001: unresolved external symbol strlen
+Demo.obj : error LNK2001: unresolved external symbol strlen
+Input.obj : error LNK2001: unresolved external symbol strlen
+Text.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Texture.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Lesson07.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Setting.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Shader.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Sprite.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Lesson03.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Lesson04.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Lesson05.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Lesson06.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Button.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Game.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Demo.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xlength_error(char const *)" (?_Xlength_error@std@@YAXPEBD@Z)
+Text.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Texture.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Lesson07.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Setting.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Shader.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Sprite.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Lesson03.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Lesson04.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Lesson05.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Lesson06.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Button.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Game.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Demo.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Input.obj : error LNK2001: unresolved external symbol _CxxThrowException
+Shader.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Sprite.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Text.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Texture.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Lesson07.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Quad.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+SATCollision.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Setting.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Lesson03.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Lesson04.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Lesson05.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Lesson06.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Button.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Game.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Demo.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Input.obj : error LNK2001: unresolved external symbol _RTC_CheckStackVars
+Text.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Texture.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+GameObject.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Shader.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Sound.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Sprite.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Testosteron.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Quad.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+BoundingBox.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+SATCollision.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Setting.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson05.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson06.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson07.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Music.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson01.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson02.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson03.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Lesson04.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Button.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Game.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Demo.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Input.obj : error LNK2001: unresolved external symbol _RTC_InitBase
+Text.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Texture.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+GameObject.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Shader.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Sound.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Sprite.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Testosteron.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Quad.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+BoundingBox.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+SATCollision.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Setting.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson05.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson06.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson07.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Music.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson01.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson02.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson03.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Lesson04.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Button.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Game.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Demo.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Input.obj : error LNK2001: unresolved external symbol _RTC_Shutdown
+Text.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Texture.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Lesson07.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Setting.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Shader.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Sprite.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Lesson03.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Lesson04.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Lesson05.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Lesson06.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Button.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Game.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Demo.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Input.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+Shader.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Sprite.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Text.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Texture.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Lesson07.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Quad.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+SATCollision.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Setting.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Lesson03.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Lesson04.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Lesson05.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Lesson06.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Button.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Game.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Demo.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Input.obj : error LNK2001: unresolved external symbol __GSHandlerCheck
+Texture.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Lesson07.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Shader.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Sprite.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Text.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Lesson03.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Lesson04.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Lesson05.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Lesson06.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Button.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Game.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Demo.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Input.obj : error LNK2001: unresolved external symbol __GSHandlerCheck_EH4
+Shader.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Sprite.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Text.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Texture.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Lesson07.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Quad.obj : error LNK2001: unresolved external symbol __security_check_cookie
+SATCollision.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Setting.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Lesson03.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Lesson04.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Lesson05.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Lesson06.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Button.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Game.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Demo.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Input.obj : error LNK2001: unresolved external symbol __security_check_cookie
+Texture.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Shader.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Sprite.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Testosteron.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Text.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson05.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson06.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson07.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Setting.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson01.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson02.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson03.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Lesson04.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Button.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Game.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Demo.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Input.obj : error LNK2001: unresolved external symbol "const type_info::`vftable'" (??_7type_info@@6B@)
+Shader.obj : error LNK2001: unresolved external symbol __security_cookie
+Sprite.obj : error LNK2001: unresolved external symbol __security_cookie
+Text.obj : error LNK2001: unresolved external symbol __security_cookie
+Texture.obj : error LNK2001: unresolved external symbol __security_cookie
+Lesson07.obj : error LNK2001: unresolved external symbol __security_cookie
+Quad.obj : error LNK2001: unresolved external symbol __security_cookie
+SATCollision.obj : error LNK2001: unresolved external symbol __security_cookie
+Setting.obj : error LNK2001: unresolved external symbol __security_cookie
+Lesson03.obj : error LNK2001: unresolved external symbol __security_cookie
+Lesson04.obj : error LNK2001: unresolved external symbol __security_cookie
+Lesson05.obj : error LNK2001: unresolved external symbol __security_cookie
+Lesson06.obj : error LNK2001: unresolved external symbol __security_cookie
+Button.obj : error LNK2001: unresolved external symbol __security_cookie
+Game.obj : error LNK2001: unresolved external symbol __security_cookie
+Demo.obj : error LNK2001: unresolved external symbol __security_cookie
+Input.obj : error LNK2001: unresolved external symbol __security_cookie
+Text.obj : error LNK2001: unresolved external symbol _fltused
+GameObject.obj : error LNK2001: unresolved external symbol _fltused
+SATCollision.obj : error LNK2001: unresolved external symbol _fltused
+Setting.obj : error LNK2001: unresolved external symbol _fltused
+Shader.obj : error LNK2001: unresolved external symbol _fltused
+Sprite.obj : error LNK2001: unresolved external symbol _fltused
+Lesson05.obj : error LNK2001: unresolved external symbol _fltused
+Lesson06.obj : error LNK2001: unresolved external symbol _fltused
+Lesson07.obj : error LNK2001: unresolved external symbol _fltused
+Quad.obj : error LNK2001: unresolved external symbol _fltused
+Lesson01.obj : error LNK2001: unresolved external symbol _fltused
+Lesson02.obj : error LNK2001: unresolved external symbol _fltused
+Lesson03.obj : error LNK2001: unresolved external symbol _fltused
+Lesson04.obj : error LNK2001: unresolved external symbol _fltused
+Button.obj : error LNK2001: unresolved external symbol _fltused
+Game.obj : error LNK2001: unresolved external symbol _fltused
+Demo.obj : error LNK2001: unresolved external symbol _fltused
+Input.obj : error LNK2001: unresolved external symbol _fltused
+Game.obj : error LNK2001: unresolved external symbol _purecall
+Game.obj : error LNK2019: unresolved external symbol SDL_GetError referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_GetWindowSize referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_GL_SetAttribute referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_GL_CreateContext referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_GL_SetSwapInterval referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_GL_SwapWindow referenced in function "private: void __cdecl Engine::Game::GameLoop(struct SDL_Window *)" (?GameLoop@Game@Engine@@AEAAXPEAUSDL_Window@@@Z)
+Game.obj : error LNK2019: unresolved external symbol SDL_PollEvent referenced in function "private: void __cdecl Engine::Game::PollInput(void)" (?PollInput@Game@Engine@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_GetTicks referenced in function "private: void __cdecl Engine::Game::CalcDeltaTimeAndFramerate(void)" (?CalcDeltaTimeAndFramerate@Game@Engine@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_Delay referenced in function "private: void __cdecl Engine::Game::GameLoop(struct SDL_Window *)" (?GameLoop@Game@Engine@@AEAAXPEAUSDL_Window@@@Z)
+Game.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "public: void __cdecl Engine::Game::Run(void)" (?Run@Game@Engine@@QEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol Mix_Init referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol Mix_OpenAudio referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol __imp_glClear referenced in function "private: void __cdecl Engine::Game::GameLoop(struct SDL_Window *)" (?GameLoop@Game@Engine@@AEAAXPEAUSDL_Window@@@Z)
+Game.obj : error LNK2019: unresolved external symbol __imp_glClearColor referenced in function "public: void __cdecl Engine::Game::SetBackgroundColor(int,int,int)" (?SetBackgroundColor@Game@Engine@@QEAAXHHH@Z)
+Game.obj : error LNK2019: unresolved external symbol __imp_glViewport referenced in function "private: void __cdecl Engine::Game::GameLoop(struct SDL_Window *)" (?GameLoop@Game@Engine@@AEAAXPEAUSDL_Window@@@Z)
+Game.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function "private: struct SDL_Window * __cdecl Engine::Game::InitInternal(void)" (?InitInternal@Game@Engine@@AEAAPEAUSDL_Window@@XZ)
+Game.obj : error LNK2019: unresolved external symbol "void __cdecl std::_Xout_of_range(char const *)" (?_Xout_of_range@std@@YAXPEBD@Z) referenced in function "public: static void __cdecl std::_String_val<struct std::_Simple_types<char> >::_Xran(void)" (?_Xran@?$_String_val@U?$_Simple_types@D@std@@@std@@SAXXZ)
+Demo.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xout_of_range(char const *)" (?_Xout_of_range@std@@YAXPEBD@Z)
+Shader.obj : error LNK2001: unresolved external symbol "void __cdecl std::_Xout_of_range(char const *)" (?_Xout_of_range@std@@YAXPEBD@Z)
+Game.obj : error LNK2019: unresolved external symbol "bool __cdecl std::uncaught_exception(void)" (?uncaught_exception@std@@YA_NXZ) referenced in function "public: __cdecl std::basic_ostream<char,struct std::char_traits<char> >::sentry::~sentry(void)" (??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@XZ)
+Input.obj : error LNK2001: unresolved external symbol "bool __cdecl std::uncaught_exception(void)" (?uncaught_exception@std@@YA_NXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __cdecl std::ios_base::good(void)const " (__imp_?good@ios_base@std@@QEBA_NXZ) referenced in function "public: __cdecl std::basic_ostream<char,struct std::char_traits<char> >::sentry::sentry(class std::basic_ostream<char,struct std::char_traits<char> > &)" (??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __cdecl std::ios_base::good(void)const " (__imp_?good@ios_base@std@@QEBA_NXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::ios_base::flags(void)const " (__imp_?flags@ios_base@std@@QEBAHXZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::ios_base::flags(void)const " (__imp_?flags@ios_base@std@@QEBAHXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __int64 __cdecl std::ios_base::width(void)const " (__imp_?width@ios_base@std@@QEBA_JXZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __int64 __cdecl std::ios_base::width(void)const " (__imp_?width@ios_base@std@@QEBA_JXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __int64 __cdecl std::ios_base::width(__int64)" (__imp_?width@ios_base@std@@QEAA_J_J@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __int64 __cdecl std::ios_base::width(__int64)" (__imp_?width@ios_base@std@@QEAA_J_J@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char)" (__imp_?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputc(char)" (__imp_?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputn(char const *,__int64)" (__imp_?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sputn(char const *,__int64)" (__imp_?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool)" (__imp_?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool)" (__imp_?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z)
+Shader.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::basic_ios<char,struct std::char_traits<char> >::setstate(int,bool)" (__imp_?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > * __cdecl std::basic_ios<char,struct std::char_traits<char> >::tie(void)const " (__imp_?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_ostream@DU?$char_traits@D@std@@@2@XZ) referenced in function "public: __cdecl std::basic_ostream<char,struct std::char_traits<char> >::sentry::sentry(class std::basic_ostream<char,struct std::char_traits<char> > &)" (??0sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@AEAV12@@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > * __cdecl std::basic_ios<char,struct std::char_traits<char> >::tie(void)const " (__imp_?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_ostream@DU?$char_traits@D@std@@@2@XZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_streambuf<char,struct std::char_traits<char> > * __cdecl std::basic_ios<char,struct std::char_traits<char> >::rdbuf(void)const " (__imp_?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class std::basic_streambuf<char,struct std::char_traits<char> > * __cdecl std::basic_ios<char,struct std::char_traits<char> >::rdbuf(void)const " (__imp_?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: char __cdecl std::basic_ios<char,struct std::char_traits<char> >::fill(void)const " (__imp_?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADXZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::operator<<<struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &,char const *)" (??$?6U?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@PEBD@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: char __cdecl std::basic_ios<char,struct std::char_traits<char> >::fill(void)const " (__imp_?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: char __cdecl std::basic_ios<char,struct std::char_traits<char> >::widen(char)const " (__imp_?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::endl<char,struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &)" (??$endl@DU?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: char __cdecl std::basic_ios<char,struct std::char_traits<char> >::widen(char)const " (__imp_?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::basic_ostream<char,struct std::char_traits<char> >::_Osfx(void)" (__imp_?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ) referenced in function "public: __cdecl std::basic_ostream<char,struct std::char_traits<char> >::sentry::~sentry(void)" (??1sentry@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@XZ)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::basic_ostream<char,struct std::char_traits<char> >::_Osfx(void)" (__imp_?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::operator<<(class std::basic_ostream<char,struct std::char_traits<char> > & (__cdecl*)(class std::basic_ostream<char,struct std::char_traits<char> > &))" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAV01@AEAV01@@Z@Z) referenced in function "private: void __cdecl Engine::Game::CalcDeltaTimeAndFramerate(void)" (?CalcDeltaTimeAndFramerate@Game@Engine@@AEAAXXZ)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::operator<<(class std::basic_ostream<char,struct std::char_traits<char> > & (__cdecl*)(class std::basic_ostream<char,struct std::char_traits<char> > &))" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAV01@AEAV01@@Z@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::operator<<(unsigned int)" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@I@Z) referenced in function "private: void __cdecl Engine::Game::CalcDeltaTimeAndFramerate(void)" (?CalcDeltaTimeAndFramerate@Game@Engine@@AEAAXXZ)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::put(char)" (__imp_?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@D@Z) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::endl<char,struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &)" (??$endl@DU?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::put(char)" (__imp_?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@D@Z)
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::flush(void)" (__imp_?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::endl<char,struct std::char_traits<char> >(class std::basic_ostream<char,struct std::char_traits<char> > &)" (??$endl@DU?$char_traits@D@std@@@std@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@0@AEAV10@@Z)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::flush(void)" (__imp_?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ)
+Game.obj : error LNK2019: unresolved external symbol __imp__wassert referenced in function "public: struct glm::tvec4<float,0> & __cdecl glm::tmat4x4<float,0>::operator[](int)" (??A?$tmat4x4@M$0A@@glm@@QEAAAEAU?$tvec4@M$0A@@1@H@Z)
+Shader.obj : error LNK2001: unresolved external symbol __imp__wassert
+Sprite.obj : error LNK2001: unresolved external symbol __imp__wassert
+Game.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) class std::basic_ostream<char,struct std::char_traits<char> > std::cout" (__imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A) referenced in function "private: void __cdecl Engine::Game::CalcDeltaTimeAndFramerate(void)" (?CalcDeltaTimeAndFramerate@Game@Engine@@AEAAXXZ)
+Input.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) class std::basic_ostream<char,struct std::char_traits<char> > std::cout" (__imp_?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A)
+Input.obj : error LNK2019: unresolved external symbol memcmp referenced in function "public: static int __cdecl std::_Narrow_char_traits<char,int>::compare(char const * const,char const * const,unsigned __int64)" (?compare@?$_Narrow_char_traits@DH@std@@SAHQEBD0_K@Z)
+Lesson07.obj : error LNK2001: unresolved external symbol memcmp
+Shader.obj : error LNK2001: unresolved external symbol memcmp
+Sprite.obj : error LNK2001: unresolved external symbol memcmp
+Input.obj : error LNK2019: unresolved external symbol __imp_ceilf referenced in function "protected: unsigned __int64 __cdecl std::_Hash<class std::_Umap_traits<unsigned int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::_Uhash_compare<unsigned int,struct std::hash<unsigned int>,struct std::equal_to<unsigned int> >,class std::allocator<struct std::pair<unsigned int const ,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > >,0> >::_Min_load_factor_buckets(unsigned __int64)const " (?_Min_load_factor_buckets@?$_Hash@V?$_Umap_traits@IV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$_Uhash_compare@IU?$hash@I@std@@U?$equal_to@I@2@@2@V?$allocator@U?$pair@$$CBIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@@2@$0A@@std@@@std@@IEBA_K_K@Z)
+Input.obj : error LNK2019: unresolved external symbol SDL_NumJoysticks referenced in function "public: void __cdecl Engine::Input::OpenGameController(void)" (?OpenGameController@Input@Engine@@QEAAXXZ)
+Input.obj : error LNK2019: unresolved external symbol SDL_IsGameController referenced in function "public: void __cdecl Engine::Input::OpenGameController(void)" (?OpenGameController@Input@Engine@@QEAAXXZ)
+Input.obj : error LNK2019: unresolved external symbol SDL_GameControllerOpen referenced in function "public: void __cdecl Engine::Input::OpenGameController(void)" (?OpenGameController@Input@Engine@@QEAAXXZ)
+Input.obj : error LNK2019: unresolved external symbol SDL_GameControllerClose referenced in function "public: void __cdecl Engine::Input::CloseGameController(void)" (?CloseGameController@Input@Engine@@QEAAXXZ)
+Lesson03.obj : error LNK2019: unresolved external symbol __imp_atan2f referenced in function "float __cdecl atan2(float,float)" (?atan2@@YAMMM@Z)
+Lesson03.obj : error LNK2019: unresolved external symbol __imp_sqrtf referenced in function "float __cdecl sqrt(float)" (?sqrt@@YAMM@Z)
+Sprite.obj : error LNK2001: unresolved external symbol __imp_sqrtf
+Lesson03.obj : error LNK2019: unresolved external symbol __imp_GetCursorPos referenced in function "public: virtual void __cdecl Engine::Lesson03::Update(void)" (?Update@Lesson03@Engine@@UEAAXXZ)
+Lesson03.obj : error LNK2019: unresolved external symbol __imp_ScreenToClient referenced in function "public: virtual void __cdecl Engine::Lesson03::Update(void)" (?Update@Lesson03@Engine@@UEAAXXZ)
+Lesson03.obj : error LNK2019: unresolved external symbol __imp_FindWindowA referenced in function "public: virtual void __cdecl Engine::Lesson03::Update(void)" (?Update@Lesson03@Engine@@UEAAXXZ)
+Lesson06.obj : error LNK2019: unresolved external symbol __imp_rand referenced in function "private: void __cdecl Engine::Lesson06::SpawnObjects(void)" (?SpawnObjects@Lesson06@Engine@@AEAAXXZ)
+Lesson07.obj : error LNK2001: unresolved external symbol __imp_rand
+Music.obj : error LNK2019: unresolved external symbol Mix_LoadMUS referenced in function "public: __cdecl Engine::Music::Music(char const *)" (??0Music@Engine@@QEAA@PEBD@Z)
+Music.obj : error LNK2019: unresolved external symbol Mix_FreeMusic referenced in function "public: __cdecl Engine::Music::~Music(void)" (??1Music@Engine@@QEAA@XZ)
+Music.obj : error LNK2019: unresolved external symbol Mix_PlayMusic referenced in function "public: void __cdecl Engine::Music::Play(bool)" (?Play@Music@Engine@@QEAAX_N@Z)
+Music.obj : error LNK2019: unresolved external symbol Mix_VolumeMusic referenced in function "public: void __cdecl Engine::Music::SetVolume(int)" (?SetVolume@Music@Engine@@QEAAXH@Z)
+Music.obj : error LNK2019: unresolved external symbol Mix_HaltMusic referenced in function "public: void __cdecl Engine::Music::Stop(void)" (?Stop@Music@Engine@@QEAAXXZ)
+Music.obj : error LNK2019: unresolved external symbol Mix_PauseMusic referenced in function "public: void __cdecl Engine::Music::Pause(void)" (?Pause@Music@Engine@@QEAAXXZ)
+Music.obj : error LNK2019: unresolved external symbol Mix_ResumeMusic referenced in function "public: void __cdecl Engine::Music::Resume(void)" (?Resume@Music@Engine@@QEAAXXZ)
+Music.obj : error LNK2019: unresolved external symbol Mix_PausedMusic referenced in function "public: bool __cdecl Engine::Music::IsPaused(void)" (?IsPaused@Music@Engine@@QEAA_NXZ)
+Music.obj : error LNK2019: unresolved external symbol Mix_PlayingMusic referenced in function "public: bool __cdecl Engine::Music::IsPlaying(void)" (?IsPlaying@Music@Engine@@QEAA_NXZ)
+Quad.obj : error LNK2019: unresolved external symbol __imp_glDrawElements referenced in function "public: void __cdecl Engine::Quad::Draw(void)" (?Draw@Quad@Engine@@QEAAXXZ)
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewBindBuffer referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewBufferData referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewGenBuffers referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewGenBuffers
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewEnableVertexAttribArray referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewEnableVertexAttribArray
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewVertexAttribPointer referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewVertexAttribPointer
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewBindVertexArray referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewBindVertexArray
+Quad.obj : error LNK2019: unresolved external symbol __imp___glewGenVertexArrays referenced in function "private: void __cdecl Engine::Quad::Build(void)" (?Build@Quad@Engine@@AEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp___glewGenVertexArrays
+Shader.obj : error LNK2019: unresolved external symbol __imp__get_stream_buffer_pointers referenced in function "protected: void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Init(struct _iobuf *,enum std::basic_filebuf<char,struct std::char_traits<char> >::_Initfl)" (?_Init@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAAXPEAU_iobuf@@W4_Initfl@12@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fclose referenced in function "public: class std::basic_filebuf<char,struct std::char_traits<char> > * __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::close(void)" (?close@?$basic_filebuf@DU?$char_traits@D@std@@@std@@QEAAPEAV12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fflush referenced in function "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::sync(void)" (?sync@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fgetc referenced in function "bool __cdecl std::_Fgetc<char>(char &,struct _iobuf *)" (??$_Fgetc@D@std@@YA_NAEADPEAU_iobuf@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fgetpos referenced in function "protected: virtual class std::fpos<struct _Mbstatet> __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::seekoff(__int64,int,int)" (?seekoff@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA?AV?$fpos@U_Mbstatet@@@2@_JHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fputc referenced in function "bool __cdecl std::_Fputc<char>(char,struct _iobuf *)" (??$_Fputc@D@std@@YA_NDPEAU_iobuf@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fread referenced in function "protected: virtual __int64 __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::xsgetn(char *,__int64)" (?xsgetn@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fsetpos referenced in function "protected: virtual class std::fpos<struct _Mbstatet> __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::seekpos(class std::fpos<struct _Mbstatet>,int)" (?seekpos@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA?AV?$fpos@U_Mbstatet@@@2@V32@H@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp__fseeki64 referenced in function "protected: virtual class std::fpos<struct _Mbstatet> __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::seekoff(__int64,int,int)" (?seekoff@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA?AV?$fpos@U_Mbstatet@@@2@_JHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_fwrite referenced in function "protected: bool __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Endwrite(void)" (?_Endwrite@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAA_NXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp_setvbuf referenced in function "protected: virtual class std::basic_streambuf<char,struct std::char_traits<char> > * __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::setbuf(char *,__int64)" (?setbuf@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAPEAV?$basic_streambuf@DU?$char_traits@D@std@@@2@PEAD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp_ungetc referenced in function "bool __cdecl std::_Ungetc<char>(char const &,struct _iobuf *)" (??$_Ungetc@D@std@@YA_NAEBDPEAU_iobuf@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp__lock_file referenced in function "public: virtual void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Lock(void)" (?_Lock@?$basic_filebuf@DU?$char_traits@D@std@@@std@@UEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp__unlock_file referenced in function "public: virtual void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Unlock(void)" (?_Unlock@?$basic_filebuf@DU?$char_traits@D@std@@@std@@UEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol "void __cdecl std::_Facet_Register(class std::_Facet_base *)" (?_Facet_Register@std@@YAXPEAV_Facet_base@1@@Z) referenced in function "class std::codecvt<char,char,struct _Mbstatet> const & __cdecl std::use_facet<class std::codecvt<char,char,struct _Mbstatet> >(class std::locale const &)" (??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAAEBV?$codecvt@DDU_Mbstatet@@@0@AEBVlocale@0@@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl std::locale::id::operator unsigned __int64(void)" (__imp_??Bid@locale@std@@QEAA_KXZ) referenced in function "class std::codecvt<char,char,struct _Mbstatet> const & __cdecl std::use_facet<class std::codecvt<char,char,struct _Mbstatet> >(class std::locale const &)" (??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAAEBV?$codecvt@DDU_Mbstatet@@@0@AEBVlocale@0@@Z)
+Shader.obj : error LNK2019: unresolved external symbol "private: static class std::locale::_Locimp * __cdecl std::locale::_Getgloballocale(void)" (?_Getgloballocale@locale@std@@CAPEAV_Locimp@12@XZ) referenced in function "public: class std::locale::facet const * __cdecl std::locale::_Getfacet(unsigned __int64)const " (?_Getfacet@locale@std@@QEBAPEBVfacet@12@_K@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __cdecl std::codecvt_base::always_noconv(void)const " (__imp_?always_noconv@codecvt_base@std@@QEBA_NXZ) referenced in function "protected: void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Initcvt(class std::codecvt<char,char,struct _Mbstatet> const &)" (?_Initcvt@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAAXAEBV?$codecvt@DDU_Mbstatet@@@2@@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::codecvt<char,char,struct _Mbstatet>::in(struct _Mbstatet &,char const *,char const *,char const * &,char *,char *,char * &)const " (__imp_?in@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z) referenced in function "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::uflow(void)" (?uflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::codecvt<char,char,struct _Mbstatet>::out(struct _Mbstatet &,char const *,char const *,char const * &,char *,char *,char * &)const " (__imp_?out@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z) referenced in function "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::overflow(int)" (?overflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: int __cdecl std::codecvt<char,char,struct _Mbstatet>::unshift(struct _Mbstatet &,char *,char *,char * &)const " (__imp_?unshift@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEAD1AEAPEAD@Z) referenced in function "protected: bool __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Endwrite(void)" (?_Endwrite@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAA_NXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: static unsigned __int64 __cdecl std::codecvt<char,char,struct _Mbstatet>::_Getcat(class std::locale::facet const * *,class std::locale const *)" (__imp_?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z) referenced in function "class std::codecvt<char,char,struct _Mbstatet> const & __cdecl std::use_facet<class std::codecvt<char,char,struct _Mbstatet> >(class std::locale const &)" (??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAAEBV?$codecvt@DDU_Mbstatet@@@0@AEBVlocale@0@@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::ios_base::exceptions(int)" (__imp_?exceptions@ios_base@std@@QEAAXH@Z) referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::basic_streambuf<char,struct std::char_traits<char> >(void)" (__imp_??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ) referenced in function "public: __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::basic_filebuf<char,struct std::char_traits<char> >(void)" (??0?$basic_filebuf@DU?$char_traits@D@std@@@std@@QEAA@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::~basic_streambuf<char,struct std::char_traits<char> >(void)" (__imp_??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ) referenced in function "int `public: __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::basic_filebuf<char,struct std::char_traits<char> >(void)'::`1'::dtor$0" (?dtor$0@?0???0?$basic_filebuf@DU?$char_traits@D@std@@@std@@QEAA@XZ@4HA)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::locale __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::getloc(void)const " (__imp_?getloc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEBA?AVlocale@2@XZ) referenced in function "public: class std::basic_filebuf<char,struct std::char_traits<char> > * __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::open(char const *,int,int)" (?open@?$basic_filebuf@DU?$char_traits@D@std@@@std@@QEAAPEAV12@PEBDHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::eback(void)const " (__imp_?eback@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ) referenced in function "public: struct std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Buffer_view __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Get_buffer_view(void)const " (?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::gptr(void)const " (__imp_?gptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ) referenced in function "public: struct std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Buffer_view __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Get_buffer_view(void)const " (?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::pbase(void)const " (__imp_?pbase@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ) referenced in function "public: struct std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Buffer_view __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Get_buffer_view(void)const " (?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::pptr(void)const " (__imp_?pptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ) referenced in function "public: struct std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Buffer_view __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Get_buffer_view(void)const " (?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::egptr(void)const " (__imp_?egptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ) referenced in function "public: struct std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Buffer_view __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Get_buffer_view(void)const " (?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::gbump(int)" (__imp_?gbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXH@Z) referenced in function "protected: virtual int __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::pbackfail(int)" (?pbackfail@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@MEAAHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::setg(char *,char *,char *)" (__imp_?setg@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAD00@Z) referenced in function "private: void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Reset_back(void)" (?_Reset_back@?$basic_filebuf@DU?$char_traits@D@std@@@std@@AEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::epptr(void)const " (__imp_?epptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ) referenced in function "public: struct std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Buffer_view __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Get_buffer_view(void)const " (?_Get_buffer_view@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEBA?AU_Buffer_view@12@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Gndec(void)" (__imp_?_Gndec@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ) referenced in function "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::pbackfail(int)" (?pbackfail@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Gninc(void)" (__imp_?_Gninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ) referenced in function "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::uflow(void)" (?uflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Gnavail(void)const " (__imp_?_Gnavail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBA_JXZ) referenced in function "protected: virtual __int64 __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::xsgetn(char *,__int64)" (?xsgetn@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::pbump(int)" (__imp_?pbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXH@Z) referenced in function "protected: virtual __int64 __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::xsputn(char const *,__int64)" (?xsputn@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::setp(char *,char *)" (__imp_?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAD0@Z) referenced in function "protected: void __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::_Tidy(void)" (?_Tidy@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::setp(char *,char *,char *)" (__imp_?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAD00@Z) referenced in function "protected: virtual int __cdecl std::basic_stringbuf<char,struct std::char_traits<char>,class std::allocator<char> >::overflow(int)" (?overflow@?$basic_stringbuf@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@MEAAHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: char * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Pninc(void)" (__imp_?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ) referenced in function "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::overflow(int)" (?overflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Pnavail(void)const " (__imp_?_Pnavail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBA_JXZ) referenced in function "protected: virtual __int64 __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::xsputn(char const *,__int64)" (?xsputn@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Init(void)" (__imp_?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXXZ) referenced in function "protected: void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Init(struct _iobuf *,enum std::basic_filebuf<char,struct std::char_traits<char> >::_Initfl)" (?_Init@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAAXPEAU_iobuf@@W4_Initfl@12@@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Init(char * *,char * *,int *,char * *,char * *,int *)" (__imp_?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAPEAD0PEAH001@Z) referenced in function "protected: void __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Init(struct _iobuf *,enum std::basic_filebuf<char,struct std::char_traits<char> >::_Initfl)" (?_Init@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAAXPEAU_iobuf@@W4_Initfl@12@@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: virtual __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::xsgetn(char *,__int64)" (__imp_?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z) referenced in function "protected: virtual __int64 __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::xsgetn(char *,__int64)" (?xsgetn@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: virtual __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::xsputn(char const *,__int64)" (__imp_?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z) referenced in function "protected: virtual __int64 __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::xsputn(char const *,__int64)" (?xsputn@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl std::basic_ios<char,struct std::char_traits<char> >::~basic_ios<char,struct std::char_traits<char> >(void)" (__imp_??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ) referenced in function "int `public: __cdecl std::basic_ifstream<char,struct std::char_traits<char> >::basic_ifstream<char,struct std::char_traits<char> >(void)'::`1'::dtor$0" (?dtor$0@?0???0?$basic_ifstream@DU?$char_traits@D@std@@@std@@QEAA@XZ@4HA)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl std::basic_ios<char,struct std::char_traits<char> >::clear(int,bool)" (__imp_?clear@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z) referenced in function "public: void __cdecl std::basic_ifstream<char,struct std::char_traits<char> >::open(char const *,int,int)" (?open@?$basic_ifstream@DU?$char_traits@D@std@@@std@@QEAAXPEBDHH@Z)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) protected: __cdecl std::basic_ios<char,struct std::char_traits<char> >::basic_ios<char,struct std::char_traits<char> >(void)" (__imp_??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ) referenced in function "public: __cdecl std::basic_ifstream<char,struct std::char_traits<char> >::basic_ifstream<char,struct std::char_traits<char> >(void)" (??0?$basic_ifstream@DU?$char_traits@D@std@@@std@@QEAA@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl std::basic_ostream<char,struct std::char_traits<char> >::operator<<(class std::basic_streambuf<char,struct std::char_traits<char> > *)" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z) referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl std::basic_istream<char,struct std::char_traits<char> >::basic_istream<char,struct std::char_traits<char> >(class std::basic_streambuf<char,struct std::char_traits<char> > *,bool)" (__imp_??0?$basic_istream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z) referenced in function "public: __cdecl std::basic_ifstream<char,struct std::char_traits<char> >::basic_ifstream<char,struct std::char_traits<char> >(void)" (??0?$basic_ifstream@DU?$char_traits@D@std@@@std@@QEAA@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl std::basic_istream<char,struct std::char_traits<char> >::~basic_istream<char,struct std::char_traits<char> >(void)" (__imp_??1?$basic_istream@DU?$char_traits@D@std@@@std@@UEAA@XZ) referenced in function "int `public: __cdecl std::basic_ifstream<char,struct std::char_traits<char> >::basic_ifstream<char,struct std::char_traits<char> >(void)'::`1'::dtor$1" (?dtor$1@?0???0?$basic_ifstream@DU?$char_traits@D@std@@@std@@QEAA@XZ@4HA)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl std::basic_iostream<char,struct std::char_traits<char> >::basic_iostream<char,struct std::char_traits<char> >(class std::basic_streambuf<char,struct std::char_traits<char> > *)" (__imp_??0?$basic_iostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z) referenced in function "public: __cdecl std::basic_stringstream<char,struct std::char_traits<char>,class std::allocator<char> >::basic_stringstream<char,struct std::char_traits<char>,class std::allocator<char> >(void)" (??0?$basic_stringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl std::basic_iostream<char,struct std::char_traits<char> >::~basic_iostream<char,struct std::char_traits<char> >(void)" (__imp_??1?$basic_iostream@DU?$char_traits@D@std@@@std@@UEAA@XZ) referenced in function "int `public: __cdecl std::basic_stringstream<char,struct std::char_traits<char>,class std::allocator<char> >::basic_stringstream<char,struct std::char_traits<char>,class std::allocator<char> >(void)'::`1'::dtor$1" (?dtor$1@?0???0?$basic_stringstream@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAA@XZ@4HA)
+Shader.obj : error LNK2019: unresolved external symbol "struct _iobuf * __cdecl std::_Fiopen(char const *,int,int)" (?_Fiopen@std@@YAPEAU_iobuf@@PEBDHH@Z) referenced in function "public: class std::basic_filebuf<char,struct std::char_traits<char> > * __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::open(char const *,int,int)" (?open@?$basic_filebuf@DU?$char_traits@D@std@@@std@@QEAAPEAV12@PEBDHH@Z)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::imbue(class std::locale const &)" (?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::sync(void)" (?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual class std::basic_streambuf<char,struct std::char_traits<char> > * __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::setbuf(char *,__int64)" (?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::xsputn(char const *,__int64)" (?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::xsgetn(char *,__int64)" (?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual int __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::uflow(void)" (?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ)
+Shader.obj : error LNK2001: unresolved external symbol "protected: virtual __int64 __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::showmanyc(void)" (?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ)
+Shader.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Unlock(void)" (?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ)
+Shader.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl std::basic_streambuf<char,struct std::char_traits<char> >::_Lock(void)" (?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewAttachShader referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewCompileShader referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewCreateProgram referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewCreateShader referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewDeleteShader referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewGetProgramInfoLog referenced in function "private: void __cdecl Engine::Shader::Validate(unsigned int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Validate@Shader@Engine@@AEAAXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewGetProgramiv referenced in function "private: void __cdecl Engine::Shader::Validate(unsigned int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Validate@Shader@Engine@@AEAAXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewGetShaderInfoLog referenced in function "private: void __cdecl Engine::Shader::Validate(unsigned int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Validate@Shader@Engine@@AEAAXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewGetShaderiv referenced in function "private: void __cdecl Engine::Shader::Validate(unsigned int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Validate@Shader@Engine@@AEAAXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewGetUniformLocation referenced in function "public: void __cdecl Engine::Shader::setFloat(float,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setFloat@Shader@Engine@@QEAAXMV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewLinkProgram referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewShaderSource referenced in function "public: void __cdecl Engine::Shader::Build(void)" (?Build@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewUniform1f referenced in function "public: void __cdecl Engine::Shader::setFloat(float,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setFloat@Shader@Engine@@QEAAXMV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewUniform1i referenced in function "public: void __cdecl Engine::Shader::setInt(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setInt@Shader@Engine@@QEAAXHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewUniform3f referenced in function "public: void __cdecl Engine::Shader::setVec3(struct glm::tvec3<float,0>,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setVec3@Shader@Engine@@QEAAXU?$tvec3@M$0A@@glm@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewUniformMatrix4fv referenced in function "public: void __cdecl Engine::Shader::setMat4(struct glm::tmat4x4<float,0>,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setMat4@Shader@Engine@@QEAAXU?$tmat4x4@M$0A@@glm@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Shader.obj : error LNK2019: unresolved external symbol __imp___glewUseProgram referenced in function "public: void __cdecl Engine::Shader::Use(void)" (?Use@Shader@Engine@@QEAAXXZ)
+Shader.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: static class std::locale::id std::codecvt<char,char,struct _Mbstatet>::id" (__imp_?id@?$codecvt@DDU_Mbstatet@@@std@@2V0locale@2@A) referenced in function "class std::codecvt<char,char,struct _Mbstatet> const & __cdecl std::use_facet<class std::codecvt<char,char,struct _Mbstatet> >(class std::locale const &)" (??$use_facet@V?$codecvt@DDU_Mbstatet@@@std@@@std@@YAAEBV?$codecvt@DDU_Mbstatet@@@0@AEBVlocale@0@@Z)
+Sound.obj : error LNK2019: unresolved external symbol SDL_RWFromFile referenced in function "public: __cdecl Engine::Sound::Sound(char const *)" (??0Sound@Engine@@QEAA@PEBD@Z)
+Sound.obj : error LNK2019: unresolved external symbol Mix_LoadWAV_RW referenced in function "public: __cdecl Engine::Sound::Sound(char const *)" (??0Sound@Engine@@QEAA@PEBD@Z)
+Sound.obj : error LNK2019: unresolved external symbol Mix_FreeChunk referenced in function "public: __cdecl Engine::Sound::~Sound(void)" (??1Sound@Engine@@QEAA@XZ)
+Sound.obj : error LNK2019: unresolved external symbol Mix_PlayChannelTimed referenced in function "public: void __cdecl Engine::Sound::Play(bool)" (?Play@Sound@Engine@@QEAAX_N@Z)
+Sound.obj : error LNK2019: unresolved external symbol Mix_VolumeChunk referenced in function "public: void __cdecl Engine::Sound::SetVolume(int)" (?SetVolume@Sound@Engine@@QEAAXH@Z)
+Sound.obj : error LNK2019: unresolved external symbol Mix_Playing referenced in function "public: bool __cdecl Engine::Sound::IsPlaying(void)" (?IsPlaying@Sound@Engine@@QEAA_NXZ)
+Sprite.obj : error LNK2019: unresolved external symbol fabs referenced in function fabsf
+Sprite.obj : error LNK2019: unresolved external symbol __imp_cosf referenced in function "float __cdecl cos(float)" (?cos@@YAMM@Z)
+Sprite.obj : error LNK2019: unresolved external symbol __imp_sinf referenced in function "float __cdecl sin(float)" (?sin@@YAMM@Z)
+Sprite.obj : error LNK2019: unresolved external symbol __imp_glBlendFunc referenced in function "public: void __cdecl Engine::Sprite::Draw(void)" (?Draw@Sprite@Engine@@QEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp_glBlendFunc
+Sprite.obj : error LNK2019: unresolved external symbol __imp_glDisable referenced in function "public: void __cdecl Engine::Sprite::Draw(void)" (?Draw@Sprite@Engine@@QEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp_glDisable
+Sprite.obj : error LNK2019: unresolved external symbol __imp_glEnable referenced in function "public: void __cdecl Engine::Sprite::Draw(void)" (?Draw@Sprite@Engine@@QEAAXXZ)
+Text.obj : error LNK2001: unresolved external symbol __imp_glEnable
+Text.obj : error LNK2019: unresolved external symbol __imp_FT_Init_FreeType referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_FT_Done_FreeType referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_FT_New_Face referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_FT_Done_Face referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_FT_Set_Pixel_Sizes referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_FT_Load_Char referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_glBindTexture referenced in function "public: void __cdecl Engine::Text::Draw(void)" (?Draw@Text@Engine@@QEAAXXZ)
+Texture.obj : error LNK2001: unresolved external symbol __imp_glBindTexture
+Text.obj : error LNK2019: unresolved external symbol __imp_glDrawArrays referenced in function "public: void __cdecl Engine::Text::Draw(void)" (?Draw@Text@Engine@@QEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_glGenTextures referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Texture.obj : error LNK2001: unresolved external symbol __imp_glGenTextures
+Text.obj : error LNK2019: unresolved external symbol __imp_glPixelStorei referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp_glTexImage2D referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Texture.obj : error LNK2001: unresolved external symbol __imp_glTexImage2D
+Text.obj : error LNK2019: unresolved external symbol __imp_glTexParameteri referenced in function "private: void __cdecl Engine::Text::Init(void)" (?Init@Text@Engine@@AEAAXXZ)
+Texture.obj : error LNK2001: unresolved external symbol __imp_glTexParameteri
+Text.obj : error LNK2019: unresolved external symbol __imp___glewActiveTexture referenced in function "public: void __cdecl Engine::Text::Draw(void)" (?Draw@Text@Engine@@QEAAXXZ)
+Text.obj : error LNK2019: unresolved external symbol __imp___glewBufferSubData referenced in function "public: void __cdecl Engine::Text::Draw(void)" (?Draw@Text@Engine@@QEAAXXZ)
+Texture.obj : error LNK2019: unresolved external symbol SOIL_load_image referenced in function "private: void __cdecl Engine::Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Load@Texture@Engine@@AEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Texture.obj : error LNK2019: unresolved external symbol SOIL_free_image_data referenced in function "private: void __cdecl Engine::Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?Load@Texture@Engine@@AEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+LINK : error LNK2001: unresolved external symbol mainCRTStartup
+..\..\deps\lib\SDL\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\deps\lib\SDL\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\deps\lib\SDL\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\deps\lib\SDL\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+..\..\deps\lib\GL\glew32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\opengl32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\kernel32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\user32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\gdi32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\winspool.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\comdlg32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\advapi32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\shell32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\ole32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\oleaut32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\uuid.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\odbc32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x86\odbccp32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\lib\x86\msvcprtd.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\lib\x86\MSVCRTD.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt Geming\vs\x64\Debug\Project.exe : fatal error LNK1120: 202 unresolved externals
