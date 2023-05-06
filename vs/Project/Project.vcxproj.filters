@@ -22,6 +22,18 @@
     <Filter Include="Assets\Background">
       <UniqueIdentifier>{333307f0-71dc-49be-91fd-b2f465c8419c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Screen Manager">
+      <UniqueIdentifier>{38420262-3c01-4c3c-8758-83a0de27d626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ScreenManager">
+      <UniqueIdentifier>{121941c9-5b41-4551-bd90-237ca99dc940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC">
+      <UniqueIdentifier>{4f3f1c43-3517-4f05-9e05-59b7ce8a820f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NPC\Enemy">
+      <UniqueIdentifier>{bb3479d7-e765-4800-82d0-287f0f204f01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="sprite.frag">
@@ -74,31 +86,10 @@
     <ClInclude Include="SATCollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lesson01.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lesson02.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
     <ClInclude Include="Lesson03.h">
       <Filter>Demo Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lesson04.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Demo.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lesson05.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lesson06.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lesson07.h">
       <Filter>Demo Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
@@ -109,6 +100,21 @@
     </ClInclude>
     <ClInclude Include="Projectile.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Header Files\Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenMenu.h">
+      <Filter>Header Files\Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenGame.h">
+      <Filter>Header Files\Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>NPC\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -148,31 +154,10 @@
     <ClCompile Include="SATCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lesson01.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lesson02.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
     <ClCompile Include="Lesson03.cpp">
       <Filter>Demo Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lesson04.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Demo.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lesson05.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lesson06.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lesson07.cpp">
       <Filter>Demo Files</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
@@ -183,6 +168,18 @@
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenGame.cpp">
+      <Filter>Source Files\ScreenManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Source Files\ScreenManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenMenu.cpp">
+      <Filter>Source Files\ScreenManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\ScreenManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

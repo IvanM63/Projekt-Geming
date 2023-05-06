@@ -10,6 +10,15 @@
 #include "Quad.h"
 #include "Input.h"
 #include <GLM/gtc/matrix_transform.hpp>
+#include "ScreenManager.h"
+
+//Tiap Screen yang ada harus di Include di sini
+//#include "Screen.h" //Base Class dari Screen
+//#include "ScreenMenu.h"
+//#include "ScreenGame.h"
+
+
+
 
 using namespace std;
 
@@ -18,6 +27,12 @@ namespace Engine {
 		RUNNING,
 		EXIT
 	};
+
+	//Tiap Screen yang ada harus di Forward Declaration di sini
+	//class ScreenMenu;
+	//class ScreenGame;
+	class ScreenManager;
+	
 
 	class Game
 	{
@@ -30,25 +45,31 @@ namespace Engine {
 		unsigned int duration = 0;
 		float deltaTime = 0;
 		unsigned int lastTime = 0, numFrame = 0;
-	
-	protected:
+		Shader* defaultSpriteShader = NULL;
+		Quad* defaultQuad = NULL;
+		Shader* defaultTextShader = NULL;
 		Setting* setting = NULL;
+		Input* inputManager = NULL;
+		float GetGameTime();
 		State state;
+
+		
+	protected:
+		
 		unsigned int currentFrameRate = 0;
 		mat4 defaultProjection;
-		Shader* defaultSpriteShader = NULL;
-		Shader* defaultTextShader = NULL;
-		Quad* defaultQuad = NULL;
-		Input* inputManager = NULL;
+		
+		//ScreenList
+		ScreenManager* screenmanager = NULL;
 		
 		mat4 CreateDefaultProjection();
 		Shader* CreateDefaultSpriteShader();
 		Shader* CreateDefaultTextShader();
-		float GetGameTime();
+		
 
-		virtual void Init() = 0;
-		virtual void Update() = 0;
-		virtual void Render() = 0;
+		virtual void Init();
+		virtual void Update();
+		virtual void Render();
 
 		
 	

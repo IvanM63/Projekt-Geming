@@ -155,21 +155,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Demo.h" />
     <ClInclude Include="Input.h" />
-    <ClInclude Include="Lesson01.h" />
-    <ClInclude Include="Lesson02.h" />
     <ClInclude Include="Lesson03.h" />
-    <ClInclude Include="Lesson04.h" />
-    <ClInclude Include="Lesson05.h" />
-    <ClInclude Include="Lesson06.h" />
-    <ClInclude Include="Lesson07.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="ScreenGame.h" />
+    <ClInclude Include="ScreenMenu.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Quad.h" />
     <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="SATCollision.h" />
+    <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sound.h" />
@@ -182,20 +180,17 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Demo.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Lesson01.cpp" />
-    <ClCompile Include="Lesson02.cpp" />
     <ClCompile Include="Lesson03.cpp" />
-    <ClCompile Include="Lesson04.cpp" />
-    <ClCompile Include="Lesson05.cpp" />
-    <ClCompile Include="Lesson06.cpp" />
-    <ClCompile Include="Lesson07.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Quad.cpp" />
     <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="SATCollision.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="ScreenGame.cpp" />
+    <ClCompile Include="ScreenManager.cpp" />
+    <ClCompile Include="ScreenMenu.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sound.cpp" />

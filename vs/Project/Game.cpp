@@ -63,6 +63,22 @@ float Engine::Game::GetGameTime()
 	return deltaTime;
 }
 
+void Engine::Game::Init()
+{
+	//sg->InitGame();
+}
+
+void Engine::Game::Update()
+{
+	//sg->UpdateGame();
+}
+
+void Engine::Game::Render()
+{
+	//sg->RenderGame();
+}
+
+
 SDL_Window* Game::InitInternal()
 {
 	//Initialize SDL
@@ -135,6 +151,8 @@ SDL_Window* Game::InitInternal()
 	defaultTextShader = CreateDefaultTextShader();
 	defaultQuad = new Quad();
 	inputManager = new Input();
+	
+	screenmanager = new ScreenManager(this);
 
 	return window;
 }

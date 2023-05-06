@@ -1,7 +1,6 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 
-#include "Game.h"
 #include "Setting.h"
 #include "Texture.h"
 #include "Sprite.h"

@@ -1,75 +1,26 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Button.cpp
   Game.cpp
-  Demo.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Demo.cpp(40,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Demo.cpp(40,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Input.cpp
-  Lesson01.cpp
-  Lesson02.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson02.cpp(32,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson02.cpp(32,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson02.cpp(33,14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson02.cpp(33,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson02.cpp(34,14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson02.cpp(34,9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Lesson03.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(110,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(142,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(142,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(257,43): warning C4018: '<': signed/unsigned mismatch
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(325,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+  ScreenGame.cpp
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(29,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(29,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(130,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(326,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(131,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(337,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(381,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson03.cpp(410,25): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
-  Lesson04.cpp
-  Lesson05.cpp
-  Lesson06.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson06.cpp(94,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson06.cpp(95,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Lesson07.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson07.cpp(80,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson07.cpp(135,43): warning C4018: '<': signed/unsigned mismatch
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson07.cpp(224,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Lesson07.cpp(225,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Music.cpp
-  Projectile.cpp
-  Quad.cpp
-  BoundingBox.cpp
-  SATCollision.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\SATCollision.cpp(37,20): warning C4018: '<': signed/unsigned mismatch
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\SATCollision.cpp(42,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\SATCollision.cpp(47,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\SATCollision.cpp(62,20): warning C4018: '<': signed/unsigned mismatch
-  Setting.cpp
-  Shader.cpp
-  Sound.cpp
-  Sprite.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Sprite.cpp(12,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Sprite.cpp(13,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Sprite.cpp(157,11): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Sprite.cpp(187,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Sprite.cpp(188,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(142,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(187,30): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(265,31): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+  ScreenManager.cpp
+  ScreenMenu.cpp
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenMenu.cpp(49,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenMenu.cpp(68,43): warning C4018: '<': signed/unsigned mismatch
   Testosteron.cpp
-  Text.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Text.cpp(142,24): warning C4838: conversion from 'FT_Pos' to 'GLuint' requires a narrowing conversion
-  Texture.cpp
-  GameObject.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\GameObject.cpp(24,24): warning C4305: 'initializing': truncation from 'double' to 'float'
   Generating Code...
-SOIL.lib(image_DXT.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_DXT.obj)' or at ''; linking object as if no debug info
-SOIL.lib(image_helper.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_helper.obj)' or at ''; linking object as if no debug info
-SOIL.lib(SOIL.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(SOIL.obj)' or at ''; linking object as if no debug info
-SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(stb_image_aug.obj)' or at ''; linking object as if no debug info
-  Project.vcxproj -> D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\PG\vs\Project\Project_debug.exe
+  Project.vcxproj -> D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\Project_debug.exe
