@@ -122,6 +122,9 @@
     <ClInclude Include="Projectile.h">
       <Filter>Weapon\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.h">
+      <Filter>Demo Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shader.cpp">
@@ -189,6 +192,9 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>NPC\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.cpp">
+      <Filter>Demo Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ namespace Engine {
     class Enemy {
     public:
         Enemy(Game* game);
-        //Enemy(int health, int damage);
+        ~Enemy();
 
         //Basic Function
         void Init();
@@ -19,19 +19,27 @@ namespace Engine {
 
         void attack();
         void takeDamage(int damage);
-        int getHealth() const;
         bool isDead() const;
 
         //Setter Getter Sprite-nya
         void SetPosition(float x, float y);
         vec2 GetPosition();
 
+        int getHealth();
+
         
+        Engine::Sprite* sprite = NULL;
 
     private:
+        Texture* dotTexture = NULL;
+
         Engine::Game* game = NULL;
         Engine::Texture* texture = NULL;
-        Engine::Sprite* sprite = NULL;
+
+        Sprite* dotSprite1 = NULL;
+        Sprite* dotSprite2 = NULL;
+        Sprite* dotSprite3 = NULL;
+        Sprite* dotSprite4 = NULL;
 
         int health;
         int damage;

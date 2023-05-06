@@ -18,7 +18,8 @@ namespace Engine {
 
 		Engine::Sprite* sprite = NULL;
 
-		Projectile(Engine::Sprite* spriteBullet) {
+		Projectile(Engine::Sprite* spriteBullet, Game* game) {
+			this->game = game;
 			this->sprite = spriteBullet;
 			currVelo = { 0,0 };
 		}
@@ -30,7 +31,8 @@ namespace Engine {
 		vec2 getCurrVelo() {
 			return currVelo;
 		}
-
+	private:
+		Engine::Game* game = NULL;
 	};
 }
 

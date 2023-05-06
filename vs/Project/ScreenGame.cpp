@@ -10,8 +10,15 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
-	enemyBat = new Enemy(game);
-	enemyBat->Init();
+
+	//Many Enemies
+	enemy = new Enemy(game);
+	enemy2 = new Enemy(game);
+	
+	enemy->Init();
+	enemy->SetPosition(game->setting->screenWidth / 2, game->setting->screenHeight / 2);
+
+	enemies.push_back(enemy);
 
 
 	texture = new Texture("flying_eye.png");
@@ -55,7 +62,7 @@ void Engine::ScreenGame::Init()
 
 
 	//___________Input Manajer_______________//
-
+	
 	//Wolk Lef
 	game->inputManager->AddInputMapping("walk-left", SDLK_LEFT);
 	game->inputManager->AddInputMapping("walk-left", SDL_CONTROLLER_BUTTON_DPAD_LEFT);
@@ -75,12 +82,8 @@ void Engine::ScreenGame::Init()
 	//fire
 	game->inputManager->AddInputMapping("Fire", SDL_BUTTON_LEFT);
 
-
 	//Set the background color
 	game->SetBackgroundColor(102, 195, 242);
-
-	//bezier
-	bezierInit();
 
 }
 
@@ -91,11 +94,12 @@ void Engine::ScreenGame::Update()
 		game->state = State::EXIT;
 		return;
 	}
-	enemyBat->Update();
+	
 	sprite2->PlayAnim("spikes-out");
 
 	sprite->Update(game->GetGameTime());
 	sprite2->Update(game->GetGameTime());
+
 
 	//Ingput Calkulason
 	float x = sprite2->GetPosition().x;
@@ -154,7 +158,6 @@ void Engine::ScreenGame::Update()
 		y -= velocity * game->GetGameTime();
 		//sprite2->SetFlipHorizontal(true);
 		sprite2->PlayAnim("walk");
-		//sprite3->SetPosition(sprite3->GetPosition().x + aimDir.x, sprite3->GetPosition().y + aimDir.y);
 	}
 
 
@@ -171,8 +174,11 @@ void Engine::ScreenGame::Update()
 		spriteBullet->SetScale(0.05);
 		spriteBullet->SetAnimationDuration(100);
 
+		//Set Bounding Box
+		spriteBullet->SetBoundingBoxSize(spriteBullet->GetScaleWidth() - (16 * spriteBullet->GetScale()) - 40,
+			spriteBullet->GetScaleHeight() - (4 * spriteBullet->GetScale()));
 
-		proj = new Projectile(spriteBullet);
+		proj = new Projectile(spriteBullet, game);
 		proj->sprite->SetPosition(x + 42, y + 18);
 		aimDirNow = aimDir;
 		proj->setCurrVelo(aimDirNow.x, aimDirNow.y);
@@ -180,15 +186,31 @@ void Engine::ScreenGame::Update()
 
 		projectiles.push_back(proj);
 
-		//sprite4->SetPosition(sprite4->GetPosition().x + aimDirNow.x * bulletSpeed, sprite4->GetPosition().y + aimDirNow.y*bulletSpeed);
 		duration = 0;
-	}
-	else {
-		//sprite4->SetPosition(x + characterOffSet.x, y + characterOffSet.y);
 	}
 
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->sprite->SetPosition(projectiles[i]->sprite->GetPosition().x + projectiles[i]->currVelo.x * bulletSpeed, projectiles[i]->sprite->GetPosition().y + projectiles[i]->currVelo.y * bulletSpeed);
+		
+	}
+
+
+
+	for (size_t i = 0; i < enemies.size(); i++) {
+		enemies[i]->Update();
+
+		for (size_t x = 0; x < projectiles.size(); x++) {
+			if (enemies[i]->sprite->GetBoundingBox()->CollideWith(projectiles[x]->sprite->GetBoundingBox())) {
+				//std::cout << "HITTT!1!1";
+				projectiles.erase(projectiles.begin() + x);
+				enemies[i]->takeDamage(15);
+
+				if (enemies[i]->getHealth() <= 0) {
+					enemies.erase(enemies.begin() + i);
+					break;
+				}			
+			}
+		}
 	}
 
 	sprite2->SetPosition(x, y);
@@ -198,26 +220,6 @@ void Engine::ScreenGame::Update()
 
 	bool kirikanan = false;
 
-	//Bezier Curve
-	if (p != 749) {
-		tempX = posisiX[p];
-		tempZ = posisiZ[p];
-		if (posisiX[p] < posisiX[p - 1]) {
-			kirikanan = true;
-		}
-
-		//ubah arah
-		sprite->SetFlipHorizontal(kirikanan);
-		//Ubah Posisi
-		sprite->SetPosition(tempX, tempZ);
-		enemyBat->SetPosition(tempX, tempZ);
-
-		p++;
-	}
-	else if (p == 749) {
-		p = 0;
-
-	}
 }
 
 void Engine::ScreenGame::Render()
@@ -226,21 +228,24 @@ void Engine::ScreenGame::Render()
 	backgroundSprite->Draw();
 	sprite->Draw();
 	sprite2->Draw();
-	//sprite4->Draw();
-	enemyBat->Render();
+	
+	//Render Bullet
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->sprite->Draw();
-		if (projectiles[i]->sprite->GetPosition().x > 1000) {
+		if (projectiles[i]->sprite->GetPosition().x > game->setting->screenWidth ||
+			projectiles[i]->sprite->GetPosition().y > game->setting->screenHeight ||
+			projectiles[i]->sprite->GetPosition().x < 0 ||
+			projectiles[i]->sprite->GetPosition().y < 0) {
 			projectiles.erase(projectiles.begin() + i);
 		}
 	}
 
-	//projectiles.clear();
-
-	if (proj != NULL) {
-		proj->sprite->Draw();
+	//Render Enemies
+	for (size_t i = 0; i < enemies.size(); i++) {
+		enemies[i]->Render();
 	}
 
+	
 
 }
 
@@ -254,23 +259,6 @@ void Engine::ScreenGame::forDebug()
 	}
 }
 
-void Engine::ScreenGame::bezierInit()
-{
-	int segmentCount = 750;
-	//rumus bezier curve jika empat waypoint
 
-	for (int i = 0; i < segmentCount; i++) {
-		t = (float)i / segmentCount;
-		x = ((1 - t) * (1 - t) * (1 - t) * p0x) + (3 * (1 - t) * (1 - t) * t * p1x) + (3 * (1 - t) * (1 - t) * t * t * p2x) + (t * t * t * p3x);
-		z = ((1 - t) * (1 - t) * (1 - t) * p0z) + (3 * (1 - t) * (1 - t) * t * p1z) + (3 * (1 - t) * (1 - t) * t * t * p2z) + (t * t * t * p3z);
-
-		posisiX[i] = x;
-		posisiZ[i] = z;
-
-		//std::cout << posisiX[i];
-		//std::cout << " ";
-		//std::cout << posisiZ[i];
-	}
-}
 
 

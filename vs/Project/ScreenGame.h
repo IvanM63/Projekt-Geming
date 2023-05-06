@@ -32,7 +32,11 @@ namespace Engine {
 		void forDebug();
 
 	private:
-		Enemy* enemyBat = NULL;
+		Texture* dotTexture = NULL;
+		Sprite* dotSprite1 = NULL;
+		Sprite* dotSprite2 = NULL;
+		Sprite* dotSprite3 = NULL;
+		Sprite* dotSprite4 = NULL;
 
 		int currentButtonIndex = 0;
 
@@ -51,6 +55,10 @@ namespace Engine {
 		std::vector<Projectile*> projectiles;
 		Projectile* proj = NULL;
 
+		std::vector<Enemy*> enemies;
+		Enemy* enemy = NULL;
+		Enemy* enemy2 = NULL;
+
 		unsigned int duration = 0;
 		unsigned int lastTime = 0, numFrame = 0;
 
@@ -68,34 +76,6 @@ namespace Engine {
 		//x = 980
 		//y = 720
 
-		//Buat Bezier
-		void bezierInit();
-		void ShowOnWindow();
-
-		float p0x = 100;
-		float p0z = 360;
-
-		float p1x = 1200;
-		float p1z = 800;
-
-		float p2x = 1200;
-		float p2z = 0;
-
-		float p3x = 100;
-		float p3z = 360;
-
-		float x = 0;
-		float z = 0;
-
-		float t = 0;
-
-		float tempX = 0;
-		float tempZ = 0;
-
-		float posisiX[750];
-		float posisiZ[750];
-
-		int p = 0;
 
 		//Jump Section
 		bool isJumping = false;

@@ -44,8 +44,9 @@ namespace Engine {
 		vec2 GetPosition();
 		vec2 GetRotatedPoint(float x, float y);
 		void SetBoundingBoxSize(float w, float h);
-	private:
 		BoundingBox* boundingBox;
+	private:
+		
 		vec4 min;
 		Shader* shader;
 		Quad* quad;
