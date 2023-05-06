@@ -12,14 +12,6 @@
 #include <GLM/gtc/matrix_transform.hpp>
 #include "ScreenManager.h"
 
-//Tiap Screen yang ada harus di Include di sini
-//#include "Screen.h" //Base Class dari Screen
-//#include "ScreenMenu.h"
-//#include "ScreenGame.h"
-
-
-
-
 using namespace std;
 
 namespace Engine {
@@ -28,12 +20,9 @@ namespace Engine {
 		EXIT
 	};
 
-	//Tiap Screen yang ada harus di Forward Declaration di sini
-	//class ScreenMenu;
-	//class ScreenGame;
+	//Forward Declaration
 	class ScreenManager;
 	
-
 	class Game
 	{
 	public:
@@ -59,7 +48,7 @@ namespace Engine {
 		unsigned int currentFrameRate = 0;
 		mat4 defaultProjection;
 		
-		//ScreenList
+		//Screen Manager
 		ScreenManager* screenmanager = NULL;
 		
 		mat4 CreateDefaultProjection();

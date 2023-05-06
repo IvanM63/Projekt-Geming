@@ -4,6 +4,7 @@
 #include "Setting.h"
 #include "Texture.h"
 #include "Sprite.h"
+#include "Game.h"
 #include <Windows.h>
 #include <math.h>
 

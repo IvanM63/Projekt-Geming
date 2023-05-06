@@ -10,11 +10,12 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
+	enemyBat = new Enemy(game);
+	enemyBat->Init();
+
+
 	texture = new Texture("flying_eye.png");
 	sprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
-
-	texture3 = new Texture("Warrior_Sheet-Effect.png");
-	sprite3 = new Sprite(texture3, game->defaultSpriteShader, game->defaultQuad);
 
 	//sprite2
 	texture2 = new Texture("turtles.png");
@@ -36,19 +37,6 @@ void Engine::ScreenGame::Init()
 	sprite->PlayAnim("moving");
 	sprite->SetScale(2);
 	sprite->SetAnimationDuration(100);
-
-
-	//sprite3
-	sprite3->SetNumXFrames(6);
-	sprite3->SetNumYFrames(17);
-	sprite3->AddAnimation("moving", 6, 13);
-
-	sprite3->PlayAnim("moving");
-	sprite3->SetScale(2);
-	sprite3->SetAnimationDuration(100);
-
-	sprite3->SetPosition(0, 0);
-
 
 	//TEst
 	sprite->SetFlipHorizontal(false);
@@ -103,15 +91,11 @@ void Engine::ScreenGame::Update()
 		game->state = State::EXIT;
 		return;
 	}
-
+	enemyBat->Update();
 	sprite2->PlayAnim("spikes-out");
 
 	sprite->Update(game->GetGameTime());
 	sprite2->Update(game->GetGameTime());
-	sprite3->Update(game->GetGameTime());
-	//spriteBullet->Update(GetGameTime());
-
-
 
 	//Ingput Calkulason
 	float x = sprite2->GetPosition().x;
@@ -226,6 +210,7 @@ void Engine::ScreenGame::Update()
 		sprite->SetFlipHorizontal(kirikanan);
 		//Ubah Posisi
 		sprite->SetPosition(tempX, tempZ);
+		enemyBat->SetPosition(tempX, tempZ);
 
 		p++;
 	}
@@ -241,9 +226,8 @@ void Engine::ScreenGame::Render()
 	backgroundSprite->Draw();
 	sprite->Draw();
 	sprite2->Draw();
-	sprite3->Draw();
 	//sprite4->Draw();
-
+	enemyBat->Render();
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->sprite->Draw();
 		if (projectiles[i]->sprite->GetPosition().x > 1000) {

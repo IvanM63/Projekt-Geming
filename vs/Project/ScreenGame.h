@@ -10,11 +10,13 @@
 #include "Texture.h"
 #include "Sprite.h"
 #include "Projectile.h"
+#include "Enemy.h"
 
 
 namespace Engine {
 
-	//class Game;
+	//Kalo di Base classnya ada include Game.h, harus forward Declaration di sini
+	class Enemy;
 
 	class ScreenGame : public Screen {
 	public:
@@ -30,8 +32,9 @@ namespace Engine {
 		void forDebug();
 
 	private:
-		int currentButtonIndex = 0;
+		Enemy* enemyBat = NULL;
 
+		int currentButtonIndex = 0;
 
 		Sprite* backgroundSprite = NULL;
 
@@ -40,9 +43,6 @@ namespace Engine {
 
 		Engine::Texture* texture2 = NULL;
 		Engine::Sprite* sprite2 = NULL;
-
-		Engine::Texture* texture3 = NULL;
-		Engine::Sprite* sprite3 = NULL;
 
 		//Bullet Texture
 		Engine::Texture* textureBullet = NULL;
@@ -83,8 +83,6 @@ namespace Engine {
 
 		float p3x = 100;
 		float p3z = 360;
-
-
 
 		float x = 0;
 		float z = 0;
