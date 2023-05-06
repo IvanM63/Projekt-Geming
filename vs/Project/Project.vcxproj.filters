@@ -86,7 +86,7 @@
     <ClInclude Include="SATCollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lesson03.h">
+    <ClInclude Include="Main.h">
       <Filter>Demo Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
@@ -154,7 +154,7 @@
     <ClCompile Include="SATCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lesson03.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Demo Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">

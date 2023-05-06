@@ -1,26 +1,7 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Game.cpp
-  Lesson03.cpp
-  ScreenGame.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(29,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(29,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(130,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(131,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(142,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(187,30): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(265,31): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
-  ScreenManager.cpp
-  ScreenMenu.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenMenu.cpp(49,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenMenu.cpp(68,43): warning C4018: '<': signed/unsigned mismatch
-  Testosteron.cpp
-  Generating Code...
+  Main.cpp
+SOIL.lib(image_DXT.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_DXT.obj)' or at ''; linking object as if no debug info
+SOIL.lib(image_helper.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(image_helper.obj)' or at ''; linking object as if no debug info
+SOIL.lib(SOIL.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(SOIL.obj)' or at ''; linking object as if no debug info
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB '' was not found with 'SOIL.lib(stb_image_aug.obj)' or at ''; linking object as if no debug info
   Project.vcxproj -> D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\Project_debug.exe
