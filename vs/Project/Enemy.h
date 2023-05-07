@@ -24,6 +24,7 @@ namespace Engine {
         //Setter Getter Sprite-nya
         void SetPosition(float x, float y);
         vec2 GetPosition();
+        void move(vec2 location);
 
         int getHealth();
 

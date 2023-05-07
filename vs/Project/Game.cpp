@@ -65,17 +65,17 @@ float Engine::Game::GetGameTime()
 
 void Engine::Game::Init()
 {
-	//sg->InitGame();
+	
 }
 
 void Engine::Game::Update()
 {
-	//sg->UpdateGame();
+	
 }
 
 void Engine::Game::Render()
 {
-	//sg->RenderGame();
+	
 }
 
 

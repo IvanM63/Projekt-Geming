@@ -36,8 +36,7 @@ int main(int argc, char** argv) {
 	setting->screenWidth = 1366;
 	setting->screenHeight = 768;
 	setting->windowFlag = Engine::WindowFlag::WINDOWED;
-	setting->vsync = false;
-	setting->targetFrameRate = 0;
+	setting->vsync = true;
 	Engine::Game* game = new Engine::Main(setting);
 	game->Run();
 	delete setting;

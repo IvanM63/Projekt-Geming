@@ -12,11 +12,25 @@
 #include "Projectile.h"
 #include "Enemy.h"
 
+#include <set>
+#include <queue>
+
 
 namespace Engine {
 
 	//Kalo di Base classnya ada include Game.h, harus forward Declaration di sini
 	class Enemy;
+
+	class Node {
+	public:
+		std::vector<Node*> neighbors;
+		int x, y;
+
+		Node(int _x, int _y) {
+			x = _x;
+			y = _y;
+		}
+	};
 
 	class ScreenGame : public Screen {
 	public:
@@ -31,7 +45,17 @@ namespace Engine {
 		//Another Function
 		void forDebug();
 
+		//For Astar
+		float distance(Node* a, Node* b);
+		std::vector<Node*> AStar(Node* start, Node* goal);
+
 	private:
+		bool isPlayerMoving = false;
+
+		float speedd = 0.05f;
+
+		std::vector<Node*> nodes;
+
 		Texture* dotTexture = NULL;
 		Sprite* dotSprite1 = NULL;
 		Sprite* dotSprite2 = NULL;
@@ -42,11 +66,9 @@ namespace Engine {
 
 		Sprite* backgroundSprite = NULL;
 
-		Engine::Texture* texture = NULL;
-		Engine::Sprite* sprite = NULL;
-
-		Engine::Texture* texture2 = NULL;
-		Engine::Sprite* sprite2 = NULL;
+		//Player Sprite
+		Engine::Texture* playerTex = NULL;
+		Engine::Sprite* playerSprite = NULL;
 
 		//Bullet Texture
 		Engine::Texture* textureBullet = NULL;
@@ -59,33 +81,15 @@ namespace Engine {
 		Enemy* enemy = NULL;
 		Enemy* enemy2 = NULL;
 
+		//x = 980 y = 720
+
+		float bulletSpeed = 10.5f;
+
 		unsigned int duration = 0;
 		unsigned int lastTime = 0, numFrame = 0;
 
-		//SPEEED
-		float posX = 0;
-		float posY = 0;
-		float direction = 1;
-		float speed = 0.5;
-
-		//Buat RGB
-		int r = 255;
-		int g = 0;
-		int b = 0;
-
-		//x = 980
-		//y = 720
-
-
-		//Jump Section
-		bool isJumping = false;
-
-		vec2 playerPos = { 0,0 };
-
 		// Get the mouse position in screen coordinates
 		POINT mousePos;
-
-		float bulletSpeed = 10.5f;
 
 		vec2 characterOffSet = { 42, 18 };
 		vec2 aimDirNow = { 0,0 };

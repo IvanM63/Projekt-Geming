@@ -56,6 +56,8 @@ void Engine::Enemy::Update()
 	dotSprite4->SetPosition(bb->GetVertices()[3].x - (0.5f * dotSprite4->GetScaleWidth()),
 		bb->GetVertices()[3].y - (0.5f * dotSprite3->GetScaleHeight()));
 
+	currentEnemyPos = sprite->GetPosition();
+
 }
 
 void Engine::Enemy::Render()
@@ -83,6 +85,12 @@ vec2 Engine::Enemy::GetPosition()
 {
 	return currentEnemyPos;
 	
+}
+
+void Engine::Enemy::move(vec2 location)
+{
+	sprite->SetPosition(sprite->GetPosition().x + location.x, sprite->GetPosition().y + location.y);
+	currentEnemyPos = { location.x, location.y };
 }
 
 int Engine::Enemy::getHealth()
