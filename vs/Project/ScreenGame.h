@@ -12,16 +12,19 @@
 #include "Projectile.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "Weapon.h"
+#include "Pistol.h"
 
 #include <set>
 #include <queue>
-
 
 namespace Engine {
 
 	//Kalo di Base classnya ada include Game.h, harus forward Declaration di sini
 	class Enemy;
 	class Player;
+	class Weapon;
+	class Pistol;
 
 	class ScreenGame : public Screen {
 	public:
@@ -37,6 +40,10 @@ namespace Engine {
 		void forDebug();
 
 	private:
+		//Weapon Objek
+		Weapon* weapon = NULL;
+		Pistol* pistol = NULL;
+
 		//Player Object TESTING
 		Player* player = NULL;
 
@@ -73,7 +80,7 @@ namespace Engine {
 		unsigned int lastTime = 0, numFrame = 0;
 
 		// Get the mouse position in screen coordinates
-		POINT mousePos;
+		//POINT mousePos;
 
 		vec2 characterOffSet = { 42, 18 };
 		vec2 aimDirNow = { 0,0 };

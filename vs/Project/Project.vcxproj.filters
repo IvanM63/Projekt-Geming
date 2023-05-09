@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Demo Files">
       <UniqueIdentifier>{34b4a4c9-782e-4ce9-bfa3-88e3da53d66a}</UniqueIdentifier>
     </Filter>
@@ -21,12 +13,6 @@
     </Filter>
     <Filter Include="Assets\Background">
       <UniqueIdentifier>{333307f0-71dc-49be-91fd-b2f465c8419c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Screen Manager">
-      <UniqueIdentifier>{38420262-3c01-4c3c-8758-83a0de27d626}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ScreenManager">
-      <UniqueIdentifier>{121941c9-5b41-4551-bd90-237ca99dc940}</UniqueIdentifier>
     </Filter>
     <Filter Include="BaseCharacter">
       <UniqueIdentifier>{6f6de387-99f3-4c72-8d19-e8ce9837f564}</UniqueIdentifier>
@@ -42,6 +28,27 @@
     </Filter>
     <Filter Include="Weapon System">
       <UniqueIdentifier>{898ceb21-975c-48ca-882a-8fd8a1a22153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine Library">
+      <UniqueIdentifier>{c4110819-bdbd-41c3-b6b6-bf7b3ceab3eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine Library\Source Files">
+      <UniqueIdentifier>{fef8d4f1-32a5-40ca-aff6-cd5851b168da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine Library\Header">
+      <UniqueIdentifier>{51a880d3-fd4e-46d4-b061-1ac52ff3c2ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Screen Manager">
+      <UniqueIdentifier>{7ac6e49a-b58c-499b-8dd3-f7a7bb694ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon System\Pistol">
+      <UniqueIdentifier>{f7b8c903-ef00-4d85-bf75-5a57791afdd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Weapon">
+      <UniqueIdentifier>{fa2e8e1e-ebaa-45ff-8ba9-a6b426efb903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Weapon\Pistol">
+      <UniqueIdentifier>{db253c80-2141-47ac-8948-98fd4fb8204e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,65 +66,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Setting.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Quad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BoundingBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Music.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SATCollision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Main.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
       <Filter>Demo Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Demo Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Testosteron.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenManager.h">
-      <Filter>Header Files\Screen Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenMenu.h">
-      <Filter>Header Files\Screen Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenGame.h">
-      <Filter>Header Files\Screen Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>Header Files\Screen Manager</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>BaseCharacter\NPC\Enemy</Filter>
@@ -137,67 +90,70 @@
     <ClInclude Include="Projectile.h">
       <Filter>Weapon System</Filter>
     </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SATCollision.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Testosteron.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenGame.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenManager.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenMenu.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine Library\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Pistol.h">
+      <Filter>Weapon System\Pistol</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Setting.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Quad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BoundingBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Music.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Text.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SATCollision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
       <Filter>Demo Files</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Demo Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Testosteron.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenGame.cpp">
-      <Filter>Source Files\ScreenManager</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenManager.cpp">
-      <Filter>Source Files\ScreenManager</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenMenu.cpp">
-      <Filter>Source Files\ScreenManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Source Files\ScreenManager</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>BaseCharacter\NPC\Enemy</Filter>
@@ -208,14 +164,76 @@
     <ClCompile Include="BaseCharacter.cpp">
       <Filter>BaseCharacter</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Weapon System</Filter>
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
       <Filter>Weapon System</Filter>
     </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SATCollision.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Testosteron.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Screen Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenGame.cpp">
+      <Filter>Screen Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenManager.cpp">
+      <Filter>Screen Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenMenu.cpp">
+      <Filter>Screen Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Engine Library\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>BaseCharacter\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Pistol.cpp">
+      <Filter>Weapon System\Pistol</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Pistol.png">
+      <Filter>Assets\Weapon\Pistol</Filter>
+    </Image>
   </ItemGroup>
 </Project>

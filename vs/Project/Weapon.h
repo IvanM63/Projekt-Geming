@@ -8,7 +8,11 @@
 #include "Projectile.h"
 #include "Player.h"
 
+
 namespace Engine {
+
+    class Player;
+
     class Weapon {
     public:
         Weapon(Game* game, Player* player);
@@ -20,6 +24,11 @@ namespace Engine {
         virtual void Render();
 
         void Fire();
+
+        //Projectile Setter Getter
+        int GetProjectilesSize();
+        void RemoveProjectileByIndex(int i);
+        BoundingBox* GetProjectileBoundingBoxByIndex(int i);
 
         Engine::Texture* texture = NULL;
         Engine::Sprite* sprite = NULL;
@@ -33,6 +42,14 @@ namespace Engine {
         int fireRate;
         int damage;
 
+        //Bullet Texture
+        Engine::Texture* textureBullet = NULL;
+        Engine::Sprite* spriteBullet = NULL;
+
+        std::vector<Projectile*> projectiles;
+        Projectile* proj = NULL;
+        float bulletSpeed = 10.5f;
+
         //Hitbox Debug
         bool isDebug;
         Texture* dotTexture = NULL;
@@ -43,6 +60,9 @@ namespace Engine {
 
         // Get the mouse position in screen coordinates
         POINT mousePos;
+
+        vec2 characterOffSet = { 42, 18 };
+        vec2 aimDirNow = { 0,0 };
 
         unsigned int duration = 0;
 

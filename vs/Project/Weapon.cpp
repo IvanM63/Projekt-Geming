@@ -1,4 +1,5 @@
 #include "Weapon.h"
+#include "../../../../backup/Projekt/Projekt-Geming/vs/Project/Projectile.h"
 
 Engine::Weapon::Weapon(Game* game, Player* player)
 {
@@ -16,14 +17,27 @@ Engine::Weapon::~Weapon()
 
 void Engine::Weapon::Init()
 {
+	//Bullet Sprite
+	textureBullet = new Texture("bullet.png");
 }
 
 void Engine::Weapon::Update()
 {
+	Fire();
 }
 
 void Engine::Weapon::Render()
 {
+	//Render Bullet
+	for (size_t i = 0; i < projectiles.size(); i++) {
+		projectiles[i]->sprite->Draw();
+		if (projectiles[i]->sprite->GetPosition().x > game->setting->screenWidth ||
+			projectiles[i]->sprite->GetPosition().y > game->setting->screenHeight ||
+			projectiles[i]->sprite->GetPosition().x < 0 ||
+			projectiles[i]->sprite->GetPosition().y < 0) {
+			projectiles.erase(projectiles.begin() + i);
+		}
+	}
 }
 
 void Engine::Weapon::Fire()
@@ -34,7 +48,6 @@ void Engine::Weapon::Fire()
 		//std::cout << playerPos.y;
 		duration = 0;
 	}
-
 
 	//Ingput Calkulason
 	float x = player->GetPosition().x;
@@ -97,4 +110,30 @@ void Engine::Weapon::Fire()
 
 		duration = 0;
 	}
+
+	for (size_t i = 0; i < projectiles.size(); i++) {
+		projectiles[i]->sprite->SetPosition(projectiles[i]->sprite->GetPosition().x + projectiles[i]->currVelo.x * bulletSpeed, projectiles[i]->sprite->GetPosition().y + projectiles[i]->currVelo.y * bulletSpeed);
+
+	}
 }
+
+int Engine::Weapon::GetProjectilesSize()
+{
+	return projectiles.size();
+}
+
+void Engine::Weapon::RemoveProjectileByIndex(int i)
+{
+	projectiles.erase(projectiles.begin() + i);
+}
+
+Engine::BoundingBox* Engine::Weapon::GetProjectileBoundingBoxByIndex(int i)
+{
+	return projectiles[i]->sprite->GetBoundingBox();
+}
+
+
+
+
+
+
