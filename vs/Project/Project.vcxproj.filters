@@ -28,17 +28,20 @@
     <Filter Include="Source Files\ScreenManager">
       <UniqueIdentifier>{121941c9-5b41-4551-bd90-237ca99dc940}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NPC">
+    <Filter Include="BaseCharacter">
+      <UniqueIdentifier>{6f6de387-99f3-4c72-8d19-e8ce9837f564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseCharacter\NPC">
       <UniqueIdentifier>{4f3f1c43-3517-4f05-9e05-59b7ce8a820f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NPC\Enemy">
+    <Filter Include="BaseCharacter\NPC\Enemy">
       <UniqueIdentifier>{bb3479d7-e765-4800-82d0-287f0f204f01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Weapon">
-      <UniqueIdentifier>{3408f67b-be43-4464-a5cd-3bbc35d82e79}</UniqueIdentifier>
+    <Filter Include="BaseCharacter\Player">
+      <UniqueIdentifier>{135c1c26-3b8a-446a-9c67-114f1f821b6e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Weapon\Bullet">
-      <UniqueIdentifier>{4acdece1-b007-4240-812c-511ac0223ea1}</UniqueIdentifier>
+    <Filter Include="Weapon System">
+      <UniqueIdentifier>{898ceb21-975c-48ca-882a-8fd8a1a22153}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -117,13 +120,22 @@
       <Filter>Header Files\Screen Manager</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>NPC\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Weapon\Bullet</Filter>
+      <Filter>BaseCharacter\NPC\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.h">
       <Filter>Demo Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseCharacter.h">
+      <Filter>BaseCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>BaseCharacter\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Weapon System</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Weapon System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +187,6 @@
     <ClCompile Include="Testosteron.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ScreenGame.cpp">
       <Filter>Source Files\ScreenManager</Filter>
     </ClCompile>
@@ -191,10 +200,22 @@
       <Filter>Source Files\ScreenManager</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>NPC\Enemy</Filter>
+      <Filter>BaseCharacter\NPC\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.cpp">
       <Filter>Demo Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCharacter.cpp">
+      <Filter>BaseCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Weapon System</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Weapon System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,15 +1,12 @@
 #include "Enemy.h"
 
-Engine::Enemy::Enemy(Game* game)
+Engine::Enemy::Enemy(Game* game) : BaseCharacter(game)
 {
-	this->game = game;
-	this->health = 100;
 }
 
 Engine::Enemy::~Enemy()
 {
-	//delete texture;
-	//delete sprite;
+
 }
 
 void Engine::Enemy::Init()
@@ -25,8 +22,6 @@ void Engine::Enemy::Init()
 	sprite->PlayAnim("moving");
 	sprite->SetScale(2);
 	sprite->SetAnimationDuration(100);
-
-	//SetPosition(0, 0);
 
 	//Set Bounding Box
 	//sprite->SetSize(150, 32);
@@ -56,44 +51,17 @@ void Engine::Enemy::Update()
 	dotSprite4->SetPosition(bb->GetVertices()[3].x - (0.5f * dotSprite4->GetScaleWidth()),
 		bb->GetVertices()[3].y - (0.5f * dotSprite3->GetScaleHeight()));
 
-	currentEnemyPos = sprite->GetPosition();
-
 }
 
 void Engine::Enemy::Render()
 {
 	sprite->Draw();
 
-	dotSprite1->Draw();
-	dotSprite2->Draw();
-	dotSprite3->Draw();
-	dotSprite4->Draw();
-}
+	if (isDebug) {
+		dotSprite1->Draw();
+		dotSprite2->Draw();
+		dotSprite3->Draw();
+		dotSprite4->Draw();
+	}
 
-void Engine::Enemy::takeDamage(int damage)
-{
-	this->health = this->health - damage;
-}
-
-void Engine::Enemy::SetPosition(float x, float y)
-{
-	sprite->SetPosition(x, y);
-	currentEnemyPos = { x, y };
-}
-
-vec2 Engine::Enemy::GetPosition()
-{
-	return currentEnemyPos;
-	
-}
-
-void Engine::Enemy::move(vec2 location)
-{
-	sprite->SetPosition(sprite->GetPosition().x + location.x, sprite->GetPosition().y + location.y);
-	currentEnemyPos = { location.x, location.y };
-}
-
-int Engine::Enemy::getHealth()
-{
-	return health;
 }

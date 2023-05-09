@@ -10,14 +10,9 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
-	
-
-	// spawn range
-	int spawnRange = 200;
-
-	for (int i = 0; i < 3; i++) {
-		
-	}
+	//PLayer SPrite
+	player = new Player(game);
+	player->Init();
 
 	//Bullet Sprite
 	textureBullet = new Texture("bullet.png");
@@ -28,21 +23,6 @@ void Engine::ScreenGame::Init()
 	backgroundSprite->SetSize(game->setting->screenWidth, game->setting->screenHeight);
 
 	//x = 980 || y = 720	
-
-	//Player Sprite
-	playerTex = new Texture("turtles.png");
-	playerSprite = new Sprite(playerTex, game->defaultSpriteShader, game->defaultQuad);
-
-	playerSprite->SetNumXFrames(14);
-	playerSprite->SetNumYFrames(4);
-	playerSprite->AddAnimation("spikes-out", 42, 49);
-
-	playerSprite->AddAnimation("walk", 28, 41);
-	playerSprite->SetScale(2);
-	playerSprite->SetAnimationDuration(175);
-	playerSprite->SetPosition(0, 0);
-	//sprite2->SetFlipHorizontal(true);
-
 
 	//___________Input Manajer_______________//
 	
@@ -66,21 +46,7 @@ void Engine::ScreenGame::Init()
 	game->inputManager->AddInputMapping("Fire", SDL_BUTTON_LEFT);
 
 	//Set the background color
-	game->SetBackgroundColor(102, 195, 242);
-
-	//TESTING A* ALGO
-	Node* node1 = new Node(10, 20);
-	Node* node2 = new Node(30, 40);
-	Node* node3 = new Node(50, 60);
-
-	node1->neighbors.push_back(node2);
-	node2->neighbors.push_back(node1);
-
-	nodes = AStar(node2, node1);
-
-	//std::cout << nodes[0]->neighbors[0]->x;
-
-	
+	game->SetBackgroundColor(102, 195, 242);	
 
 }
 
@@ -91,14 +57,10 @@ void Engine::ScreenGame::Update()
 		game->state = State::EXIT;
 		return;
 	}
-	
-	playerSprite->PlayAnim("spikes-out");
-	playerSprite->Update(game->GetGameTime());
-
 
 	//Ingput Calkulason
-	float x = playerSprite->GetPosition().x;
-	float y = playerSprite->GetPosition().y;
+	float x = player->GetPosition().x;
+	float y = player->GetPosition().y;
 
 	//Wolk
 	float velocity = 0.15f;
@@ -133,33 +95,33 @@ void Engine::ScreenGame::Update()
 	//Walk Management
 	if (game->inputManager->IsKeyPressed("walk-right")) {
 		x += velocity * game->GetGameTime();
-		playerSprite->SetFlipHorizontal(true);
-		playerSprite->PlayAnim("walk");
+		player->sprite->SetFlipHorizontal(true);
+		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-left")) {
 		x -= velocity * game->GetGameTime();
-		playerSprite->SetFlipHorizontal(false);
-		playerSprite->PlayAnim("walk");
+		player->sprite->SetFlipHorizontal(false);
+		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-up")) {
 		y += velocity * game->GetGameTime();
 		//sprite2->SetFlipHorizontal(true);
-		playerSprite->PlayAnim("walk");
+		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-down")) {
 		y -= velocity * game->GetGameTime();
 		//sprite2->SetFlipHorizontal(true);
-		playerSprite->PlayAnim("walk");
+		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
 	}
 
-	playerSprite->SetPosition(x, y);
+	player->sprite->SetPosition(x, y);
 	bool kirikanan = false;
 
 	//Fire Management
@@ -189,8 +151,6 @@ void Engine::ScreenGame::Update()
 
 		duration = 0;
 	}
-
-
 
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->sprite->SetPosition(projectiles[i]->sprite->GetPosition().x + projectiles[i]->currVelo.x * bulletSpeed, projectiles[i]->sprite->GetPosition().y + projectiles[i]->currVelo.y * bulletSpeed);
@@ -223,7 +183,7 @@ void Engine::ScreenGame::Update()
 
 	for (size_t i = 0; i < enemies.size(); i++) {
 		// Calculate the direction from the enemy to the player
-		vec2 direction = playerSprite->GetPosition() - enemies[i]->GetPosition();
+		vec2 direction = player->GetPosition() - enemies[i]->GetPosition();
 		// Normalize the direction vector
 		float mag = sqrt(direction.x * direction.x + direction.y * direction.y);
 		direction.x /= mag;
@@ -237,7 +197,7 @@ void Engine::ScreenGame::Update()
 		}
 	}
 
-	//std::cout << enemy->sprite->GetPosition().x << "\n";
+	//std::cout << player->getHealth() << "\n";
 
 	//ENEMY SPAWN TESTING - RANDOM
 
@@ -257,16 +217,18 @@ void Engine::ScreenGame::Update()
 		Enemy* e = new Enemy(game);
 		e->Init();
 		e->SetPosition(x, y);
+		e->setDebug(true);
 
 		enemies.push_back(e);
 	}
+
+	player->Update();
 }
 
 void Engine::ScreenGame::Render()
 {
 
 	backgroundSprite->Draw();
-	playerSprite->Draw();
 	
 	//Render Bullet
 	for (size_t i = 0; i < projectiles.size(); i++) {
@@ -284,7 +246,7 @@ void Engine::ScreenGame::Render()
 		enemies[i]->Render();
 	}
 
-	
+	player->Render();
 
 }
 
@@ -298,61 +260,6 @@ void Engine::ScreenGame::forDebug()
 	}
 }
 
-float Engine::ScreenGame::distance(Node* a, Node* b)
-{
-	float dx = b->x - a->x;
-	float dy = b->y - a->y;
-	return sqrt(dx * dx + dy * dy);
-}
-
-std::vector<Engine::Node*> Engine::ScreenGame::AStar(Node* start, Node* goal)
-{
-	std::vector<Node*> path;
-
-	std::set<Node*> closedSet;
-	std::priority_queue<std::pair<float, Node*>, std::vector<std::pair<float, Node*>>, std::greater<std::pair<float, Node*>>> openSet;
-	std::map<Node*, Node*> cameFrom;
-	std::map<Node*, float> gScore;
-	std::map<Node*, float> fScore;
-
-	gScore[start] = 0;
-	fScore[start] = distance(start, goal);
-	openSet.push(std::make_pair(fScore[start], start));
-
-	while (!openSet.empty()) {
-		Node* current = openSet.top().second;
-		openSet.pop();
-
-		if (current == goal) {
-			path.push_back(current);
-			while (cameFrom.find(current) != cameFrom.end()) {
-				current = cameFrom[current];
-				path.push_back(current);
-			}
-			std::reverse(path.begin(), path.end());
-			break;
-		}
-
-		closedSet.insert(current);
-
-		for (auto neighbor : current->neighbors) {
-			if (closedSet.find(neighbor) != closedSet.end()) {
-				continue;
-			}
-
-			float tentativeGScore = gScore[current] + distance(current, neighbor);
-
-			if (gScore.find(neighbor) == gScore.end() || tentativeGScore < gScore[neighbor]) {
-				cameFrom[neighbor] = current;
-				gScore[neighbor] = tentativeGScore;
-				fScore[neighbor] = gScore[neighbor] + distance(neighbor, goal);
-				openSet.push(std::make_pair(fScore[neighbor], neighbor));
-			}
-		}
-	}
-
-	return path;
-}
 
 
 

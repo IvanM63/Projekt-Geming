@@ -11,6 +11,7 @@
 #include "Sprite.h"
 #include "Projectile.h"
 #include "Enemy.h"
+#include "Player.h"
 
 #include <set>
 #include <queue>
@@ -20,17 +21,7 @@ namespace Engine {
 
 	//Kalo di Base classnya ada include Game.h, harus forward Declaration di sini
 	class Enemy;
-
-	class Node {
-	public:
-		std::vector<Node*> neighbors;
-		int x, y;
-
-		Node(int _x, int _y) {
-			x = _x;
-			y = _y;
-		}
-	};
+	class Player;
 
 	class ScreenGame : public Screen {
 	public:
@@ -45,16 +36,13 @@ namespace Engine {
 		//Another Function
 		void forDebug();
 
-		//For Astar
-		float distance(Node* a, Node* b);
-		std::vector<Node*> AStar(Node* start, Node* goal);
-
 	private:
+		//Player Object TESTING
+		Player* player = NULL;
+
 		bool isPlayerMoving = false;
 
 		float speedd = 0.05f;
-
-		std::vector<Node*> nodes;
 
 		Texture* dotTexture = NULL;
 		Sprite* dotSprite1 = NULL;
@@ -65,10 +53,6 @@ namespace Engine {
 		int currentButtonIndex = 0;
 
 		Sprite* backgroundSprite = NULL;
-
-		//Player Sprite
-		Engine::Texture* playerTex = NULL;
-		Engine::Sprite* playerSprite = NULL;
 
 		//Bullet Texture
 		Engine::Texture* textureBullet = NULL;

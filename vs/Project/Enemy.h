@@ -5,47 +5,21 @@
 #include "Texture.h"
 #include "Sprite.h"
 #include "Game.h"
+#include "BaseCharacter.h"
 
 namespace Engine {
-    class Enemy {
+    class Enemy : public BaseCharacter {
     public:
         Enemy(Game* game);
         ~Enemy();
 
         //Basic Function
-        void Init();
-        void Update();
-        void Render();
-
-        void attack();
-        void takeDamage(int damage);
-        bool isDead() const;
-
-        //Setter Getter Sprite-nya
-        void SetPosition(float x, float y);
-        vec2 GetPosition();
-        void move(vec2 location);
-
-        int getHealth();
-
+        virtual void Init();
+        virtual void Update();
+        virtual void Render();
+ 
+    protected:
         
-        Engine::Sprite* sprite = NULL;
-
-    private:
-        Texture* dotTexture = NULL;
-
-        Engine::Game* game = NULL;
-        Engine::Texture* texture = NULL;
-
-        Sprite* dotSprite1 = NULL;
-        Sprite* dotSprite2 = NULL;
-        Sprite* dotSprite3 = NULL;
-        Sprite* dotSprite4 = NULL;
-
-        int health;
-        int damage;
-
-        vec2 currentEnemyPos = { 0,0 };
     };
 }
 
