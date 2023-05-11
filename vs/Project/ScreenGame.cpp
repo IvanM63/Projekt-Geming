@@ -18,12 +18,6 @@ void Engine::ScreenGame::Init()
 	weapon = new Weapon(game, player);
 	weapon->Init();
 
-	pistol = new Pistol(game);
-	pistol->Init();
-
-	//Bullet Sprite
-	textureBullet = new Texture("bullet.png");
-
 	//Create background
 	Texture* bgTexture = new Texture("0.png");
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
@@ -51,6 +45,8 @@ void Engine::ScreenGame::Init()
 	game->inputManager->AddInputMapping("Quit", SDL_CONTROLLER_BUTTON_Y);
 	//fire
 	game->inputManager->AddInputMapping("Fire", SDL_BUTTON_LEFT);
+	//It's Reload time
+	game->inputManager->AddInputMapping("Reload", SDLK_r);
 
 	//Set the background color
 	game->SetBackgroundColor(102, 195, 242);	
@@ -72,24 +68,23 @@ void Engine::ScreenGame::Update()
 	//Wolk
 	float velocity = 0.15f;
 
-	//Weapon (bullet, weapon, and aim system) Update
-	weapon->Update();
-	pistol->Update();
-
 	//Player Update
 	player->Update();
+
+	//Weapon (bullet, weapon, and aim system) Update
+	weapon->Update();
 
 	//Walk Management
 	if (game->inputManager->IsKeyPressed("walk-right")) {
 		x += velocity * game->GetGameTime();
-		player->sprite->SetFlipHorizontal(true);
+		//player->sprite->SetFlipHorizontal(true);
 		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-left")) {
 		x -= velocity * game->GetGameTime();
-		player->sprite->SetFlipHorizontal(false);
+		//player->sprite->SetFlipHorizontal(false);
 		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
 	}
@@ -115,10 +110,10 @@ void Engine::ScreenGame::Update()
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Update();
 
-		for (size_t x = 0; x < weapon->GetProjectilesSize(); x++) {
-			if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->GetProjectileBoundingBoxByIndex(x))) {
+		for (size_t x = 0; x < weapon->pistol->GetProjectilesSize(); x++) {
+			if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->pistol->GetProjectileBoundingBoxByIndex(x))) {
 				//std::cout << "HITTT!1!1";
-				weapon->RemoveProjectileByIndex(x);
+				weapon->pistol->RemoveProjectileByIndex(x);
 				enemies[i]->takeDamage(15);
 
 				if (enemies[i]->getHealth() <= 0) {
@@ -179,10 +174,6 @@ void Engine::ScreenGame::Render()
 	//Render Background
 	backgroundSprite->Draw();
 	
-	//Render Weapon and Bullet
-	weapon->Render();
-	pistol->Render();
-
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Render();
@@ -191,6 +182,8 @@ void Engine::ScreenGame::Render()
 	//Render Player
 	player->Render();
 	
+	//Render Weapon and Bullet
+	weapon->Render();
 
 }
 

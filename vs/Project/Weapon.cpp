@@ -1,14 +1,10 @@
 #include "Weapon.h"
-#include "../../../../backup/Projekt/Projekt-Geming/vs/Project/Projectile.h"
+//#include "../../../../backup/Projekt/Projekt-Geming/vs/Project/Projectile.h"
 
 Engine::Weapon::Weapon(Game* game, Player* player)
 {
 	this->game = game;
 	this->player = player;
-	this->totalAmmo = 12;
-	this->currentAmmo = 12;
-	this->reloadTime = 1;
-	this->fireRate = 1;
 }
 
 Engine::Weapon::~Weapon()
@@ -17,27 +13,37 @@ Engine::Weapon::~Weapon()
 
 void Engine::Weapon::Init()
 {
-	//Bullet Sprite
-	textureBullet = new Texture("bullet.png");
+	// W E A P O N  L I S T \\
+	//Pistol Init
+	pistol = new Pistol(game);
+	pistol->Init();
+
+	//Weapon Sound
+	sound = new Sound("pistol-shot.ogg");
+	sound->SetVolume(100);
+
+	//Simple GUI Info
+	ammoText = new Text("lucon.ttf", 24, game->defaultTextShader);
+	ammoText->SetScale(1.0f);
+	ammoText->SetColor(255, 255, 255);
+	
 }
 
 void Engine::Weapon::Update()
 {
+	pistol->Update();
+	pistol->SetPosition(playerPos.x, playerPos.y);
 	Fire();
+
+	//Text Info
+	ammoText->SetText(std::to_string(pistol->GetCurrentAmmo()));
+	ammoText->SetPosition(playerPos.x, playerPos.y + 100);
 }
 
 void Engine::Weapon::Render()
 {
-	//Render Bullet
-	for (size_t i = 0; i < projectiles.size(); i++) {
-		projectiles[i]->sprite->Draw();
-		if (projectiles[i]->sprite->GetPosition().x > game->setting->screenWidth ||
-			projectiles[i]->sprite->GetPosition().y > game->setting->screenHeight ||
-			projectiles[i]->sprite->GetPosition().x < 0 ||
-			projectiles[i]->sprite->GetPosition().y < 0) {
-			projectiles.erase(projectiles.begin() + i);
-		}
-	}
+	pistol->Render();
+	ammoText->Draw();
 }
 
 void Engine::Weapon::Fire()
@@ -50,8 +56,7 @@ void Engine::Weapon::Fire()
 	}
 
 	//Ingput Calkulason
-	float x = player->GetPosition().x;
-	float y = player->GetPosition().y;
+	playerPos = player->GetPosition();
 
 	//Wolk
 	float velocity = 0.15f;
@@ -67,7 +72,7 @@ void Engine::Weapon::Fire()
 	int mouseY = mousePos.y + characterOffSet.y;
 
 	vec2 mouseWorldPos = { mouseX, 768 - mouseY };
-	vec2 dir = { mouseWorldPos.x - x, mouseWorldPos.y - y };
+	vec2 dir = { mouseWorldPos.x - playerPos.x, mouseWorldPos.y - playerPos.y };
 
 	// Normalize the direction vector
 	float length = sqrt(dir.x * dir.x + dir.y * dir.y);
@@ -75,7 +80,22 @@ void Engine::Weapon::Fire()
 	dir.y /= length;
 
 	// Calculate the aim angle
-	float aimAngle = atan2(dir.y, dir.x) * 180 / M_PI;
+	aimAngle = atan2(dir.y, dir.x) * 180 / M_PI;
+
+	//Setting rotation for both Player and Weapon Sprite
+	if (aimAngle > 90 || aimAngle < -90) {
+		pistol->SetFlipVertical(true);
+		player->SetFlipHorizontal(false);
+	}
+	else {
+		pistol->SetFlipVertical(false);
+		player->SetFlipHorizontal(true);
+	}
+
+	pistol->SetRotation(aimAngle);
+
+	//Debug aimANgle
+	//std::cout << aimAngle << "\n";
 
 	// Update the aim direction
 	vec2 aimDir = dir;
@@ -84,53 +104,10 @@ void Engine::Weapon::Fire()
 	//std::cout << mouseX << " " << 768 - mouseY << "\n";
 
 	//Fire Management
-	if (game->inputManager->IsKeyPressed("Fire") && duration >= 400) {
-		//Bullet Sprite
-		spriteBullet = new Sprite(textureBullet, game->defaultSpriteShader, game->defaultQuad);
-
-		spriteBullet->SetNumXFrames(1);
-		spriteBullet->SetNumYFrames(1);
-		spriteBullet->AddAnimation("default", 0, 0);
-
-		spriteBullet->PlayAnim("default");
-		spriteBullet->SetScale(0.05);
-		spriteBullet->SetAnimationDuration(100);
-
-		//Set Bounding Box
-		spriteBullet->SetBoundingBoxSize(spriteBullet->GetScaleWidth() - (16 * spriteBullet->GetScale()) - 40,
-			spriteBullet->GetScaleHeight() - (4 * spriteBullet->GetScale()));
-
-		proj = new Projectile(spriteBullet, game);
-		proj->sprite->SetPosition(x + 42, y + 18);
-		aimDirNow = aimDir;
-		proj->setCurrVelo(aimDirNow.x, aimDirNow.y);
-		proj->sprite->Update(game->GetGameTime());
-
-		projectiles.push_back(proj);
-
-		duration = 0;
-	}
-
-	for (size_t i = 0; i < projectiles.size(); i++) {
-		projectiles[i]->sprite->SetPosition(projectiles[i]->sprite->GetPosition().x + projectiles[i]->currVelo.x * bulletSpeed, projectiles[i]->sprite->GetPosition().y + projectiles[i]->currVelo.y * bulletSpeed);
-
-	}
+	pistol->Fire(playerPos, aimDir);
+	
 }
 
-int Engine::Weapon::GetProjectilesSize()
-{
-	return projectiles.size();
-}
-
-void Engine::Weapon::RemoveProjectileByIndex(int i)
-{
-	projectiles.erase(projectiles.begin() + i);
-}
-
-Engine::BoundingBox* Engine::Weapon::GetProjectileBoundingBoxByIndex(int i)
-{
-	return projectiles[i]->sprite->GetBoundingBox();
-}
 
 
 

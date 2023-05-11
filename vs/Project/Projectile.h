@@ -11,28 +11,32 @@
 namespace Engine {
 	class Projectile {
 	public:
+		Projectile(Game* game);
+		
+		//Basic Function
+		void Init();
+		void Update();
+		void Render();
+
+		//Setter Getter for it's Sprite
+		void SetPosition(float x, float y);
+		vec2 GetPosition();
+
+		BoundingBox* GetBoundingBox();
+
+		void setCurrVelo(float x, float y);
+		vec2 getCurrVelo();
+	private:
+		Engine::Game* game = NULL;
+
 		vec2 position;
 		vec2 direction;
 		vec2 currVelo;
 		float speed;
 
-		Engine::Sprite* sprite = NULL;
-
-		Projectile(Engine::Sprite* spriteBullet, Game* game) {
-			this->game = game;
-			this->sprite = spriteBullet;
-			currVelo = { 0,0 };
-		}
-
-		void setCurrVelo(float x, float y) {
-			currVelo = { x,y };
-		}
-
-		vec2 getCurrVelo() {
-			return currVelo;
-		}
-	private:
-		Engine::Game* game = NULL;
+		//Bullet Texture
+		Engine::Texture* textureBullet = NULL;
+		Engine::Sprite* spriteBullet = NULL;
 	};
 }
 

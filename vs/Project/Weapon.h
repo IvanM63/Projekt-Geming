@@ -4,14 +4,19 @@
 #include <Windows.h>
 #include "Texture.h"
 #include "Sprite.h"
+#include "Sound.h"
+#include "Text.h"
 #include "Game.h"
+
 #include "Projectile.h"
 #include "Player.h"
-
+#include "Pistol.h"
 
 namespace Engine {
 
+    //Semua Include yang di dalemnya ada Game.h harus di Forward Declaration di Sini..
     class Player;
+    class Pistol;
 
     class Weapon {
     public:
@@ -25,30 +30,17 @@ namespace Engine {
 
         void Fire();
 
-        //Projectile Setter Getter
-        int GetProjectilesSize();
-        void RemoveProjectileByIndex(int i);
-        BoundingBox* GetProjectileBoundingBoxByIndex(int i);
-
-        Engine::Texture* texture = NULL;
-        Engine::Sprite* sprite = NULL;
-
+        //Weapon List
+        Pistol* pistol = NULL;
     protected:
         Engine::Game* game = NULL;
+        
+        //Player Attach
         Player* player = NULL;
+        vec2 playerPos = { 0,0 };
 
-        int totalAmmo, currentAmmo;
-        int reloadTime;
-        int fireRate;
-        int damage;
-
-        //Bullet Texture
-        Engine::Texture* textureBullet = NULL;
-        Engine::Sprite* spriteBullet = NULL;
-
-        std::vector<Projectile*> projectiles;
-        Projectile* proj = NULL;
-        float bulletSpeed = 10.5f;
+        //Pistol Sound
+        Sound* sound = NULL;
 
         //Hitbox Debug
         bool isDebug;
@@ -62,10 +54,12 @@ namespace Engine {
         POINT mousePos;
 
         vec2 characterOffSet = { 42, 18 };
-        vec2 aimDirNow = { 0,0 };
+        float aimAngle = 0;
 
         unsigned int duration = 0;
 
+        //Text Info
+        Text* ammoText = NULL;
     };
 }
 

@@ -6,7 +6,11 @@
 #include "Sprite.h"
 #include "Game.h"
 
+#include "Projectile.h"
+
 namespace Engine {
+
+	class Projectile;
 
 	class Pistol {
 	public:
@@ -18,8 +22,28 @@ namespace Engine {
 		void Update();
 		void Render();
 
+		//Setter Getter for its own Sprite (Pistol Sprite)
+		void SetPosition(float x, float y);
+		void SetRotation(float degree);
+		void SetFlipVertical(bool tf);
+
+		//Setter Getter Projectile
+		int GetProjectilesSize();
+		void RemoveProjectileByIndex(int i);
+		BoundingBox* GetProjectileBoundingBoxByIndex(int i);
+
+		//Setter Getter Ammo
+		int GetCurrentAmmo();
+
+		//Funtion for Shooting Mechanic
+		void ReduceBulletInChamberByOne();
+		void Fire(vec2 playerPos, vec2 aimDir);
+		void Reload();
+
 	protected:
 		Engine::Game* game = NULL;
+
+		Projectile* projectile = NULL;
 
 		//Basic Stat
 		int totalAmmo, currentAmmo;
@@ -31,7 +55,18 @@ namespace Engine {
 		Engine::Texture* texturePistol = NULL;
 		Engine::Sprite* spritePistol = NULL;
 
+		//Bullet Texture
+		Engine::Texture* textureBullet = NULL;
+		Engine::Sprite* spriteBullet = NULL;
+
+		std::vector<Projectile*> projectiles;
+		Projectile* proj = NULL;
 		float bulletSpeed = 10.5f;
+
+		unsigned int duration = 0;
+		bool isReload = false;
+		int currentReloadTime;
+
 	};
 }
 

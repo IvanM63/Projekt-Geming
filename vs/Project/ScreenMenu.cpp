@@ -31,12 +31,10 @@ void Engine::ScreenMenu::Init()
 
 	//Create Buttons
 	Button* playButton = new Button(playSprite, "play");
-	playButton->SetPosition((game->setting->screenWidth / 2) - (playSprite->GetScaleWidth() / 2),
-		400);
+	playButton->SetPosition(100, 350);
 	buttons.push_back(playButton);
 	Button* exitButton = new Button(exitSprite, "exit");
-	exitButton->SetPosition((game->setting->screenWidth / 2) - (exitSprite->GetScaleWidth() / 2),
-		250);
+	exitButton->SetPosition(100, 250);
 	buttons.push_back(exitButton);
 
 	// Set play button into active button
@@ -45,8 +43,8 @@ void Engine::ScreenMenu::Init()
 
 	// Create Text
 	text = new Text("8-bit Arcade In.ttf", 100, game->defaultTextShader);
-	text->SetText("The Spawning Turtle");
-	text->SetPosition(60, game->setting->screenHeight - 100);
+	text->SetText("Game Jombi-Jombian");
+	text->SetPosition(325, game->setting->screenHeight - 100);
 	text->SetColor(235, 229, 52);
 
 	// Add input mappings

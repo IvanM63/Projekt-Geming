@@ -45,6 +45,21 @@ int Engine::BaseCharacter::getHealth()
 	return health;
 }
 
+void Engine::BaseCharacter::SetRotation(float degree)
+{
+	sprite->SetRotation(degree);
+}
+
+void Engine::BaseCharacter::SetFlipVertical(bool tf)
+{
+	sprite->SetFlipVertical(tf);
+}
+
+void Engine::BaseCharacter::SetFlipHorizontal(bool tf)
+{
+	sprite->SetFlipHorizontal(tf);
+}
+
 void Engine::BaseCharacter::SetPosition(float x, float y)
 {
 	sprite->SetPosition(x, y);

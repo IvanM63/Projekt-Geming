@@ -13,7 +13,6 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "Weapon.h"
-#include "Pistol.h"
 
 #include <set>
 #include <queue>
@@ -24,7 +23,6 @@ namespace Engine {
 	class Enemy;
 	class Player;
 	class Weapon;
-	class Pistol;
 
 	class ScreenGame : public Screen {
 	public:
@@ -42,7 +40,6 @@ namespace Engine {
 	private:
 		//Weapon Objek
 		Weapon* weapon = NULL;
-		Pistol* pistol = NULL;
 
 		//Player Object TESTING
 		Player* player = NULL;

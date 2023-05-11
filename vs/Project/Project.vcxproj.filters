@@ -235,5 +235,8 @@
     <Image Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Pistol.png">
       <Filter>Assets\Weapon\Pistol</Filter>
     </Image>
+    <Image Include="turtles.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
 </Project>

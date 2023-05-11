@@ -27,6 +27,9 @@ namespace Engine {
         int getHealth();
 
         //Setter Getter Sprite-nya
+        void SetRotation(float degree);
+        void SetFlipVertical(bool tf);
+        void SetFlipHorizontal(bool tf);
         void SetPosition(float x, float y);
         vec2 GetPosition();
         void move(vec2 location);

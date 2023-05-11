@@ -36,7 +36,6 @@ SDL_Window* Engine::Game::getWindows()
 	return windowz;
 }
 
-
 mat4 Game::CreateDefaultProjection()
 {
 	return ortho(0.0f, static_cast<GLfloat>(setting->screenWidth), 0.0f, static_cast<GLfloat>(setting->screenHeight), -1.0f, 1.0f);
