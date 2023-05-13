@@ -229,5 +229,20 @@ void Engine::Sprite::SetBoundingBoxSize(float w, float h)
 	boundingBoxSize.y = h;
 }
 
+vec2 Engine::Sprite::GetBoundingBoxCenter()
+{
+	float x_sum = 0, y_sum = 0;
+
+	for (int i = 0; i < 4; i++) {
+		x_sum += boundingBox->vertices[i].x;
+		y_sum += boundingBox->vertices[i].y;
+	}
+
+	float center_x = x_sum / 4;
+	float center_y = y_sum / 4;
+
+	return vec2(center_x, center_y);
+}
+
 
 

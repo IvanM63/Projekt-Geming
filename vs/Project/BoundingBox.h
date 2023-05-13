@@ -15,8 +15,9 @@ namespace Engine {
 		bool CollideWith(BoundingBox* other);
 		void SetVertices(vec2 p1, vec2 p2, vec2 p3, vec2 p4);
 		RectVertexArray GetVertices();
-	private:
 		RectVertexArray vertices;
+	private:
+		
 	};
 }
 

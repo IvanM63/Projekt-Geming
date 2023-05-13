@@ -163,6 +163,7 @@
     <ClInclude Include="Main.h" />
     <ClInclude Include="Pistol.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Rifle.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenGame.h" />
     <ClInclude Include="ScreenMenu.h" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Weapon.h" />
+    <ClInclude Include="WeaponManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.cpp" />
@@ -196,6 +198,7 @@
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Quad.cpp" />
     <ClCompile Include="BoundingBox.cpp" />
+    <ClCompile Include="Rifle.cpp" />
     <ClCompile Include="SATCollision.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenGame.cpp" />
@@ -210,6 +213,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="WeaponManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Pistol.png" />

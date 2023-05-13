@@ -4,63 +4,65 @@
 #include <Windows.h>
 #include "Texture.h"
 #include "Sprite.h"
-#include "Sound.h"
-#include "Text.h"
-#include "Game.h"
-
-#include "Projectile.h"
-#include "Player.h"
-#include "Pistol.h"
 
 namespace Engine {
 
-    //Semua Include yang di dalemnya ada Game.h harus di Forward Declaration di Sini..
-    class Player;
-    class Pistol;
+	class Game;
 
-    class Weapon {
-    public:
-        Weapon(Game* game, Player* player);
-        ~Weapon();
+	class Weapon {
+	public:
+		Weapon(Game* game);
+		~Weapon();
 
-        //Basic Function
-        virtual void Init();
-        virtual void Update();
-        virtual void Render();
+		//Basic Function
+		virtual void Init();
+		virtual void Update();
+		virtual void Render();
 
-        void Fire();
+		//Setter Getter
+		int GetDamage();
 
-        //Weapon List
-        Pistol* pistol = NULL;
-    protected:
-        Engine::Game* game = NULL;
-        
-        //Player Attach
-        Player* player = NULL;
-        vec2 playerPos = { 0,0 };
+		//Basic Function for Projectile
+		virtual void UpdateProjectiles();
+		virtual void RenderProjectiles();
 
-        //Pistol Sound
-        Sound* sound = NULL;
+		//Setter Getter for its own Sprite (Weapon Sprite)
+		void SetPosition(float x, float y);
+		void SetRotation(float degree);
+		void SetFlipVertical(bool tf);
 
-        //Hitbox Debug
-        bool isDebug;
-        Texture* dotTexture = NULL;
-        Sprite* dotSprite1 = NULL;
-        Sprite* dotSprite2 = NULL;
-        Sprite* dotSprite3 = NULL;
-        Sprite* dotSprite4 = NULL;
+		//Setter Getter Ammo
+		int GetCurrentAmmo();
 
-        // Get the mouse position in screen coordinates
-        POINT mousePos;
+		virtual int GetProjectilesSize();
+		virtual BoundingBox* GetProjectileBoundingBoxByIndex(int i);
+		virtual vec2 GetProjectilePositionByIndex(int i);
+		virtual void RemoveProjectileByIndex(int i);
 
-        vec2 characterOffSet = { 42, 18 };
-        float aimAngle = 0;
+		//Funtion for Shooting Mechanic
+		void ReduceBulletInChamberByOne();
+		virtual void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative);
+		
+	protected:
+		Engine::Game* game = NULL;
 
-        unsigned int duration = 0;
+		//Basic Stat
+		int totalAmmo, currentAmmo;
+		int reloadTime;
+		int fireRate;
+		int damage;
 
-        //Text Info
-        Text* ammoText = NULL;
-    };
+		//Accuracy Purpose
+		float accuracy = 0.0f; //0 Perfect, 1 Inaccurate
+		float MAX_ACCURACY_OFFSET = 0.2f; //to 0.2 to represent a maximum deviation of 20% of the total distance
+
+		//Pistol Texture and Sprite
+		Engine::Texture* textureWeapon = NULL;
+		Engine::Sprite* spriteWeapon = NULL;
+		
+		
+	};
 }
+
 
 #endif

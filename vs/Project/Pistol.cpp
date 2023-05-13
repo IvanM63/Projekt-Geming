@@ -1,13 +1,21 @@
 #include "Pistol.h"
 
-Engine::Pistol::Pistol(Game* game)
+Engine::Pistol::Pistol(Game* game) : Weapon(game)
 {
 	this->game = game;
+
+	//Ammmo Purpose
 	this->totalAmmo = 12;
 	this->currentAmmo = 12;
-	this->reloadTime = 2000; //2000 berart 2 detik
-	this->fireRate = 1;
+	
+	//DPS Purpose
+	this->fireRate = 200; //Normal 400
 	this->damage = 20;
+	this->reloadTime = 2000; //2000 berart 2 detik
+
+	//Accuracy Purpose
+	accuracy = 0.1f; //0 Perfect, 1 Inaccurate
+	MAX_ACCURACY_OFFSET = 0.2f; //to 0.2 to represent a maximum deviation of 20% of the total distance
 }
 
 Engine::Pistol::~Pistol()
@@ -16,22 +24,22 @@ Engine::Pistol::~Pistol()
 
 void Engine::Pistol::Init()
 {
-	texturePistol = new Texture("Pistol.png");
-	spritePistol = new Sprite(texturePistol, game->defaultSpriteShader, game->defaultQuad);
+	textureWeapon = new Texture("Pistol.png");
+	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
 
-	spritePistol->SetNumXFrames(4);
-	spritePistol->SetNumYFrames(2);
-	spritePistol->AddAnimation("idle", 0, 0);
-	spritePistol->AddAnimation("fire", 4, 7);
+	spriteWeapon->SetNumXFrames(4);
+	spriteWeapon->SetNumYFrames(2);
+	spriteWeapon->AddAnimation("idle", 0, 0);
+	spriteWeapon->AddAnimation("fire", 4, 7);
 	
-	spritePistol->PlayAnim("idle");
-	spritePistol->SetScale(0.75);
-	spritePistol->SetAnimationDuration(75);
+	spriteWeapon->PlayAnim("idle");
+	spriteWeapon->SetScale(0.75);
+	spriteWeapon->SetAnimationDuration(75);
 
 	//Rotation Tes
-	spritePistol->SetRotation(30);
+	spriteWeapon->SetRotation(30);
 
-	spritePistol->SetPosition(300, 300);
+	spriteWeapon->SetPosition(300, 300);
 
 }
 
@@ -39,13 +47,13 @@ void Engine::Pistol::Update()
 {
 	duration += game->GetGameTime();
 
-	spritePistol->Update(game->GetGameTime());
+	spriteWeapon->Update(game->GetGameTime());
 
 	if (game->inputManager->IsKeyPressed("Fire") && !isReload) {
-		spritePistol->PlayAnim("fire");
+		spriteWeapon->PlayAnim("fire");
 	}
 	else {
-		spritePistol->PlayAnim("idle");
+		spriteWeapon->PlayAnim("idle");
 	}
 
 	if (game->inputManager->IsKeyPressed("Reload") && currentAmmo < totalAmmo) {
@@ -55,8 +63,20 @@ void Engine::Pistol::Update()
 
 void Engine::Pistol::Render()
 {
-	spritePistol->Draw();
+	spriteWeapon->Draw();
 
+}
+
+void Engine::Pistol::UpdateProjectiles()
+{
+	for (size_t i = 0; i < projectiles.size(); i++) {
+		projectiles[i]->SetPosition(projectiles[i]->GetPosition().x + projectiles[i]->getCurrVelo().x * bulletSpeed, projectiles[i]->GetPosition().y + projectiles[i]->getCurrVelo().y * bulletSpeed);
+		projectiles[i]->Update();
+	}
+}
+
+void Engine::Pistol::RenderProjectiles()
+{
 	//Render Bullet
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->Render();
@@ -67,22 +87,6 @@ void Engine::Pistol::Render()
 			projectiles.erase(projectiles.begin() + i);
 		}
 	}
-}
-
-void Engine::Pistol::SetPosition(float x, float y)
-{
-	spritePistol->SetPosition(x, y);
-}
-
-void Engine::Pistol::SetRotation(float degree)
-{
-	spritePistol->SetRotation(degree);
-
-}
-
-void Engine::Pistol::SetFlipVertical(bool tf)
-{
-	spritePistol->SetFlipVertical(tf);
 }
 
 int Engine::Pistol::GetProjectilesSize()
@@ -100,47 +104,45 @@ Engine::BoundingBox* Engine::Pistol::GetProjectileBoundingBoxByIndex(int i)
 	return projectiles[i]->GetBoundingBox();
 }
 
-int Engine::Pistol::GetCurrentAmmo()
+vec2 Engine::Pistol::GetProjectilePositionByIndex(int i)
 {
-	return currentAmmo;
+	return projectiles[i]->GetPosition();
 }
 
-void Engine::Pistol::ReduceBulletInChamberByOne()
-{
-	this->currentAmmo -= 1;
-}
 
-void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir)
+void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative)
 {
 	//Fire Management
 	if (currentAmmo <= 0 || isReload) {
 		Reload();
 	}
 
-	if (game->inputManager->IsKeyPressed("Fire") && duration >= 400 && !isReload) {
+	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
+		//Play sound if nembak
 		//sound->Play(false);
+
+		//Calculate Accuracy		
+		float offset = accuracy * MAX_ACCURACY_OFFSET;
+		angleNoNegative += rand() * offset / RAND_MAX - offset / 2.0f;
+		aimDir = vec2(cos(angleNoNegative), sin(angleNoNegative));
+		aimDir = normalize(aimDir);
 
 		//Bullet Sprite
 		projectile = new Projectile(game);
 		projectile->Init();
-		
+
 		projectile->SetPosition(playerPos.x + 42, playerPos.y + 18);
-		vec2 aimDirNow = aimDir;
-		projectile->setCurrVelo(aimDirNow.x, aimDirNow.y);
+		projectile->setCurrVelo(aimDir.x, aimDir.y);
 
 		projectiles.push_back(projectile);
 
-		duration = 0;
-
 		ReduceBulletInChamberByOne();
 
-		std::cout << currentAmmo << "\n";
+		//Reset the duration
+		duration = 0;
 	}
 
-	for (size_t i = 0; i < projectiles.size(); i++) {
-		projectiles[i]->SetPosition(projectiles[i]->GetPosition().x + projectiles[i]->getCurrVelo().x * bulletSpeed, projectiles[i]->GetPosition().y + projectiles[i]->getCurrVelo().y * bulletSpeed);
-		projectiles[i]->Update();
-	}
+	
 }
 
 void Engine::Pistol::Reload()

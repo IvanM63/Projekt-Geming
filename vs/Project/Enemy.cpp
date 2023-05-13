@@ -25,8 +25,7 @@ void Engine::Enemy::Init()
 
 	//Set Bounding Box
 	//sprite->SetSize(150, 32);
-	sprite->SetBoundingBoxSize(sprite->GetScaleWidth() - (16 * sprite->GetScale()),
-		sprite->GetScaleHeight() - (4 * sprite->GetScale()));
+	sprite->SetBoundingBoxSize(sprite->GetScaleWidth()-100, sprite->GetScaleHeight()-20);
 
 	// This dot sprite is for visual debugging (to see the actual bounding box) 
 	dotTexture = new Texture("dot.png");
@@ -64,4 +63,51 @@ void Engine::Enemy::Render()
 		dotSprite4->Draw();
 	}
 
+}
+
+void Engine::Enemy::SetDirection(float x, float y)
+{
+	this->direction.x = x;
+	this->direction.y = y;
+}
+
+vec2 Engine::Enemy::GetDirection()
+{
+	return this->direction;
+}
+
+void Engine::Enemy::SetSpeed(float speed)
+{
+	this->speed = speed;
+}
+
+float Engine::Enemy::GetSpeed()
+{
+	return this->speed;
+}
+
+void Engine::Enemy::SetVelocity(float x, float y)
+{
+	this->velocity.x = x;
+	this->velocity.y = y;
+}
+
+vec2 Engine::Enemy::GetVelocity()
+{
+	return velocity;
+}
+
+void Engine::Enemy::MoveWithVelocity()
+{
+	sprite->SetPosition(sprite->GetPosition().x + velocity.x * game->deltaTime, sprite->GetPosition().y + velocity.y * game->deltaTime);
+}
+
+Engine::BoundingBox* Engine::Enemy::GetBoundingBox()
+{
+	return sprite->GetBoundingBox();
+}
+
+vec2 Engine::Enemy::GetBoundingBoxCenterPoint()
+{
+	return sprite->GetBoundingBoxCenter();
 }

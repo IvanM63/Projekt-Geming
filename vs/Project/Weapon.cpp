@@ -1,10 +1,14 @@
 #include "Weapon.h"
-//#include "../../../../backup/Projekt/Projekt-Geming/vs/Project/Projectile.h"
 
-Engine::Weapon::Weapon(Game* game, Player* player)
+Engine::Weapon::Weapon(Game* game)
 {
 	this->game = game;
-	this->player = player;
+
+	this->totalAmmo = 12;
+	this->currentAmmo = 12;
+	this->reloadTime = 2000; //2000 berart 2 detik
+	this->fireRate = 200; 
+	this->damage = 20;
 }
 
 Engine::Weapon::~Weapon()
@@ -13,104 +17,75 @@ Engine::Weapon::~Weapon()
 
 void Engine::Weapon::Init()
 {
-	// W E A P O N  L I S T \\
-	//Pistol Init
-	pistol = new Pistol(game);
-	pistol->Init();
-
-	//Weapon Sound
-	sound = new Sound("pistol-shot.ogg");
-	sound->SetVolume(100);
-
-	//Simple GUI Info
-	ammoText = new Text("lucon.ttf", 24, game->defaultTextShader);
-	ammoText->SetScale(1.0f);
-	ammoText->SetColor(255, 255, 255);
-	
 }
 
 void Engine::Weapon::Update()
 {
-	pistol->Update();
-	pistol->SetPosition(playerPos.x, playerPos.y);
-	Fire();
-
-	//Text Info
-	ammoText->SetText(std::to_string(pistol->GetCurrentAmmo()));
-	ammoText->SetPosition(playerPos.x, playerPos.y + 100);
 }
 
 void Engine::Weapon::Render()
 {
-	pistol->Render();
-	ammoText->Draw();
 }
 
-void Engine::Weapon::Fire()
+int Engine::Weapon::GetDamage()
 {
-	duration += game->GetGameTime();
-	if (duration >= 1000) {
-		//std::cout << mouseWorldPos.x;
-		//std::cout << playerPos.y;
-		duration = 0;
-	}
+	return damage;
+}
 
-	//Ingput Calkulason
-	playerPos = player->GetPosition();
+void Engine::Weapon::UpdateProjectiles()
+{
+}
 
-	//Wolk
-	float velocity = 0.15f;
+void Engine::Weapon::RenderProjectiles()
+{
+}
 
-	//Aiming With Mouse
-	GetCursorPos(&mousePos);
-	HWND windowHandle = FindWindow(NULL, "Jombi-Jombian");
+void Engine::Weapon::SetPosition(float x, float y)
+{
+	spriteWeapon->SetPosition(x, y);
+}
 
-	//Convert the mouse position to coordinates relative to the top-left corner of your game window
-	ScreenToClient(windowHandle, &mousePos);
+void Engine::Weapon::SetRotation(float degree)
+{
+	spriteWeapon->SetRotation(degree);
+}
 
-	int mouseX = mousePos.x - characterOffSet.x;
-	int mouseY = mousePos.y + characterOffSet.y;
+void Engine::Weapon::SetFlipVertical(bool tf)
+{
+	spriteWeapon->SetFlipVertical(tf);
+}
 
-	vec2 mouseWorldPos = { mouseX, 768 - mouseY };
-	vec2 dir = { mouseWorldPos.x - playerPos.x, mouseWorldPos.y - playerPos.y };
-
-	// Normalize the direction vector
-	float length = sqrt(dir.x * dir.x + dir.y * dir.y);
-	dir.x /= length;
-	dir.y /= length;
-
-	// Calculate the aim angle
-	aimAngle = atan2(dir.y, dir.x) * 180 / M_PI;
-
-	//Setting rotation for both Player and Weapon Sprite
-	if (aimAngle > 90 || aimAngle < -90) {
-		pistol->SetFlipVertical(true);
-		player->SetFlipHorizontal(false);
-	}
-	else {
-		pistol->SetFlipVertical(false);
-		player->SetFlipHorizontal(true);
-	}
-
-	pistol->SetRotation(aimAngle);
-
-	//Debug aimANgle
-	//std::cout << aimAngle << "\n";
-
-	// Update the aim direction
-	vec2 aimDir = dir;
-
-	//Debug Mouse Pos in X n Y
-	//std::cout << mouseX << " " << 768 - mouseY << "\n";
-
-	//Fire Management
-	pistol->Fire(playerPos, aimDir);
-	
+int Engine::Weapon::GetCurrentAmmo()
+{
+	return currentAmmo;
 }
 
 
 
+int Engine::Weapon::GetProjectilesSize()
+{
+	return 0;
+}
 
+Engine::BoundingBox* Engine::Weapon::GetProjectileBoundingBoxByIndex(int i)
+{
+	return 0;
+}
 
+vec2 Engine::Weapon::GetProjectilePositionByIndex(int i)
+{
+	return vec2(0);
+}
 
+void Engine::Weapon::RemoveProjectileByIndex(int i)
+{
+}
 
+void Engine::Weapon::ReduceBulletInChamberByOne()
+{
+	this->currentAmmo -= 1;
+}
+
+void Engine::Weapon::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative)
+{
+}

@@ -6,13 +6,14 @@
 #include "Sprite.h"
 #include "Game.h"
 
+#include "Weapon.h"
 #include "Projectile.h"
 
 namespace Engine {
 
 	class Projectile;
 
-	class Pistol {
+	class Pistol: public Weapon {
 	public:
 		Pistol(Game* game);
 		~Pistol();
@@ -22,45 +23,29 @@ namespace Engine {
 		void Update();
 		void Render();
 
-		//Setter Getter for its own Sprite (Pistol Sprite)
-		void SetPosition(float x, float y);
-		void SetRotation(float degree);
-		void SetFlipVertical(bool tf);
+		//Basic Function for Projectile
+		void UpdateProjectiles();
+		void RenderProjectiles();
 
 		//Setter Getter Projectile
 		int GetProjectilesSize();
 		void RemoveProjectileByIndex(int i);
 		BoundingBox* GetProjectileBoundingBoxByIndex(int i);
-
-		//Setter Getter Ammo
-		int GetCurrentAmmo();
+		vec2 GetProjectilePositionByIndex(int i);
 
 		//Funtion for Shooting Mechanic
-		void ReduceBulletInChamberByOne();
-		void Fire(vec2 playerPos, vec2 aimDir);
+		void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative);
 		void Reload();
 
 	protected:
 		Engine::Game* game = NULL;
-
-		Projectile* projectile = NULL;
-
-		//Basic Stat
-		int totalAmmo, currentAmmo;
-		int reloadTime;
-		int fireRate;
-		int damage;
-
-		//Pistol Texture and Sprite
-		Engine::Texture* texturePistol = NULL;
-		Engine::Sprite* spritePistol = NULL;
 
 		//Bullet Texture
 		Engine::Texture* textureBullet = NULL;
 		Engine::Sprite* spriteBullet = NULL;
 
 		std::vector<Projectile*> projectiles;
-		Projectile* proj = NULL;
+		Projectile* projectile = NULL;
 		float bulletSpeed = 10.5f;
 
 		unsigned int duration = 0;

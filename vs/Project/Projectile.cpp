@@ -3,7 +3,7 @@
 Engine::Projectile::Projectile(Game* game)
 {
 	this->game = game;
-	textureBullet = new Texture("bullet-pistol.png");
+	textureBullet = new Texture("Asset/Bullet/bullet-pistol.png");
 	currVelo = { 0,0 };
 }
 
@@ -17,7 +17,7 @@ void Engine::Projectile::Init()
 	spriteBullet->AddAnimation("default", 0, 3);
 
 	spriteBullet->PlayAnim("default");
-	spriteBullet->SetScale(2.5);
+	spriteBullet->SetScale(2.0);
 	spriteBullet->SetAnimationDuration(100);
 
 	//Set Bounding Box

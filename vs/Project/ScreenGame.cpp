@@ -3,19 +3,21 @@
 Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game, manager)
 {
 
-
 }
 
 
 
 void Engine::ScreenGame::Init()
 {
+	//Enemies
+	enemiesTexture = new Texture("Warrior_Sheet-Effect.png");
 	//PLayer Class
 	player = new Player(game);
 	player->Init();
+	player->SetPosition(game->setting->screenWidth / 2, game->setting->screenHeight / 2);
 
 	//Weapon Class
-	weapon = new Weapon(game, player);
+	weapon = new WeaponManager(game, player);
 	weapon->Init();
 
 	//Create background
@@ -26,7 +28,7 @@ void Engine::ScreenGame::Init()
 	//x = 980 || y = 720	
 
 	//___________Input Manajer_______________//
-	
+
 	//Wolk Lef
 	game->inputManager->AddInputMapping("walk-left", SDLK_LEFT);
 	game->inputManager->AddInputMapping("walk-left", SDL_CONTROLLER_BUTTON_DPAD_LEFT);
@@ -47,10 +49,13 @@ void Engine::ScreenGame::Init()
 	game->inputManager->AddInputMapping("Fire", SDL_BUTTON_LEFT);
 	//It's Reload time
 	game->inputManager->AddInputMapping("Reload", SDLK_r);
+	//Weapon Selection
+	game->inputManager->AddInputMapping("Pistol", SDLK_1);
+	game->inputManager->AddInputMapping("Rifle", SDLK_2);
 
 	//Set the background color
-	game->SetBackgroundColor(102, 195, 242);	
-
+	//game->SetBackgroundColor(102, 195, 242);
+	
 }
 
 void Engine::ScreenGame::Update()
@@ -60,6 +65,8 @@ void Engine::ScreenGame::Update()
 		game->state = State::EXIT;
 		return;
 	}
+
+	//std::cout << objectX << " " << objectY << "\n";
 
 	//Ingput Calkulason
 	float x = player->GetPosition().x;
@@ -110,70 +117,109 @@ void Engine::ScreenGame::Update()
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Update();
 
-		for (size_t x = 0; x < weapon->pistol->GetProjectilesSize(); x++) {
-			if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->pistol->GetProjectileBoundingBoxByIndex(x))) {
-				//std::cout << "HITTT!1!1";
-				weapon->pistol->RemoveProjectileByIndex(x);
-				enemies[i]->takeDamage(15);
+		for (size_t j = 0; j < weapon->weapons.size(); j++) {
+			for (size_t x = 0; x < weapon->weapons[j]->GetProjectilesSize(); x++) {
+				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->weapons[j]->GetProjectileBoundingBoxByIndex(x))) {
 
-				if (enemies[i]->getHealth() <= 0) {
-					enemies.erase(enemies.begin() + i);			
-					break;
-				}			
-			}
+					// Define knockback force
+					float KNOCKBACK_FORCE = 10.0f;
+
+					// Apply knockback force
+					vec2 knockbackDirection = normalize((enemies[i]->GetBoundingBoxCenterPoint() - weapon->weapons[j]->GetProjectilePositionByIndex(x)));
+					vec2 knockbackForce = knockbackDirection * KNOCKBACK_FORCE;
+					enemies[i]->SetPosition(enemies[i]->GetPosition().x + knockbackForce.x, enemies[i]->GetPosition().y + knockbackForce.y);
+
+					//std::cout << "HITTT!1!1";
+					weapon->weapons[j]->RemoveProjectileByIndex(x);
+					enemies[i]->takeDamage(weapon->weapons[j]->GetDamage());
+
+					if (enemies[i]->getHealth() <= 0) {
+						enemies.erase(enemies.begin() + i);
+						break;
+					}
+
+				
+				}
+			}			
 		}
+		
 	}
+	duration += game->GetGameTime();
 
+	//std::cout << duration<<"\n";
 	// FOr Debug
-	forDebug();
+	//forDebug();
 
 	//SUPER SIMPLE PATHFINDING FROM ENEMY TO PLAYER
-	for (size_t i = 0; i < enemies.size(); i++) {
+	for (auto i = 0; i < enemies.size(); i++) {
 		// Calculate the direction from the enemy to the player
 		vec2 direction = player->GetPosition() - enemies[i]->GetPosition();
+		
+		//std::cout << enemies[i]->GetDirection().x << "\n";
 		// Normalize the direction vector
 		float mag = sqrt(direction.x * direction.x + direction.y * direction.y);
 		direction.x /= mag;
 		direction.y /= mag;
 
 		float distance = mag;
-
+		
+		enemies[i]->SetDirection(direction.x, direction.y);
 		// If the player is moving, move the enemy towards the player at the specified speed
-		if (isPlayerMoving && distance > speedd * game->deltaTime) {
-			enemies[i]->move(direction * speedd * game->deltaTime);
+		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {
+
+			//AVOID COLLISION
+			/*for (int j = i + 1; j < enemies.size(); j++)
+			{
+				//Enemy* enemy1 = enemies[i];
+				//Enemy* enemy2 = enemies[j];
+
+				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(enemies[j]->sprite->GetBoundingBox()))
+				{
+					avoidCollision(enemies[i], enemies[j]);
+					avoidCollision(enemies[j], enemies[i]);
+					enemies[i]->move(enemies[i]->GetDirection()* enemies[i]->GetSpeed()* game->deltaTime);
+					enemies[j]->move(enemies[j]->GetDirection()* enemies[j]->GetSpeed()* game->deltaTime);
+				}
+			}*/
+			
+			enemies[i]->move(enemies[i]->GetDirection() * enemies[i]->GetSpeed() * game->deltaTime);
 		}
 	}
 
 	//std::cout << player->getHealth() << "\n";
 
 	//ENEMY SPAWN TESTING - RANDOM
-	if (enemies.size() < 3) {
+	if (enemies.size() < 15) {
 		// spawn enemy
-		int x = std::rand() % (game->setting->screenWidth + 200) - 200;
-		int y = std::rand() % (game->setting->screenHeight + 200) - 200;
+		int x = std::rand() % (game->setting->screenWidth + 50 * 2) - 50;
+		int y = std::rand() % (game->setting->screenHeight + 50 * 2) - 50;
 
 		// check if enemy is out of screen
 		if (x < 0 || x > game->setting->screenWidth || y < 0 || y > game->setting->screenHeight) {
-			std::cout << "Enemy spawned out of screen at (" << x << ", " << y << ")" << std::endl;
+			//std::cout << "Enemy spawned out of screen at (" << x << ", " << y << ")" << std::endl;
+
+			Enemy* e = new Enemy(game);
+			e->Init();
+			e->SetPosition(x, y);
+			e->setDebug(true);
+
+			enemies.push_back(e);
 		}
-		else {
+		/*else {
 			std::cout << "Enemy spawned at (" << x << ", " << y << ")" << std::endl;
-		}
-
-		Enemy* e = new Enemy(game);
-		e->Init();
-		e->SetPosition(x, y);
-		e->setDebug(true);
-
-		enemies.push_back(e);
+		}*/
 	}
+
+	//AVOID COLLISION
+	
+
 }
 
 void Engine::ScreenGame::Render()
 {
 	//Render Background
-	backgroundSprite->Draw();
-	
+	//backgroundSprite->Draw();
+
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Render();
@@ -181,7 +227,7 @@ void Engine::ScreenGame::Render()
 
 	//Render Player
 	player->Render();
-	
+
 	//Render Weapon and Bullet
 	weapon->Render();
 
@@ -189,12 +235,36 @@ void Engine::ScreenGame::Render()
 
 void Engine::ScreenGame::forDebug()
 {
-	duration += game->GetGameTime();
+	
 	if (duration >= 1000) {
 		//std::cout << mouseWorldPos.x;
 		//std::cout << playerPos.y;
 		duration = 0;
 	}
+}
+
+void Engine::ScreenGame::avoidCollision(Enemy* collidingEnemy, Enemy* otherEnemy)
+{
+	float collisionVectorX = otherEnemy->GetDirection().x - collidingEnemy->GetDirection().x;
+	float collisionVectorY = otherEnemy->GetDirection().y - collidingEnemy->GetDirection().y;
+
+	float perpendicularVectorX = -collisionVectorY;
+	float perpendicularVectorY = collisionVectorX;
+
+	float dotProduct = collidingEnemy->GetDirection().x * perpendicularVectorX + collidingEnemy->GetDirection().y * perpendicularVectorY;
+
+	float clearDirectionX = perpendicularVectorX;
+	float clearDirectionY = perpendicularVectorY;
+
+	if (dotProduct > 0) {
+		clearDirectionX *= -1;
+		clearDirectionY *= -1;
+	}
+
+	float clearDirectionLength = sqrtf(clearDirectionX * clearDirectionX + clearDirectionY * clearDirectionY);
+	//std::cout << clearDirectionX / clearDirectionLength * collidingEnemy->GetSpeed() << "\n";
+	vec2 todo = { clearDirectionX / clearDirectionLength * collidingEnemy->GetSpeed() , clearDirectionY / clearDirectionLength * collidingEnemy->GetSpeed() };
+	collidingEnemy->SetDirection(todo.x,todo.y);
 }
 
 

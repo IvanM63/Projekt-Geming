@@ -115,7 +115,7 @@ SDL_Window* Game::InitInternal()
 	//cbcb
 	windowz = window;
 
-
+	
 	if (window == nullptr) {
 		throw "Failed to create a window.";
 	}
@@ -144,6 +144,13 @@ SDL_Window* Game::InitInternal()
 	if (Mix_OpenAudio(audio_rate, audio_format, audio_channels, audio_buffers) != 0) {
 		throw ("Unable to initialize audio: " + string(Mix_GetError()));
 	}
+
+	// Create a renderer
+	renderer = SDL_CreateRenderer(window, -1, 0);
+
+	// Set the renderer color to black
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
 
 	defaultProjection = CreateDefaultProjection();
 	defaultSpriteShader = CreateDefaultSpriteShader();

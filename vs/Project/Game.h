@@ -42,7 +42,7 @@ namespace Engine {
 		float GetGameTime();
 		State state;
 
-		
+		SDL_Renderer* renderer = NULL;
 	protected:
 		
 		unsigned int currentFrameRate = 0;

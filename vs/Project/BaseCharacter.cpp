@@ -4,7 +4,7 @@ Engine::BaseCharacter::BaseCharacter(Game* game)
 {
 	this->game = game;
 	this->health = 100;
-	this->isDebug = false;
+	this->isDebug = true;
 }
 
 Engine::BaseCharacter::~BaseCharacter()

@@ -44,7 +44,9 @@ namespace Engine {
 		vec2 GetPosition();
 		vec2 GetRotatedPoint(float x, float y);
 		void SetBoundingBoxSize(float w, float h);
+		vec2 GetBoundingBoxCenter();
 		BoundingBox* boundingBox;
+		
 	private:
 		
 		vec4 min;

@@ -50,6 +50,12 @@
     <Filter Include="Assets\Weapon\Pistol">
       <UniqueIdentifier>{db253c80-2141-47ac-8948-98fd4fb8204e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Weapon System\Bullet">
+      <UniqueIdentifier>{ad030ea7-5a20-47bb-bf36-082564642ff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon System\Rifle">
+      <UniqueIdentifier>{f95f0204-4bf1-4d06-ad50-64a776789398}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="sprite.frag">
@@ -84,10 +90,7 @@
     <ClInclude Include="Player.h">
       <Filter>BaseCharacter\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Weapon System</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
+    <ClInclude Include="WeaponManager.h">
       <Filter>Weapon System</Filter>
     </ClInclude>
     <ClInclude Include="BoundingBox.h">
@@ -147,6 +150,15 @@
     <ClInclude Include="Pistol.h">
       <Filter>Weapon System\Pistol</Filter>
     </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Weapon System\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Weapon System</Filter>
+    </ClInclude>
+    <ClInclude Include="Rifle.h">
+      <Filter>Weapon System\Rifle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -164,10 +176,7 @@
     <ClCompile Include="BaseCharacter.cpp">
       <Filter>BaseCharacter</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Weapon System</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
+    <ClCompile Include="WeaponManager.cpp">
       <Filter>Weapon System</Filter>
     </ClCompile>
     <ClCompile Include="BoundingBox.cpp">
@@ -230,6 +239,13 @@
     <ClCompile Include="Pistol.cpp">
       <Filter>Weapon System\Pistol</Filter>
     </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Weapon System\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Weapon System</Filter>
+    </ClCompile>
+    <ClCompile Include="Rifle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Pistol.png">
