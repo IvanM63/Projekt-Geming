@@ -34,7 +34,7 @@ namespace Engine {
 		vec2 GetProjectilePositionByIndex(int i);
 
 		//Funtion for Shooting Mechanic
-		void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative);
+		void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle);
 		void Reload();
 
 	protected:

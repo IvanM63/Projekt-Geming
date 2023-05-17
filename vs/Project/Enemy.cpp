@@ -2,6 +2,7 @@
 
 Engine::Enemy::Enemy(Game* game) : BaseCharacter(game)
 {
+	
 }
 
 Engine::Enemy::~Enemy()
@@ -11,13 +12,15 @@ Engine::Enemy::~Enemy()
 
 void Engine::Enemy::Init()
 {
-	//Definition
-	texture = new Texture("Warrior_Sheet-Effect.png");
+	//Definition Sprite
+	texture = new Texture("Asset/Enemy/Zombie.png");
 	sprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
 
-	sprite->SetNumXFrames(6);
-	sprite->SetNumYFrames(17);
-	sprite->AddAnimation("moving", 6, 13);
+	sprite->SetNumXFrames(13);
+	sprite->SetNumYFrames(6);
+	sprite->AddAnimation("moving", 26, 33);
+	sprite->AddAnimation("idle", 0, 7);
+	sprite->AddAnimation("attack", 13, 19);
 
 	sprite->PlayAnim("moving");
 	sprite->SetScale(2);
@@ -33,6 +36,17 @@ void Engine::Enemy::Init()
 	dotSprite2 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
 	dotSprite3 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
 	dotSprite4 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
+
+	isDebug = false;
+
+	//Enemy Stat Init()
+	//Health
+	maxHealth = 120;
+	currentHealth = maxHealth;
+	//DPS
+	int fireRate = 500;
+	int currentFireRate = fireRate;
+
 }
 
 void Engine::Enemy::Update()
@@ -40,16 +54,25 @@ void Engine::Enemy::Update()
 	sprite->Update(game->GetGameTime());
 
 	//Shape for debug
-	BoundingBox* bb = sprite->GetBoundingBox();
-	dotSprite1->SetPosition(bb->GetVertices()[0].x - (0.5f * dotSprite1->GetScaleWidth()),
-		bb->GetVertices()[0].y - (0.5f * dotSprite1->GetScaleHeight()));
-	dotSprite2->SetPosition(bb->GetVertices()[1].x - (0.5f * dotSprite2->GetScaleWidth()),
-		bb->GetVertices()[1].y - (0.5f * dotSprite2->GetScaleHeight()));
-	dotSprite3->SetPosition(bb->GetVertices()[2].x - (0.5f * dotSprite3->GetScaleWidth()),
-		bb->GetVertices()[2].y - (0.5f * dotSprite3->GetScaleHeight()));
-	dotSprite4->SetPosition(bb->GetVertices()[3].x - (0.5f * dotSprite4->GetScaleWidth()),
-		bb->GetVertices()[3].y - (0.5f * dotSprite3->GetScaleHeight()));
+	if (isDebug) {
+		BoundingBox* bb = sprite->GetBoundingBox();
+		dotSprite1->SetPosition(bb->GetVertices()[0].x - (0.5f * dotSprite1->GetScaleWidth()),
+			bb->GetVertices()[0].y - (0.5f * dotSprite1->GetScaleHeight()));
+		dotSprite2->SetPosition(bb->GetVertices()[1].x - (0.5f * dotSprite2->GetScaleWidth()),
+			bb->GetVertices()[1].y - (0.5f * dotSprite2->GetScaleHeight()));
+		dotSprite3->SetPosition(bb->GetVertices()[2].x - (0.5f * dotSprite3->GetScaleWidth()),
+			bb->GetVertices()[2].y - (0.5f * dotSprite3->GetScaleHeight()));
+		dotSprite4->SetPosition(bb->GetVertices()[3].x - (0.5f * dotSprite4->GetScaleWidth()),
+			bb->GetVertices()[3].y - (0.5f * dotSprite3->GetScaleHeight()));
+	}
+	
 
+	//CalcFireRate
+	if (currentFireRate >= fireRate) {
+		currentFireRate = 0;
+	}
+
+	currentFireRate += game->deltaTime;
 }
 
 void Engine::Enemy::Render()
@@ -110,4 +133,15 @@ Engine::BoundingBox* Engine::Enemy::GetBoundingBox()
 vec2 Engine::Enemy::GetBoundingBoxCenterPoint()
 {
 	return sprite->GetBoundingBoxCenter();
+}
+
+int Engine::Enemy::GetDamage()
+{
+	if (currentFireRate >= fireRate) {
+		currentFireRate = 0;
+		return damage;
+	}
+	else {
+		return 0;
+	}
 }

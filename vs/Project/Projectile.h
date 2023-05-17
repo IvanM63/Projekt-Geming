@@ -5,11 +5,13 @@
 #include "Texture.h"
 #include "Sprite.h"
 #include "Game.h"
+#include "BaseBullet.h"
+
 #include <Windows.h>
 #include <math.h>
 
 namespace Engine {
-	class Projectile {
+	class Projectile: public BaseBullet {
 	public:
 		Projectile(Game* game);
 		

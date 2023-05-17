@@ -1,6 +1,6 @@
 #include "Projectile.h"
 
-Engine::Projectile::Projectile(Game* game)
+Engine::Projectile::Projectile(Game* game) : BaseBullet(game)
 {
 	this->game = game;
 	textureBullet = new Texture("Asset/Bullet/bullet-pistol.png");

@@ -20,3 +20,8 @@ RectVertexArray Engine::BoundingBox::GetVertices()
 	return vertices;
 }
 
+void Engine::BoundingBox::UpdateVertices()
+{
+	
+}
+

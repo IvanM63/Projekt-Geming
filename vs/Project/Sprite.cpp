@@ -174,9 +174,16 @@ vec2 Engine::Sprite::GetPosition()
 mat4 Sprite::CreateTransform()
 {
 	mat4 transform = mat4();
-	// Translate Sprite
+	// Translate Sprite 
+	
 	float x = position.x;
 	float y = position.y;
+
+	if (!isBoundToCamera) {
+		x += shader->cameraPos.x;
+		y += shader->cameraPos.y;
+	}
+
 	float w = GetScaleWidth(), h = GetScaleHeight();
 	transform = translate(transform, vec3(x, y, 0.0f));
 	// Rotate sprite at center
@@ -242,6 +249,11 @@ vec2 Engine::Sprite::GetBoundingBoxCenter()
 	float center_y = y_sum / 4;
 
 	return vec2(center_x, center_y);
+}
+
+void Engine::Sprite::SetBoundToCamera(bool tr)
+{
+	isBoundToCamera = tr;
 }
 
 

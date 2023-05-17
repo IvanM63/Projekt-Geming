@@ -26,6 +26,9 @@ namespace Engine {
 		void setFloat(float i, string str);
 		void setMat4(mat4 mat, string str);
 		void setVec3(vec3 data, string str);
+
+		//Camera Tes
+		vec2 cameraPos = { 0,0 };
 		
 	private:
 		string vertexPath, fragmentPath;

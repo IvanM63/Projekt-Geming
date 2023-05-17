@@ -30,8 +30,8 @@ void Engine::Text::SetText(string text)
 
 void Engine::Text::Draw()
 {
-	float x = position.x;
-	float y = position.y;
+	float x = position.x + shader->cameraPos.x;
+	float y = position.y + shader->cameraPos.y;
 
 	// Activate corresponding render state
 	glEnable(GL_BLEND);

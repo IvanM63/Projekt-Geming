@@ -31,6 +31,7 @@ void Engine::Main::Render()
 
 
 int main(int argc, char** argv) {
+
 	Engine::Setting* setting = new Engine::Setting();
 	setting->windowTitle = "Jombi-Jombian";
 	setting->screenWidth = 1366;

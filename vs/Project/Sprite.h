@@ -6,11 +6,13 @@
 #include "Texture.h"
 #include "Quad.h"
 #include "BoundingBox.h"
+#include "Camera.h"
 #include <GLM/gtc/matrix_transform.hpp>
 
 using namespace glm;
 
 namespace Engine {
+
 	struct AnimData {
 		string name;
 		int startFrameIndex, endFrameIndex;
@@ -47,6 +49,8 @@ namespace Engine {
 		vec2 GetBoundingBoxCenter();
 		BoundingBox* boundingBox;
 		
+		bool isBoundToCamera = false;
+		void SetBoundToCamera(bool tr);
 	private:
 		
 		vec4 min;

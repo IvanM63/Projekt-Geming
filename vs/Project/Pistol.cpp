@@ -9,9 +9,9 @@ Engine::Pistol::Pistol(Game* game) : Weapon(game)
 	this->currentAmmo = 12;
 	
 	//DPS Purpose
-	this->fireRate = 200; //Normal 400
-	this->damage = 20;
-	this->reloadTime = 2000; //2000 berart 2 detik
+	this->fireRate = 400; //Normal 400
+	this->damage = 25;
+	this->reloadTime = 1500; //2000 berart 2 detik
 
 	//Accuracy Purpose
 	accuracy = 0.1f; //0 Perfect, 1 Inaccurate
@@ -35,6 +35,8 @@ void Engine::Pistol::Init()
 	spriteWeapon->PlayAnim("idle");
 	spriteWeapon->SetScale(0.75);
 	spriteWeapon->SetAnimationDuration(75);
+
+	spriteWeapon->SetBoundToCamera(false);
 
 	//Rotation Tes
 	spriteWeapon->SetRotation(30);
@@ -80,10 +82,10 @@ void Engine::Pistol::RenderProjectiles()
 	//Render Bullet
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->Render();
-		if (projectiles[i]->GetPosition().x > game->setting->screenWidth ||
-			projectiles[i]->GetPosition().y > game->setting->screenHeight ||
-			projectiles[i]->GetPosition().x < 0 ||
-			projectiles[i]->GetPosition().y < 0) {
+		if (projectiles[i]->GetPosition().x > game->setting->screenWidth - game->defaultSpriteShader->cameraPos.x ||
+			projectiles[i]->GetPosition().y > game->setting->screenHeight - game->defaultSpriteShader->cameraPos.y ||
+			projectiles[i]->GetPosition().x < -game->defaultSpriteShader->cameraPos.x ||
+			projectiles[i]->GetPosition().y < -game->defaultSpriteShader->cameraPos.y) {
 			projectiles.erase(projectiles.begin() + i);
 		}
 	}
@@ -110,7 +112,7 @@ vec2 Engine::Pistol::GetProjectilePositionByIndex(int i)
 }
 
 
-void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative)
+void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle)
 {
 	//Fire Management
 	if (currentAmmo <= 0 || isReload) {

@@ -11,6 +11,7 @@
 #include "Input.h"
 #include <GLM/gtc/matrix_transform.hpp>
 #include "ScreenManager.h"
+//#include "Sprite.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ namespace Engine {
 
 	//Forward Declaration
 	class ScreenManager;
-	
+
 	class Game
 	{
 	public:

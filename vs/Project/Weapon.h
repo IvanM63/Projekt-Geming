@@ -41,7 +41,7 @@ namespace Engine {
 
 		//Funtion for Shooting Mechanic
 		void ReduceBulletInChamberByOne();
-		virtual void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative);
+		virtual void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle);
 		
 	protected:
 		Engine::Game* game = NULL;

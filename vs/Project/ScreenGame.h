@@ -16,6 +16,7 @@
 
 #include <set>
 #include <queue>
+#include <thread>
 
 namespace Engine {
 
@@ -100,8 +101,6 @@ namespace Engine {
 
 		vec2 characterOffSet = { 42, 18 };
 		vec2 aimDirNow = { 0,0 };
-
-
 
 	};
 

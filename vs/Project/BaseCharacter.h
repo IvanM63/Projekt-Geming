@@ -23,7 +23,7 @@ namespace Engine {
         void takeDamage(int damage);
 
         //Setter Getter this variable
-        void setHealth(int health);
+        void setHealth(int maxHealth);
         int getHealth();
 
         //Setter Getter Sprite-nya
@@ -45,7 +45,7 @@ namespace Engine {
         Engine::Game* game = NULL;
 
         //Hitbox Debug
-        bool isDebug;
+        bool isDebug = false;
         Texture* dotTexture = NULL;
         Sprite* dotSprite1 = NULL;
         Sprite* dotSprite2 = NULL;
@@ -53,7 +53,7 @@ namespace Engine {
         Sprite* dotSprite4 = NULL;
 
         //This chara Stat
-        int health;
+        int maxHealth, currentHealth;
         int damage;
 
     };

@@ -3,8 +3,9 @@
 Engine::BaseCharacter::BaseCharacter(Game* game)
 {
 	this->game = game;
-	this->health = 100;
-	this->isDebug = true;
+	this->maxHealth = 100;
+	this->currentHealth = maxHealth;
+	//this->isDebug = true;
 }
 
 Engine::BaseCharacter::~BaseCharacter()
@@ -32,17 +33,17 @@ void Engine::BaseCharacter::attack()
 
 void Engine::BaseCharacter::takeDamage(int damage)
 {
-	this->health = this->health - damage;
+	this->currentHealth = this->currentHealth - damage;
 }
 
-void Engine::BaseCharacter::setHealth(int health)
+void Engine::BaseCharacter::setHealth(int maxHealth)
 {
-	this->health = health;
+	this->maxHealth = maxHealth;
 }
 
 int Engine::BaseCharacter::getHealth()
 {
-	return health;
+	return currentHealth;
 }
 
 void Engine::BaseCharacter::SetRotation(float degree)

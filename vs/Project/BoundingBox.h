@@ -4,6 +4,7 @@
 #include <GLM/glm.hpp>
 #include <array>
 #include "SATCollision.h"
+#include "Shader.h"
 
 using namespace glm;
 using namespace std;
@@ -12,10 +13,14 @@ using RectVertexArray = array<vec2, 4>;
 namespace Engine {
 	class BoundingBox {
 	public:
+		//BoundingBox(Shader* game);
+
 		bool CollideWith(BoundingBox* other);
 		void SetVertices(vec2 p1, vec2 p2, vec2 p3, vec2 p4);
 		RectVertexArray GetVertices();
 		RectVertexArray vertices;
+
+		void UpdateVertices();
 	private:
 		
 	};

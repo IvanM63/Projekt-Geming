@@ -9,13 +9,14 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
+	
 	//Enemies
 	enemiesTexture = new Texture("Warrior_Sheet-Effect.png");
 	//PLayer Class
 	player = new Player(game);
 	player->Init();
-	player->SetPosition(game->setting->screenWidth / 2, game->setting->screenHeight / 2);
-
+	player->SetPosition(game->setting->screenWidth / 2 - 50, game->setting->screenHeight / 2);
+	
 	//Weapon Class
 	weapon = new WeaponManager(game, player);
 	weapon->Init();
@@ -23,7 +24,8 @@ void Engine::ScreenGame::Init()
 	//Create background
 	Texture* bgTexture = new Texture("0.png");
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
-	backgroundSprite->SetSize(game->setting->screenWidth, game->setting->screenHeight);
+	backgroundSprite->SetSize(game->setting->screenWidth+750, game->setting->screenHeight+750);
+	backgroundSprite->SetPosition(-200, 0);
 
 	//x = 980 || y = 720	
 
@@ -87,6 +89,7 @@ void Engine::ScreenGame::Update()
 		//player->sprite->SetFlipHorizontal(true);
 		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
+		game->defaultSpriteShader->cameraPos.x -= velocity * game->GetGameTime();
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-left")) {
@@ -94,6 +97,7 @@ void Engine::ScreenGame::Update()
 		//player->sprite->SetFlipHorizontal(false);
 		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
+		game->defaultSpriteShader->cameraPos.x += velocity * game->GetGameTime();
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-up")) {
@@ -101,6 +105,7 @@ void Engine::ScreenGame::Update()
 		//sprite2->SetFlipHorizontal(true);
 		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
+		game->defaultSpriteShader->cameraPos.y -= velocity * game->GetGameTime();
 	}
 
 	if (game->inputManager->IsKeyPressed("walk-down")) {
@@ -108,6 +113,7 @@ void Engine::ScreenGame::Update()
 		//sprite2->SetFlipHorizontal(true);
 		player->sprite->PlayAnim("walk");
 		isPlayerMoving = true;
+		game->defaultSpriteShader->cameraPos.y += velocity * game->GetGameTime();
 	}
 
 	player->sprite->SetPosition(x, y);
@@ -144,11 +150,23 @@ void Engine::ScreenGame::Update()
 		}
 		
 	}
+
+	//Collision Enemy -> player
+	for (size_t i = 0; i < enemies.size(); i++) {
+		if (enemies[i]->sprite->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
+			//std::cout << "HIT";
+			player->takeDamage(enemies[i]->GetDamage());
+
+			//PLay enemies anim
+			//enemies[i]->sprite->PlayAnim("attack");
+		}
+	}
+
 	duration += game->GetGameTime();
 
 	//std::cout << duration<<"\n";
 	// FOr Debug
-	//forDebug();
+	forDebug();
 
 	//SUPER SIMPLE PATHFINDING FROM ENEMY TO PLAYER
 	for (auto i = 0; i < enemies.size(); i++) {
@@ -164,6 +182,17 @@ void Engine::ScreenGame::Update()
 		float distance = mag;
 		
 		enemies[i]->SetDirection(direction.x, direction.y);
+
+		float rawAimAngle = atan2(direction.y, direction.x) * 180 / M_PI;
+
+		//Setting rotation for Enemies
+		if (rawAimAngle > 90 || rawAimAngle < -90) {
+			enemies[i]->SetFlipHorizontal(true);
+		}
+		else {
+			enemies[i]->SetFlipHorizontal(false);
+		}
+
 		// If the player is moving, move the enemy towards the player at the specified speed
 		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {
 
@@ -201,7 +230,7 @@ void Engine::ScreenGame::Update()
 			Enemy* e = new Enemy(game);
 			e->Init();
 			e->SetPosition(x, y);
-			e->setDebug(true);
+			e->setDebug(false);
 
 			enemies.push_back(e);
 		}
@@ -210,8 +239,8 @@ void Engine::ScreenGame::Update()
 		}*/
 	}
 
-	//AVOID COLLISION
-	
+	//SCREEN SHAKE
+
 
 }
 

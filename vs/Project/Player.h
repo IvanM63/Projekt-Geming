@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include "Texture.h"
 #include "Sprite.h"
+#include "Text.h"
 #include "Game.h"
 #include "BaseCharacter.h"
 
@@ -19,7 +20,11 @@ namespace Engine {
         virtual void Render();
 
     protected:
+        Text* healthText = NULL;
 
+        //Invs
+        bool isInvs = false;
+        int invsTime, currentInvsTime;
     };
 }
 

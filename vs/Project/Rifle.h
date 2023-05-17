@@ -7,11 +7,11 @@
 #include "Game.h"
 
 #include "Weapon.h"
-#include "Projectile.h"
+#include "BulletRifle.h"
 
 namespace Engine {
 
-	class Projectile;
+	class BulletRifle;
 
 	class Rifle : public Weapon {
 	public:
@@ -34,7 +34,7 @@ namespace Engine {
 		vec2 GetProjectilePositionByIndex(int i);
 
 		//Funtion for Shooting Mechanic
-		void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative);
+		void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle);
 		void Reload();
 
 	protected:
@@ -44,9 +44,9 @@ namespace Engine {
 		Engine::Texture* textureBullet = NULL;
 		Engine::Sprite* spriteBullet = NULL;
 
-		std::vector<Projectile*> projectiles; 
-		Projectile* projectile = NULL;
-		float bulletSpeed = 18.5f;
+		std::vector<BulletRifle*> projectiles; 
+		BulletRifle* projectile = NULL;
+		float bulletSpeed = 20.0f;
 
 		unsigned int duration = 0;
 		bool isReload = false;

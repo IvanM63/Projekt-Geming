@@ -79,10 +79,10 @@ void Engine::Rifle::RenderProjectiles()
 	//Render Bullet
 	for (size_t i = 0; i < projectiles.size(); i++) {
 		projectiles[i]->Render();
-		if (projectiles[i]->GetPosition().x > game->setting->screenWidth ||
-			projectiles[i]->GetPosition().y > game->setting->screenHeight ||
-			projectiles[i]->GetPosition().x < 0 ||
-			projectiles[i]->GetPosition().y < 0) {
+		if (projectiles[i]->GetPosition().x > game->setting->screenWidth - game->defaultSpriteShader->cameraPos.x||
+			projectiles[i]->GetPosition().y > game->setting->screenHeight - game->defaultSpriteShader->cameraPos.y||
+			projectiles[i]->GetPosition().x < -game->defaultSpriteShader->cameraPos.x ||
+			projectiles[i]->GetPosition().y < -game->defaultSpriteShader->cameraPos.y) {
 			projectiles.erase(projectiles.begin() + i);
 		}
 	}
@@ -110,11 +110,11 @@ vec2 Engine::Rifle::GetProjectilePositionByIndex(int i)
 	return projectiles[i]->GetPosition();
 }
 
-void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative)
+void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle)
 {
 	//Fire Management
 	if (currentAmmo <= 0 || isReload) {
-		Reload();
+		//Reload();
 	}
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
@@ -128,9 +128,10 @@ void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative)
 		aimDir = normalize(aimDir);
 
 		//Bullet Sprite
-		projectile = new Projectile(game);
+		projectile = new BulletRifle(game);
 		projectile->Init();
 
+		projectile->spriteBullet->SetRotation(rawAimAngle);
 		projectile->SetPosition(playerPos.x + 42, playerPos.y + 18);
 		projectile->setCurrVelo(aimDir.x, aimDir.y);
 

@@ -155,8 +155,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.h" />
+    <ClInclude Include="BaseBullet.h" />
     <ClInclude Include="BaseCharacter.h" />
+    <ClInclude Include="BulletRifle.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Input.h" />
@@ -186,7 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.cpp" />
+    <ClCompile Include="BaseBullet.cpp" />
     <ClCompile Include="BaseCharacter.cpp" />
+    <ClCompile Include="BulletRifle.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />

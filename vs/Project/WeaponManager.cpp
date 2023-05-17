@@ -15,13 +15,12 @@ void Engine::WeaponManager::Init()
 	// W E A P O N  L I S T \\
 	//Weapon Init (Pistol, Rifle)
 	pistol = new Pistol(game);
-	
 	pistol->Init();
 
 	rifle = new Rifle(game);
 	rifle->Init();
 
-	activeWeapon = rifle;
+	activeWeapon = pistol;
 
 	weapons.push_back(pistol);
 	weapons.push_back(rifle);
@@ -43,6 +42,8 @@ void Engine::WeaponManager::Init()
 	spriteCrosshair->PlayAnim("idle");
 	spriteCrosshair->SetScale(0.1);
 	spriteCrosshair->SetAnimationDuration(100);
+
+	spriteCrosshair->SetBoundToCamera(true);
 
 	//Text
 	ammoText = new Text("lucon.ttf", 24, game->defaultTextShader);
@@ -74,7 +75,7 @@ void Engine::WeaponManager::Update()
 
 	//Text Info
 	ammoText->SetText(std::to_string(activeWeapon->GetCurrentAmmo()));
-	ammoText->SetPosition(playerPos.x, playerPos.y + 100);
+	ammoText->SetPosition(game->setting->screenWidth/2, game->setting->screenHeight/2 +100);
 
 	
 }
@@ -98,12 +99,7 @@ void Engine::WeaponManager::Render()
 void Engine::WeaponManager::Fire(Weapon* weapon)
 {
 	duration += game->GetGameTime();
-	if (duration >= 1000) {
-		//std::cout << mouseWorldPos.x;
-		//std::cout << playerPos.y;
-		duration = 0;
-	}
-
+	
 	//Ingput Calkulason
 	playerPos = player->GetPosition();
 
@@ -120,10 +116,20 @@ void Engine::WeaponManager::Fire(Weapon* weapon)
 	//Offset normal  x = -15 y = 755
 
 	vec2 mouseWorldPos = { mouseX-15, 755 - mouseY };
-	vec2 aimDir = { mouseWorldPos.x - playerPos.x, mouseWorldPos.y - playerPos.y };
+
+	//std::cout << mouseWorldPos.x << " " << mouseWorldPos.y << "\n";
+
+	//vec2 aimDir = { mouseWorldPos.x - playerPos.x, mouseWorldPos.y - playerPos.y };
+	vec2 aimDir = { mouseWorldPos.x - 683 + 50, mouseWorldPos.y - 384 };
 
 	//CrosshairPos
-	spriteCrosshair->SetPosition(mouseWorldPos.x, mouseWorldPos.y);
+	spriteCrosshair->SetPosition(mouseWorldPos.x +30, mouseWorldPos.y);
+
+	if (duration >= 1000) {
+		//std::cout << playerPos.x << playerPos.y<<"\n";
+		//std::cout << playerPos.y;
+		duration = 0;
+	}
 
 	//Calculate for angle no negative number for calculate accuracy and recoil
 	//this variable doesn't used to calculate weapon sprite rotation
@@ -162,7 +168,7 @@ void Engine::WeaponManager::Fire(Weapon* weapon)
 	//std::cout << mouseX << " " << 768 - mouseY << "\n";
 
 	//Fire Management
-	weapon->Fire(playerPos, aimDir, angleNoNegative);
+	weapon->Fire(playerPos, aimDir, angleNoNegative, rawAimAngle);
 	
 }
 

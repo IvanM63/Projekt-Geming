@@ -8,7 +8,7 @@
 #include "Text.h"
 #include "Game.h"
 
-#include "Projectile.h"
+//#include "Projectile.h"
 #include "Player.h"
 #include "Pistol.h"
 #include "Rifle.h"

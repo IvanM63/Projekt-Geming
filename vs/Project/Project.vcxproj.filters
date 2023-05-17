@@ -159,6 +159,13 @@
     <ClInclude Include="Rifle.h">
       <Filter>Weapon System\Rifle</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="BulletRifle.h">
+      <Filter>Weapon System\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseBullet.h">
+      <Filter>Weapon System\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -245,7 +252,15 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>Weapon System</Filter>
     </ClCompile>
-    <ClCompile Include="Rifle.cpp" />
+    <ClCompile Include="Rifle.cpp">
+      <Filter>Weapon System\Rifle</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletRifle.cpp">
+      <Filter>Weapon System\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseBullet.cpp">
+      <Filter>Weapon System\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Pistol.png">

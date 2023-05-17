@@ -86,6 +86,6 @@ void Engine::Weapon::ReduceBulletInChamberByOne()
 	this->currentAmmo -= 1;
 }
 
-void Engine::Weapon::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative)
+void Engine::Weapon::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle)
 {
 }
