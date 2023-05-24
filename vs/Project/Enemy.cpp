@@ -23,7 +23,7 @@ void Engine::Enemy::Init()
 	sprite->AddAnimation("attack", 13, 19);
 
 	sprite->PlayAnim("moving");
-	sprite->SetScale(2);
+	sprite->SetScale(2.75);
 	sprite->SetAnimationDuration(100);
 
 	//Set Bounding Box

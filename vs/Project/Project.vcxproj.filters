@@ -56,6 +56,9 @@
     <Filter Include="Weapon System\Rifle">
       <UniqueIdentifier>{f95f0204-4bf1-4d06-ad50-64a776789398}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Wave System">
+      <UniqueIdentifier>{b33cb13d-44e6-4f8a-a605-3b00b538fc4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="sprite.frag">
@@ -166,6 +169,9 @@
     <ClInclude Include="BaseBullet.h">
       <Filter>Weapon System\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Wave.h">
+      <Filter>Wave System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -260,6 +266,9 @@
     </ClCompile>
     <ClCompile Include="BaseBullet.cpp">
       <Filter>Weapon System\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Wave.cpp">
+      <Filter>Wave System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

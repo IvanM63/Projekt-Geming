@@ -52,6 +52,25 @@ void Engine::Sprite::Update(float deltaTime)
 	}
 }
 
+void Engine::Sprite::UpdateStop(float deltaTime)
+{
+	int n = GetTotalFrames();
+	if (!enableAnimation || currentAnim == NULL || n == 1)
+		return;
+
+	frameDuration += deltaTime;
+
+	if (frameDuration >= maxFrameDuration) {
+		frameDuration = 0;
+		frameIndex = (frameIndex < currentAnim->startFrameIndex || frameIndex >= currentAnim->endFrameIndex) ? currentAnim->startFrameIndex : frameIndex + 1;
+	
+		if (frameIndex == currentAnim->endFrameIndex) {
+			SetEnableAnimation(false);
+			return;
+		}
+	}
+}
+
 void Engine::Sprite::AddAnimation(string name, int startFrameIndex, int endFrameIndex)
 {
 	AnimData* a = new AnimData();
@@ -187,9 +206,9 @@ mat4 Sprite::CreateTransform()
 	float w = GetScaleWidth(), h = GetScaleHeight();
 	transform = translate(transform, vec3(x, y, 0.0f));
 	// Rotate sprite at center
-	transform = translate(transform, vec3(0.5f * w, 0.5f * h, 0.0f));
+	transform = translate(transform, vec3(0.5f * w + centerX, 0.5f * h + centerY, 0.0f));
 	transform = rotate(transform, radians(degree), vec3(0.0f, 0.0f, 1.0f));
-	transform = translate(transform, vec3(-0.5f * w, -0.5f * h, 0.0f));
+	transform = translate(transform, vec3(-0.5f * w - centerX, -0.5f * h - centerY, 0.0f));
 	// Scale sprite
 	float sx = flipHorizontal ? -1 : 1;
 	float sy = flipVertical ? -1 : 1;
@@ -249,6 +268,16 @@ vec2 Engine::Sprite::GetBoundingBoxCenter()
 	float center_y = y_sum / 4;
 
 	return vec2(center_x, center_y);
+}
+
+bool Engine::Sprite::isSpriteLastFrame()
+{
+
+	if (frameIndex == currentAnim->endFrameIndex) {
+		return true;
+	}
+
+	return false;
 }
 
 void Engine::Sprite::SetBoundToCamera(bool tr)

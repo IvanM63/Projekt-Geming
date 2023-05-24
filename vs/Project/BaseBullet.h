@@ -24,10 +24,16 @@ namespace Engine {
 		void SetPosition(float x, float y);
 		vec2 GetPosition();
 
+		void BulletHit();
+
 		BoundingBox* GetBoundingBox();
 
 		void setCurrVelo(float x, float y);
 		vec2 getCurrVelo();
+
+		//Bullet Impact
+		Engine::Texture* textureImpact = NULL;
+		Engine::Sprite* spriteImpact = NULL;
 	private:
 		Engine::Game* game = NULL;
 
@@ -39,6 +45,9 @@ namespace Engine {
 		//Bullet Texture
 		Engine::Texture* textureBullet = NULL;
 		Engine::Sprite* spriteBullet = NULL;
+
+	protected:
+		bool isHit = false;
 	};
 }
 

@@ -52,6 +52,8 @@ namespace Engine {
 		bool isReload = false;
 		int currentReloadTime;
 
+		int fireAnimTime = 400;
+
 	};
 }
 

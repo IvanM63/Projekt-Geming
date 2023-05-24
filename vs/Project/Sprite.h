@@ -25,6 +25,7 @@ namespace Engine {
 		~Sprite();
 		void Draw();
 		void Update(float deltaTime);
+		void UpdateStop(float deltaTime);
 		void AddAnimation(string name, int startFrameIndex, int endFrameIndex);
 		void PlayAnim(string name);
 		void SetFlipHorizontal(bool flipHorizontal);
@@ -48,9 +49,17 @@ namespace Engine {
 		void SetBoundingBoxSize(float w, float h);
 		vec2 GetBoundingBoxCenter();
 		BoundingBox* boundingBox;
+
+		bool isSpriteLastFrame();
 		
 		bool isBoundToCamera = false;
 		void SetBoundToCamera(bool tr);
+		AnimData* currentAnim = NULL;
+
+		float centerX = 0;
+		float centerY = 0;
+
+		int frameIndex = 0;
 	private:
 		
 		vec4 min;
@@ -59,13 +68,13 @@ namespace Engine {
 		Texture* texture;
 		float width = 0, height = 0, s = 1, degree = 0, frameDuration = 0, maxFrameDuration = 80;
 		bool flipHorizontal = false, flipVertical = false, enableAnimation = false;
-		int numXFrames = 1, numYFrames = 1, frameIndex = 0;
+		int numXFrames = 1, numYFrames = 1;
 		mat4 CreateTransform();
 		void UpdateShaderData();
 		AnimData* GetAnimData(string name);
 		vec2 position, boundingBoxSize;
 		vector<AnimData*> animationData;
-		AnimData* currentAnim = NULL;
+		
 		
 	};
 }

@@ -40,6 +40,10 @@ vec2 Engine::BaseBullet::GetPosition()
 	return spriteBullet->GetPosition();
 }
 
+void Engine::BaseBullet::BulletHit()
+{
+}
+
 Engine::BoundingBox* Engine::BaseBullet::GetBoundingBox()
 {
 	return spriteBullet->GetBoundingBox();

@@ -10,7 +10,7 @@ Engine::Rifle::Rifle(Game* game) : Weapon(game)
 
 	//DPS Purpose
 	this->reloadTime = 2000; //2000 berart 2 detik
-	this->fireRate = 100; //Normal 400
+	this->fireRate = 200; //Normal 400
 	this->damage = 15;
 
 	//Accuracy Purpose
@@ -24,22 +24,29 @@ Engine::Rifle::~Rifle()
 
 void Engine::Rifle::Init()
 {
-	textureWeapon = new Texture("Pistol.png");
+	textureWeapon = new Texture("Asset/Weapon/Rifle/Rifle_12F_Single.png");
 	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
 
-	spriteWeapon->SetNumXFrames(4);
-	spriteWeapon->SetNumYFrames(2);
+	spriteWeapon->SetNumXFrames(12);
+	spriteWeapon->SetNumYFrames(1);
 	spriteWeapon->AddAnimation("idle", 0, 0);
-	spriteWeapon->AddAnimation("fire", 4, 7);
+	spriteWeapon->AddAnimation("fire", 0, 11);
 
 	spriteWeapon->PlayAnim("idle");
-	spriteWeapon->SetScale(0.75);
-	spriteWeapon->SetAnimationDuration(75);
+	spriteWeapon->SetScale(1.25);
+	spriteWeapon->SetAnimationDuration(12);
 
 	//Rotation Tes
 	spriteWeapon->SetRotation(30);
-
+	spriteWeapon->centerX = -25;
 	spriteWeapon->SetPosition(300, 300);
+
+	// This dot sprite is for visual debugging (to see the actual bounding box) 
+	dotTexture = new Texture("dot.png");
+	dotSprite1 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
+	dotSprite2 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
+	dotSprite3 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
+	dotSprite4 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
 
 }
 
@@ -51,19 +58,46 @@ void Engine::Rifle::Update()
 
 	if (game->inputManager->IsKeyPressed("Fire") && !isReload) {
 		spriteWeapon->PlayAnim("fire");
+		fireAnimTime = 0;
 	}
 	else {
+		
+	}
+	fireAnimTime += game->GetGameTime();
+	//std::cout << fireAnimTime << "\n";
+	if (fireAnimTime > 64) {
 		spriteWeapon->PlayAnim("idle");
+		fireAnimTime = 64;
 	}
 
 	if (game->inputManager->IsKeyPressed("Reload") && currentAmmo < totalAmmo) {
 		Reload();
+	}
+
+	//Shape for debug
+	if (isDebug) {
+		BoundingBox* bb = spriteWeapon->GetBoundingBox();
+		dotSprite1->SetPosition(bb->GetVertices()[0].x - (0.5f * dotSprite1->GetScaleWidth()),
+			bb->GetVertices()[0].y - (0.5f * dotSprite1->GetScaleHeight()));
+		dotSprite2->SetPosition(bb->GetVertices()[1].x - (0.5f * dotSprite2->GetScaleWidth()),
+			bb->GetVertices()[1].y - (0.5f * dotSprite2->GetScaleHeight()));
+		dotSprite3->SetPosition(bb->GetVertices()[2].x - (0.5f * dotSprite3->GetScaleWidth()),
+			bb->GetVertices()[2].y - (0.5f * dotSprite3->GetScaleHeight()));
+		dotSprite4->SetPosition(bb->GetVertices()[3].x - (0.5f * dotSprite4->GetScaleWidth()),
+			bb->GetVertices()[3].y - (0.5f * dotSprite3->GetScaleHeight()));
 	}
 }
 
 void Engine::Rifle::Render()
 {
 	spriteWeapon->Draw();
+
+	if (isDebug) {
+		dotSprite1->Draw();
+		dotSprite2->Draw();
+		dotSprite3->Draw();
+		dotSprite4->Draw();
+	}
 }
 
 void Engine::Rifle::UpdateProjectiles()
@@ -116,6 +150,8 @@ void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, flo
 	if (currentAmmo <= 0 || isReload) {
 		//Reload();
 	}
+
+	//if (game->inputManager->PressKey()
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
 		//Play sound if nembak

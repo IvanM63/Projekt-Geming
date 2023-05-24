@@ -1,13 +1,19 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  ScreenGame.cpp
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(18,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(18,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(27,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(27,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(127,25): warning C4018: '<': signed/unsigned mismatch
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(165,31): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(172,21): warning C4018: '<': signed/unsigned mismatch
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(186,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(232,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\ScreenGame.cpp(232,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  WeaponManager.cpp
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(43,31): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(78,84): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(78,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(101,31): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(113,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(114,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(138,30): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\WeaponManager.cpp(142,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Project.vcxproj -> D:\Backup\F\Kuli Ah\Semester 6\Pemrograman Gim\Projekt\Projekt-Geming\vs\Project\Project_debug.exe

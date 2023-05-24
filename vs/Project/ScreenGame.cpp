@@ -9,9 +9,53 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
-	
+	//Wave System
+	wave = new Wave(this->game);
+
+	//Impact Effect
+	textureImpact = new Texture("Asset/Weapon/Impact/impact01.png");
+	spriteImpact = new Sprite(textureImpact, game->defaultSpriteShader, game->defaultQuad);
+	spriteImpact->SetNumXFrames(5);
+	spriteImpact->SetNumYFrames(1);
+	spriteImpact->AddAnimation("default", 0, 4);
+	spriteImpact->PlayAnim("default");
+	spriteImpact->SetScale(1);
+	spriteImpact->SetAnimationDuration(150);
+
+	//UI SECTION
+	textureHP = new Texture("Asset/UI/Health/HealthBar.png");
+	spriteHP = new Sprite(textureHP, game->defaultSpriteShader, game->defaultQuad);
+
+	spriteHP->SetNumXFrames(1);
+	spriteHP->SetNumYFrames(1);
+	spriteHP->AddAnimation("default", 0, 0);
+	spriteHP->PlayAnim("default");
+	spriteHP->SetScale(2.5);
+	spriteHP->SetAnimationDuration(30);
+	spriteHP->SetPosition(30, 650);
+	spriteHP->SetBoundToCamera(true);
+
+	//Text
+	enemiesLeftText = new Text("lucon.ttf", 24, game->defaultTextShader);
+	enemiesLeftText->SetScale(1.0f);
+	enemiesLeftText->SetColor(255, 255, 255);
+	enemiesLeftText->SetPosition(10, game->setting->screenHeight - 150);
+
+	//Wave Text
+	waveText = new Text("lucon.ttf", 24, game->defaultTextShader);
+	waveText->SetScale(1.0f);
+	waveText->SetColor(255, 255, 255);
+	waveText->SetPosition(game->setting->screenWidth/2, game->setting->screenHeight - 50);
+
+	//Cooin Text
+	coinText = new Text("lucon.ttf", 24, game->defaultTextShader);
+	coinText->SetScale(1.0f);
+	coinText->SetColor(255, 255, 255);
+	coinText->SetPosition(game->setting->screenWidth - 200, game->setting->screenHeight - 50);
+
 	//Enemies
 	enemiesTexture = new Texture("Warrior_Sheet-Effect.png");
+
 	//PLayer Class
 	player = new Player(game);
 	player->Init();
@@ -68,6 +112,20 @@ void Engine::ScreenGame::Update()
 		return;
 	}
 
+	//Wave System
+	if (wave->GetSpawnStatus()) {
+		enemies = wave->SpawnEnemies();
+		//wave->WaveStart();
+	}
+	
+	wave->Update();
+
+	//Update UI
+	spriteHP->Update(game->GetGameTime());
+	enemiesLeftText->SetText("Enemies : " + std::to_string(enemies.size()));
+	waveText->SetText("Wave | " + std::to_string(wave->GetCurrentWave()));
+	coinText->SetText("Coin : " + std::to_string(coin));
+
 	//std::cout << objectX << " " << objectY << "\n";
 
 	//Ingput Calkulason
@@ -75,7 +133,7 @@ void Engine::ScreenGame::Update()
 	float y = player->GetPosition().y;
 
 	//Wolk
-	float velocity = 0.15f;
+	float velocity = 0.10f;
 
 	//Player Update
 	player->Update();
@@ -87,7 +145,7 @@ void Engine::ScreenGame::Update()
 	if (game->inputManager->IsKeyPressed("walk-right")) {
 		x += velocity * game->GetGameTime();
 		//player->sprite->SetFlipHorizontal(true);
-		player->sprite->PlayAnim("walk");
+		player->sprite->PlayAnim("Walk-Horizontal");
 		isPlayerMoving = true;
 		game->defaultSpriteShader->cameraPos.x -= velocity * game->GetGameTime();
 	}
@@ -95,7 +153,7 @@ void Engine::ScreenGame::Update()
 	if (game->inputManager->IsKeyPressed("walk-left")) {
 		x -= velocity * game->GetGameTime();
 		//player->sprite->SetFlipHorizontal(false);
-		player->sprite->PlayAnim("walk");
+		player->sprite->PlayAnim("Walk-Horizontal");
 		isPlayerMoving = true;
 		game->defaultSpriteShader->cameraPos.x += velocity * game->GetGameTime();
 	}
@@ -103,7 +161,7 @@ void Engine::ScreenGame::Update()
 	if (game->inputManager->IsKeyPressed("walk-up")) {
 		y += velocity * game->GetGameTime();
 		//sprite2->SetFlipHorizontal(true);
-		player->sprite->PlayAnim("walk");
+		player->sprite->PlayAnim("Walk-Up");
 		isPlayerMoving = true;
 		game->defaultSpriteShader->cameraPos.y -= velocity * game->GetGameTime();
 	}
@@ -111,7 +169,7 @@ void Engine::ScreenGame::Update()
 	if (game->inputManager->IsKeyPressed("walk-down")) {
 		y -= velocity * game->GetGameTime();
 		//sprite2->SetFlipHorizontal(true);
-		player->sprite->PlayAnim("walk");
+		player->sprite->PlayAnim("Walk-Down");
 		isPlayerMoving = true;
 		game->defaultSpriteShader->cameraPos.y += velocity * game->GetGameTime();
 	}
@@ -127,6 +185,21 @@ void Engine::ScreenGame::Update()
 			for (size_t x = 0; x < weapon->weapons[j]->GetProjectilesSize(); x++) {
 				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->weapons[j]->GetProjectileBoundingBoxByIndex(x))) {
 
+					//Impact Effect
+					vec2 posImpact = weapon->weapons[j]->GetProjectilePositionByIndex(x);
+					//Sprite* si = spriteImpact;
+
+					Sprite*  si = new Sprite(textureImpact, game->defaultSpriteShader, game->defaultQuad);
+					si->SetNumXFrames(5);
+					si->SetNumYFrames(1);
+					si->AddAnimation("default", 0, 4);
+					si->PlayAnim("default");
+					si->SetScale(2);
+					si->SetAnimationDuration(50);
+
+					si->SetPosition(posImpact.x, posImpact.y);
+					bulletImpacts.push_back(si);
+
 					// Define knockback force
 					float KNOCKBACK_FORCE = 10.0f;
 
@@ -141,12 +214,27 @@ void Engine::ScreenGame::Update()
 
 					if (enemies[i]->getHealth() <= 0) {
 						enemies.erase(enemies.begin() + i);
+						wave->RemoveEnemiesByOne(i);
+						coin += 10;
 						break;
 					}
 
+					
 				
 				}
 			}			
+		}
+		
+	}
+	
+	impactAnimTime += game->GetGameTime();
+
+	//Bullet Impact
+	for (size_t i = 0; i < bulletImpacts.size(); i++) {
+		bulletImpacts[i]->Update(game->GetGameTime());
+
+		if (bulletImpacts[i]->isSpriteLastFrame()) {
+			bulletImpacts.erase(bulletImpacts.begin() + i);
 		}
 		
 	}
@@ -156,7 +244,7 @@ void Engine::ScreenGame::Update()
 		if (enemies[i]->sprite->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
 			//std::cout << "HIT";
 			player->takeDamage(enemies[i]->GetDamage());
-
+			
 			//PLay enemies anim
 			//enemies[i]->sprite->PlayAnim("attack");
 		}
@@ -218,7 +306,7 @@ void Engine::ScreenGame::Update()
 	//std::cout << player->getHealth() << "\n";
 
 	//ENEMY SPAWN TESTING - RANDOM
-	if (enemies.size() < 15) {
+	/*if (enemies.size() < 10) {
 		// spawn enemy
 		int x = std::rand() % (game->setting->screenWidth + 50 * 2) - 50;
 		int y = std::rand() % (game->setting->screenHeight + 50 * 2) - 50;
@@ -236,8 +324,8 @@ void Engine::ScreenGame::Update()
 		}
 		/*else {
 			std::cout << "Enemy spawned at (" << x << ", " << y << ")" << std::endl;
-		}*/
-	}
+		}
+	}*/
 
 	//SCREEN SHAKE
 
@@ -248,6 +336,8 @@ void Engine::ScreenGame::Render()
 {
 	//Render Background
 	//backgroundSprite->Draw();
+
+	
 
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
@@ -260,6 +350,16 @@ void Engine::ScreenGame::Render()
 	//Render Weapon and Bullet
 	weapon->Render();
 
+	//Render Bullet Impact
+	for (size_t i = 0; i < bulletImpacts.size(); i++) {
+		bulletImpacts[i]->Draw();
+	}
+
+	//Render UI HARUS PALING BAWAH
+	//spriteHP->Draw();
+	enemiesLeftText->Draw();
+	waveText->Draw();
+	coinText->Draw();
 }
 
 void Engine::ScreenGame::forDebug()

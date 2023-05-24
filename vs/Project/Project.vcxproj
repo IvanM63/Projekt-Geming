@@ -184,6 +184,7 @@
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Wave.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="WeaponManager.h" />
   </ItemGroup>
@@ -217,6 +218,7 @@
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Wave.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WeaponManager.cpp" />
   </ItemGroup>

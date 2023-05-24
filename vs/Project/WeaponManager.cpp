@@ -70,7 +70,7 @@ void Engine::WeaponManager::Update()
 
 	//Update perilaku Senjata yang lagi aktif
 	activeWeapon->Update();
-	activeWeapon->SetPosition(playerPos.x, playerPos.y);
+	activeWeapon->SetPosition(playerPos.x, playerPos.y+10);
 	Fire(activeWeapon);
 
 	//Text Info
@@ -147,18 +147,18 @@ void Engine::WeaponManager::Fire(Weapon* weapon)
 	//Setting rotation for both Player and Weapon Sprite
 	if (rawAimAngle > 90 || rawAimAngle < -90) {
 		weapon->SetFlipVertical(true);
-		player->SetFlipHorizontal(false);
+		player->SetFlipHorizontal(true);
 	}
 	else {
 		weapon->SetFlipVertical(false);
-		player->SetFlipHorizontal(true);
+		player->SetFlipHorizontal(false);
 	}
 
 	weapon->SetRotation(rawAimAngle);
 
 	//Debug for Aiming
 	//Debug aimANgle
-	//std::cout << "Direction: " << dir.x << "\n";
+	std::cout << "Angle: " << rawAimAngle << "\n";
 	//std::cout << "Velocity: " << bulletVelocityX << "\n";
 
 	// Update the aim direction

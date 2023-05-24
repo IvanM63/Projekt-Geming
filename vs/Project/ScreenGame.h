@@ -13,6 +13,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "WeaponManager.h"
+#include "Wave.h"
 
 #include <set>
 #include <queue>
@@ -24,6 +25,7 @@ namespace Engine {
 	class Enemy;
 	class Player;
 	class WeaponManager;
+	class Wave;
 
 	class ScreenGame : public Screen {
 	public:
@@ -46,6 +48,24 @@ namespace Engine {
 		float calculatePenetrationDepth(BoundingBox* box1, BoundingBox* box2, vec2 collisionNormal);
 
 	private:
+		//Currency
+		int coin = 0;
+
+		//Wave System
+		Wave* wave = NULL;
+		//Bullet Impact
+		std::vector<Sprite*> bulletImpacts;
+		Engine::Texture* textureImpact = NULL;
+		Engine::Sprite* spriteImpact = NULL;
+		float impactAnimTime = 100;
+
+		//UI SECTION
+		Engine::Texture* textureHP = NULL;
+		Engine::Sprite* spriteHP = NULL;
+		Text* enemiesLeftText = NULL;
+		Text* waveText = NULL;
+		Text* coinText = NULL;
+
 		//Projectile* projectile = NULL;
 		//Tes ting
 		int Bx = 21;

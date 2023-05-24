@@ -52,6 +52,16 @@ namespace Engine {
 		bool isReload = false;
 		int currentReloadTime;
 
+		int fireAnimTime = 24;
+
+		//Hitbox Debug
+		bool isDebug = false;
+		Texture* dotTexture = NULL;
+		Sprite* dotSprite1 = NULL;
+		Sprite* dotSprite2 = NULL;
+		Sprite* dotSprite3 = NULL;
+		Sprite* dotSprite4 = NULL;
+
 	};
 }
 

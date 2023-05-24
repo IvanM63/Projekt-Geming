@@ -24,11 +24,14 @@ namespace Engine {
 		void SetPosition(float x, float y);
 		vec2 GetPosition();
 
+		void BulletHit();
+
 		BoundingBox* GetBoundingBox();
 
 		void setCurrVelo(float x, float y);
 		vec2 getCurrVelo();
 		Engine::Sprite* spriteBullet = NULL;
+
 	private:
 		Engine::Game* game = NULL;
 

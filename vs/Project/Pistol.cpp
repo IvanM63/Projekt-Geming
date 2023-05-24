@@ -10,7 +10,7 @@ Engine::Pistol::Pistol(Game* game) : Weapon(game)
 	
 	//DPS Purpose
 	this->fireRate = 400; //Normal 400
-	this->damage = 25;
+	this->damage = 100; //Normal 25
 	this->reloadTime = 1500; //2000 berart 2 detik
 
 	//Accuracy Purpose
@@ -24,17 +24,17 @@ Engine::Pistol::~Pistol()
 
 void Engine::Pistol::Init()
 {
-	textureWeapon = new Texture("Pistol.png");
+	textureWeapon = new Texture("Asset/Weapon/Pistol/Pistol.png");
 	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
 
 	spriteWeapon->SetNumXFrames(4);
 	spriteWeapon->SetNumYFrames(2);
 	spriteWeapon->AddAnimation("idle", 0, 0);
-	spriteWeapon->AddAnimation("fire", 4, 7);
+	spriteWeapon->AddAnimation("fire", 4, 7); //4 Frame
 	
 	spriteWeapon->PlayAnim("idle");
 	spriteWeapon->SetScale(0.75);
-	spriteWeapon->SetAnimationDuration(75);
+	spriteWeapon->SetAnimationDuration(102);
 
 	spriteWeapon->SetBoundToCamera(false);
 
@@ -53,9 +53,16 @@ void Engine::Pistol::Update()
 
 	if (game->inputManager->IsKeyPressed("Fire") && !isReload) {
 		spriteWeapon->PlayAnim("fire");
+		fireAnimTime = 0;
 	}
 	else {
+
+	}
+	fireAnimTime += game->GetGameTime();
+	//std::cout << fireAnimTime << "\n";
+	if (fireAnimTime > 400) {
 		spriteWeapon->PlayAnim("idle");
+		fireAnimTime = 400;
 	}
 
 	if (game->inputManager->IsKeyPressed("Reload") && currentAmmo < totalAmmo) {
@@ -116,7 +123,7 @@ void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, fl
 {
 	//Fire Management
 	if (currentAmmo <= 0 || isReload) {
-		Reload();
+		//Reload();
 	}
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {

@@ -11,18 +11,20 @@ Engine::Player::~Player()
 void Engine::Player::Init()
 {
 	//Player Sprite
-	texture = new Texture("turtles.png");
+	texture = new Texture("Asset/Character/CharacterV2.png");
 	sprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
 
-	sprite->SetNumXFrames(14);
+	sprite->SetNumXFrames(7);
 	sprite->SetNumYFrames(4);
-	sprite->AddAnimation("spikes-out", 42, 49);
+	sprite->AddAnimation("Walk-Horizontal", 21, 24);
+	sprite->AddAnimation("Walk-Up", 7, 13);
+	sprite->AddAnimation("Walk-Down", 14, 20);
 
-	sprite->AddAnimation("walk", 28, 41);
-	sprite->PlayAnim("spikes-out");
-	sprite->SetScale(2);
+	sprite->AddAnimation("idle", 0, 0);
+	sprite->PlayAnim("idle");
+	sprite->SetScale(1.25);
 	sprite->SetAnimationDuration(175);
-	//sprite2->SetFlipHorizontal(true);
+	sprite->SetFlipHorizontal(false);
 	//sprite->SetBoundToCamera(true);
 	sprite->SetBoundingBoxSize(sprite->GetScaleWidth() - 35, sprite->GetScaleHeight() - 18);
 
@@ -42,6 +44,8 @@ void Engine::Player::Init()
 	healthText->SetColor(255, 255, 255);
 	healthText->SetPosition(10, game->setting->screenHeight - 100);
 
+	//Debug
+	isDebug = true;
 }
 
 void Engine::Player::Update()
