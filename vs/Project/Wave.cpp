@@ -4,7 +4,7 @@ Engine::Wave::Wave(Game* game)
 {
 	this->game = game;
 
-	this->numEnemies = 5;
+	this->numEnemies = 2;
 	this->enemiesLeft = 5;
 	this->maxAvailEnemies = numEnemies / 2;
 	this->currentWave = 1;
@@ -54,7 +54,10 @@ std::vector<Engine::Enemy*> Engine::Wave::SpawnEnemies()
 		e->setDebug(false);
 
 		enemiesWave.push_back(e);
+		std::cout << "Enemy spawned at (" << x << ", " << y << ")" << std::endl;
 	}
+
+	 
 
 	/*if (enemiesLeft == 0) {
 		SpawnEnd();

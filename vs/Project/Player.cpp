@@ -67,7 +67,7 @@ void Engine::Player::Update()
 	}
 
 	//Text Info
-	healthText->SetText(std::to_string(currentHealth));
+	healthText->SetText("HP : " + std::to_string(currentHealth));
 	//healthText->SetPosition(game->setting->screenWidth / 2, game->setting->screenHeight / 2 + 100);
 }
 

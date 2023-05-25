@@ -66,7 +66,7 @@ void Engine::ScreenGame::Init()
 	weapon->Init();
 
 	//Create background
-	Texture* bgTexture = new Texture("0.png");
+	Texture* bgTexture = new Texture("Asset/Map/Map.png");
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
 	backgroundSprite->SetSize(game->setting->screenWidth+750, game->setting->screenHeight+750);
 	backgroundSprite->SetPosition(-200, 0);
@@ -124,7 +124,7 @@ void Engine::ScreenGame::Update()
 	spriteHP->Update(game->GetGameTime());
 	enemiesLeftText->SetText("Enemies : " + std::to_string(enemies.size()));
 	waveText->SetText("Wave | " + std::to_string(wave->GetCurrentWave()));
-	coinText->SetText("Coin : " + std::to_string(coin));
+	coinText->SetText("Score : " + std::to_string(coin));
 
 	//std::cout << objectX << " " << objectY << "\n";
 
@@ -234,7 +234,7 @@ void Engine::ScreenGame::Update()
 		bulletImpacts[i]->Update(game->GetGameTime());
 
 		if (bulletImpacts[i]->isSpriteLastFrame()) {
-			bulletImpacts.erase(bulletImpacts.begin() + i);
+			bulletImpacts.erase(bulletImpacts.begin() + i); //Hapus sprite di vector
 		}
 		
 	}
@@ -335,7 +335,7 @@ void Engine::ScreenGame::Update()
 void Engine::ScreenGame::Render()
 {
 	//Render Background
-	//backgroundSprite->Draw();
+	backgroundSprite->Draw();
 
 	
 

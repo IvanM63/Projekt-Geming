@@ -158,7 +158,7 @@ void Engine::WeaponManager::Fire(Weapon* weapon)
 
 	//Debug for Aiming
 	//Debug aimANgle
-	std::cout << "Angle: " << rawAimAngle << "\n";
+	//std::cout << "Angle: " << rawAimAngle << "\n";
 	//std::cout << "Velocity: " << bulletVelocityX << "\n";
 
 	// Update the aim direction
