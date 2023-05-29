@@ -62,10 +62,20 @@ namespace Engine {
 		//UI SECTION
 		Engine::Texture* textureHP = NULL;
 		Engine::Sprite* spriteHP = NULL;
+		Engine::Texture* textureHPbar = NULL;
+		Engine::Sprite* spriteHPbar = NULL;
 		Text* enemiesLeftText = NULL;
 		Text* waveText = NULL;
 		Text* coinText = NULL;
 
+		Engine::Texture* borderHP = NULL;
+		Engine::Sprite* border2HP = NULL;
+		Engine::Texture* border = NULL;
+		Engine::Sprite* borderwave = NULL;
+		Engine::Sprite* borderscore = NULL;
+		Engine::Sprite* borderammo = NULL;
+		Engine::Texture* texturegunUI = NULL;
+		Engine::Sprite* spritegunUI = NULL;
 		//Projectile* projectile = NULL;
 		//Tes ting
 		int Bx = 21;

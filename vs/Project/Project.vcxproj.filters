@@ -84,9 +84,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>BaseCharacter\NPC\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.h">
-      <Filter>Demo Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseCharacter.h">
       <Filter>BaseCharacter</Filter>
     </ClInclude>
@@ -182,9 +179,6 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>BaseCharacter\NPC\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.cpp">
-      <Filter>Demo Files</Filter>
     </ClCompile>
     <ClCompile Include="BaseCharacter.cpp">
       <Filter>BaseCharacter</Filter>
