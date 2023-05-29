@@ -45,6 +45,11 @@ void Engine::Weapon::SetPosition(float x, float y)
 	spriteWeapon->SetPosition(x, y);
 }
 
+void Engine::Weapon::SetPositionToPlayer(vec2 playerPos)
+{
+	spriteWeapon->SetPosition(playerPos.x, playerPos.y);
+}
+
 void Engine::Weapon::SetRotation(float degree)
 {
 	spriteWeapon->SetRotation(degree);

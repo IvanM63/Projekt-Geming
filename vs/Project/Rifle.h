@@ -23,6 +23,9 @@ namespace Engine {
 		void Update();
 		void Render();
 
+		void SetPositionToPlayer(vec2 playerPos);
+		void SetRotation(float rawAimAngle);
+
 		//Basic Function for Projectile
 		void UpdateProjectiles();
 		void RenderProjectiles();

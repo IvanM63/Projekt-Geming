@@ -37,6 +37,7 @@ namespace Engine {
 
         
     private:
+        Engine::Game* game = NULL;
         ScreenState screenState;
 
         //Screen List

@@ -33,7 +33,7 @@ void Engine::Pistol::Init()
 	spriteWeapon->AddAnimation("fire", 4, 7); //4 Frame
 	
 	spriteWeapon->PlayAnim("idle");
-	spriteWeapon->SetScale(0.75);
+	spriteWeapon->SetScale(0.4);
 	spriteWeapon->SetAnimationDuration(102);
 
 	spriteWeapon->SetBoundToCamera(false);
@@ -74,6 +74,22 @@ void Engine::Pistol::Render()
 {
 	spriteWeapon->Draw();
 
+}
+
+void Engine::Pistol::SetPositionToPlayer(vec2 playerPos)
+{
+	SetPosition(playerPos.x+6, playerPos.y+12);
+}
+
+void Engine::Pistol::SetRotation(float rawAimAngle)
+{
+	spriteWeapon->SetRotation(rawAimAngle);
+	//if (rawAimAngle > 90 || rawAimAngle < -90) {
+	//	SetPosition(spriteWeapon->GetPosition().x + 20, spriteWeapon->GetPosition().y);
+	//}
+	//else {
+	//	//spriteWeapon->SetFlipVertical(false);
+	//}
 }
 
 void Engine::Pistol::UpdateProjectiles()
@@ -140,7 +156,8 @@ void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, fl
 		projectile = new Projectile(game);
 		projectile->Init();
 
-		projectile->SetPosition(playerPos.x + 42, playerPos.y + 18);
+		//projectile->SetPosition(playerPos.x + 42, playerPos.y + 18);
+		projectile->SetPosition(spriteWeapon->GetPosition().x, spriteWeapon->GetPosition().y);
 		projectile->setCurrVelo(aimDir.x, aimDir.y);
 
 		projectiles.push_back(projectile);

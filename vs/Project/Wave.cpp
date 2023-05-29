@@ -45,7 +45,10 @@ std::vector<Engine::Enemy*> Engine::Wave::SpawnEnemies()
 	int y = std::rand() % (game->setting->screenHeight + 50 * 2) - 50;
 
 	// check if enemy is out of screen
-	if (x < 0 || x > game->setting->screenWidth || y < 0 || y > game->setting->screenHeight) {
+	if (x > game->setting->screenWidth - game->defaultSpriteShader->cameraPos.x ||
+		y > game->setting->screenHeight - game->defaultSpriteShader->cameraPos.y ||
+		x < -game->defaultSpriteShader->cameraPos.x ||
+		y < -game->defaultSpriteShader->cameraPos.y) {
 		//std::cout << "Enemy spawned out of screen at (" << x << ", " << y << ")" << std::endl;
 
 		Enemy* e = new Enemy(game);

@@ -28,7 +28,8 @@ namespace Engine {
 
 		//Setter Getter for its own Sprite (Weapon Sprite)
 		void SetPosition(float x, float y);
-		void SetRotation(float degree);
+		virtual void SetPositionToPlayer(vec2 playerPos);
+		virtual void SetRotation(float degree);
 		void SetFlipVertical(bool tf);
 
 		//Setter Getter Ammo

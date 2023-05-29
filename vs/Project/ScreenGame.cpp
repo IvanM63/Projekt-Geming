@@ -9,6 +9,9 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
+	//Came Init
+	game->defaultSpriteShader->cameraPos = { 0,0 };
+
 	//Wave System
 	wave = new Wave(this->game);
 
@@ -68,8 +71,10 @@ void Engine::ScreenGame::Init()
 	//Create background
 	Texture* bgTexture = new Texture("Asset/Map/MapV2.png");
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
+	backgroundSprite->SetNumXFrames(1);
+	backgroundSprite->SetNumYFrames(1);
 	backgroundSprite->SetSize(game->setting->screenWidth+750, game->setting->screenHeight+750);
-	backgroundSprite->SetPosition(-200, 0);
+	backgroundSprite->SetPosition(-400, -350);
 
 
 	//x = 980 || y = 720	
@@ -107,6 +112,7 @@ void Engine::ScreenGame::Init()
 
 void Engine::ScreenGame::Update()
 {
+	//std::cout << player->GetPosition().x << "\n";
 	// If user press "Quit" key then exit
 	if (game->inputManager->IsKeyReleased("Quit")) {
 		game->state = State::EXIT;
@@ -269,7 +275,7 @@ void Engine::ScreenGame::Update()
 	//SUPER SIMPLE PATHFINDING FROM ENEMY TO PLAYER
 	for (auto i = 0; i < enemies.size(); i++) {
 		// Calculate the direction from the enemy to the player
-		vec2 direction = player->GetPosition() - enemies[i]->GetPosition();
+		vec2 direction = player->GetPosition() - vec2(10, 0) - enemies[i]->GetPosition();
 		
 		//std::cout << enemies[i]->GetDirection().x << "\n";
 		// Normalize the direction vector

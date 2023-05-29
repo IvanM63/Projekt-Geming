@@ -11,7 +11,7 @@ Engine::Rifle::Rifle(Game* game) : Weapon(game)
 	//DPS Purpose
 	this->reloadTime = 2000; //2000 berart 2 detik
 	this->fireRate = 200; //Normal 400
-	this->damage = 15;
+	this->damage = 33;
 
 	//Accuracy Purpose
 	accuracy = 0.5f; //0 Perfect, 1 Inaccurate
@@ -33,7 +33,7 @@ void Engine::Rifle::Init()
 	spriteWeapon->AddAnimation("fire", 0, 11);
 
 	spriteWeapon->PlayAnim("idle");
-	spriteWeapon->SetScale(1.25);
+	spriteWeapon->SetScale(1);
 	spriteWeapon->SetAnimationDuration(12);
 
 	//Rotation Tes
@@ -98,6 +98,23 @@ void Engine::Rifle::Render()
 		dotSprite3->Draw();
 		dotSprite4->Draw();
 	}
+}
+
+void Engine::Rifle::SetPositionToPlayer(vec2 playerPos)
+{
+	SetPosition(playerPos.x - 8, playerPos.y+3);
+}
+
+void Engine::Rifle::SetRotation(float rawAimAngle)
+{
+	spriteWeapon->SetRotation(rawAimAngle);
+	//if (rawAimAngle > 90 || rawAimAngle < -90) {
+	//	SetPosition(spriteWeapon->GetPosition().x - 20, spriteWeapon->GetPosition().y);
+	//}
+	//else {
+	//	SetPosition(spriteWeapon->GetPosition().x + 20, spriteWeapon->GetPosition().y);
+	//	//spriteWeapon->SetFlipVertical(false);
+	//}
 }
 
 void Engine::Rifle::UpdateProjectiles()
@@ -168,7 +185,8 @@ void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, flo
 		projectile->Init();
 
 		projectile->spriteBullet->SetRotation(rawAimAngle);
-		projectile->SetPosition(playerPos.x + 42, playerPos.y + 18);
+		projectile->SetPosition(spriteWeapon->GetPosition().x + 30, spriteWeapon->GetPosition().y+15);
+		//projectile->SetPosition(spriteWeapon->GetPosition().x + 100, spriteWeapon->GetPosition().y);
 		projectile->setCurrVelo(aimDir.x, aimDir.y);
 
 		projectiles.push_back(projectile);

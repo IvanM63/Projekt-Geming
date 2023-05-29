@@ -2,6 +2,7 @@
 
 Engine::ScreenManager::ScreenManager(Game* game)
 {
+	this->game = game;
 	screenMenu = new ScreenMenu(game, this);
 	screenGame = new ScreenGame(game, this);
 	screenGameOver = new ScreenGameOver(game, this);
@@ -16,6 +17,15 @@ Engine::ScreenManager::~ScreenManager()
 
 void Engine::ScreenManager::switchScreen(ScreenState state)
 {
+	if (state == ScreenState::MAIN_MENU) {
+		screenMenu->Init();
+	}
+	else if (state == ScreenState::IN_GAME) {
+		screenGame->Init();
+	}
+	else if (state == ScreenState::GAME_OVER) {
+		screenGameOver->Init();
+	}
 	screenState = state;
 }
 

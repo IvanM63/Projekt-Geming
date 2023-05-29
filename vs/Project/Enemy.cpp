@@ -24,7 +24,7 @@ void Engine::Enemy::Init()
 	sprite->AddAnimation("dies", 65, 74);
 
 	sprite->PlayAnim("idle");
-	sprite->SetScale(2.75);
+	sprite->SetScale(3);
 	sprite->SetAnimationDuration(100);
 
 	//Set Bounding Box

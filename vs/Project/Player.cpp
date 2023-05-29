@@ -22,11 +22,11 @@ void Engine::Player::Init()
 
 	sprite->AddAnimation("idle", 0, 0);
 	sprite->PlayAnim("idle");
-	sprite->SetScale(1.25);
+	sprite->SetScale(1);
 	sprite->SetAnimationDuration(175);
 	sprite->SetFlipHorizontal(false);
 	//sprite->SetBoundToCamera(true);
-	sprite->SetBoundingBoxSize(sprite->GetScaleWidth() - 35, sprite->GetScaleHeight() - 18);
+	sprite->SetBoundingBoxSize(sprite->GetScaleWidth() - 15, sprite->GetScaleHeight() - 18);
 
 	SetPosition(0, 0);
 

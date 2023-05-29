@@ -70,7 +70,7 @@ void Engine::WeaponManager::Update()
 
 	//Update perilaku Senjata yang lagi aktif
 	activeWeapon->Update();
-	activeWeapon->SetPosition(playerPos.x, playerPos.y+10);
+	activeWeapon->SetPositionToPlayer(playerPos);
 	Fire(activeWeapon);
 
 	//Text Info
@@ -106,6 +106,9 @@ void Engine::WeaponManager::Fire(Weapon* weapon)
 	//Aiming With Mouse
 	GetCursorPos(&mousePos);
 	HWND windowHandle = FindWindow(NULL, "Jombi-Jombian");
+
+	// Hide the mouse cursor
+	ShowCursor(FALSE);
 
 	//Convert the mouse position to coordinates relative to the top-left corner of your game window
 	ScreenToClient(windowHandle, &mousePos);
