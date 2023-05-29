@@ -26,7 +26,7 @@ void Game::Run()
 {
 	SDL_Window* window = InitInternal();
 	Init();
-	SetBackgroundColor(90, 90, 90);
+	//SetBackgroundColor(90, 90, 90);
 	GameLoop(window);
 	SDL_Quit();
 }

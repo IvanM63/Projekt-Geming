@@ -23,6 +23,9 @@ namespace Engine {
 		bool vsync;
 		WindowFlag windowFlag;
 		float timeScale;
+
+		//Game Stat
+		int score;
 	};
 }
 

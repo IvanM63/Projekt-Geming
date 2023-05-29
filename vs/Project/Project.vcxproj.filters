@@ -172,6 +172,9 @@
     <ClInclude Include="Wave.h">
       <Filter>Wave System</Filter>
     </ClInclude>
+    <ClInclude Include="ScreenGameOver.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -269,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="Wave.cpp">
       <Filter>Wave System</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenGameOver.cpp">
+      <Filter>Screen Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

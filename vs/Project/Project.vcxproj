@@ -169,6 +169,7 @@
     <ClInclude Include="Rifle.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenGame.h" />
+    <ClInclude Include="ScreenGameOver.h" />
     <ClInclude Include="ScreenMenu.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="Projectile.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="SATCollision.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenGame.cpp" />
+    <ClCompile Include="ScreenGameOver.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="ScreenMenu.cpp" />
     <ClCompile Include="Setting.cpp" />

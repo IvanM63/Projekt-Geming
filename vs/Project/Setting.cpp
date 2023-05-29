@@ -12,6 +12,7 @@ Setting::Setting()
 	this->windowFlag = WindowFlag::WINDOWED;
 	this->targetFrameRate = 60;
 	this->windowTitle = "Untitled";
+	this->score = 0;
 }
 
 Setting::~Setting()

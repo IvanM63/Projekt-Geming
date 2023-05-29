@@ -66,10 +66,11 @@ void Engine::ScreenGame::Init()
 	weapon->Init();
 
 	//Create background
-	Texture* bgTexture = new Texture("Asset/Map/Map.png");
+	Texture* bgTexture = new Texture("Asset/Map/MapV2.png");
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
 	backgroundSprite->SetSize(game->setting->screenWidth+750, game->setting->screenHeight+750);
 	backgroundSprite->SetPosition(-200, 0);
+
 
 	//x = 980 || y = 720	
 
@@ -124,7 +125,7 @@ void Engine::ScreenGame::Update()
 	spriteHP->Update(game->GetGameTime());
 	enemiesLeftText->SetText("Enemies : " + std::to_string(enemies.size()));
 	waveText->SetText("Wave | " + std::to_string(wave->GetCurrentWave()));
-	coinText->SetText("Score : " + std::to_string(coin));
+	coinText->SetText("Score : " + std::to_string(score));
 
 	//std::cout << objectX << " " << objectY << "\n";
 
@@ -212,17 +213,20 @@ void Engine::ScreenGame::Update()
 					weapon->weapons[j]->RemoveProjectileByIndex(x);
 					enemies[i]->takeDamage(weapon->weapons[j]->GetDamage());
 
-					if (enemies[i]->getHealth() <= 0) {
-						enemies.erase(enemies.begin() + i);
-						wave->RemoveEnemiesByOne(i);
-						coin += 10;
-						break;
-					}
-
-					
-				
 				}
 			}			
+		}
+
+		if (enemies[i]->getHealth() <= 0) {
+			enemies[i]->sprite->PlayAnim("dies");
+			if (enemies[i]->sprite->isSpriteLastFrame()) {
+				enemies.erase(enemies.begin() + i);
+				wave->RemoveEnemiesByOne(i);
+				score += 10;
+				game->setting->score += 10;
+				break;
+			}
+			//std::cout << enemies[i]->sprite->frameIndex << "\n";
 		}
 		
 	}
@@ -245,8 +249,14 @@ void Engine::ScreenGame::Update()
 			//std::cout << "HIT";
 			player->takeDamage(enemies[i]->GetDamage());
 			
+			if (player->getHealth() <= 0) {
+				manager->switchScreen(ScreenState::GAME_OVER);
+			}
+
 			//PLay enemies anim
 			//enemies[i]->sprite->PlayAnim("attack");
+
+
 		}
 	}
 
@@ -269,7 +279,15 @@ void Engine::ScreenGame::Update()
 
 		float distance = mag;
 		
-		enemies[i]->SetDirection(direction.x, direction.y);
+		if (enemies[i]->getHealth() <= 0) {
+			enemies[i]->SetDirection(0, 0);
+		}
+		else {
+			enemies[i]->SetDirection(direction.x, direction.y);
+			enemies[i]->sprite->PlayAnim("moving");
+		}
+
+		
 
 		float rawAimAngle = atan2(direction.y, direction.x) * 180 / M_PI;
 
@@ -282,23 +300,7 @@ void Engine::ScreenGame::Update()
 		}
 
 		// If the player is moving, move the enemy towards the player at the specified speed
-		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {
-
-			//AVOID COLLISION
-			/*for (int j = i + 1; j < enemies.size(); j++)
-			{
-				//Enemy* enemy1 = enemies[i];
-				//Enemy* enemy2 = enemies[j];
-
-				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(enemies[j]->sprite->GetBoundingBox()))
-				{
-					avoidCollision(enemies[i], enemies[j]);
-					avoidCollision(enemies[j], enemies[i]);
-					enemies[i]->move(enemies[i]->GetDirection()* enemies[i]->GetSpeed()* game->deltaTime);
-					enemies[j]->move(enemies[j]->GetDirection()* enemies[j]->GetSpeed()* game->deltaTime);
-				}
-			}*/
-			
+		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {		
 			enemies[i]->move(enemies[i]->GetDirection() * enemies[i]->GetSpeed() * game->deltaTime);
 		}
 	}

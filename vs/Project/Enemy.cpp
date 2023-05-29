@@ -21,8 +21,9 @@ void Engine::Enemy::Init()
 	sprite->AddAnimation("moving", 26, 33);
 	sprite->AddAnimation("idle", 0, 7);
 	sprite->AddAnimation("attack", 13, 19);
+	sprite->AddAnimation("dies", 65, 74);
 
-	sprite->PlayAnim("moving");
+	sprite->PlayAnim("idle");
 	sprite->SetScale(2.75);
 	sprite->SetAnimationDuration(100);
 

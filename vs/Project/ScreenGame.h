@@ -49,7 +49,7 @@ namespace Engine {
 
 	private:
 		//Currency
-		int coin = 0;
+		int score = 0;
 
 		//Wave System
 		Wave* wave = NULL;
@@ -98,6 +98,8 @@ namespace Engine {
 		int currentButtonIndex = 0;
 
 		Sprite* backgroundSprite = NULL;
+		Sprite* borderBawah = NULL;
+		Sprite* borderAtas = NULL;
 
 		//Bullet Texture
 		Engine::Texture* textureBullet = NULL;

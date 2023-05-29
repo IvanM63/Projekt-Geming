@@ -6,6 +6,7 @@
 //Daftar Screen
 #include "ScreenMenu.h"
 #include "ScreenGame.h"
+#include "ScreenGameOver.h"
 
 //Additional
 #include "Game.h"
@@ -18,7 +19,8 @@ namespace Engine {
 
     enum class ScreenState {
         MAIN_MENU,
-        IN_GAME
+        IN_GAME,
+        GAME_OVER
     };
    
     // Screen Manager class
@@ -40,6 +42,7 @@ namespace Engine {
         //Screen List
         Screen* screenMenu = NULL;
         Screen* screenGame = NULL;
+        Screen* screenGameOver = NULL;
         
     };
 
