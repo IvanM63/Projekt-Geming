@@ -29,14 +29,108 @@ void Engine::ScreenGame::Init()
 	textureHP = new Texture("Asset/UI/Health/HealthBar.png");
 	spriteHP = new Sprite(textureHP, game->defaultSpriteShader, game->defaultQuad);
 
-	spriteHP->SetNumXFrames(1);
+	spriteHP->SetNumXFrames(11);
 	spriteHP->SetNumYFrames(1);
-	spriteHP->AddAnimation("default", 0, 0);
-	spriteHP->PlayAnim("default");
+	spriteHP->AddAnimation("100", 0, 0);
+	spriteHP->AddAnimation("90", 1, 1);
+	spriteHP->AddAnimation("80", 2, 2);
+	spriteHP->AddAnimation("70", 3, 3);
+	spriteHP->AddAnimation("60", 4, 4);
+	spriteHP->AddAnimation("50", 5, 5);
+	spriteHP->AddAnimation("40", 6, 6);
+	spriteHP->AddAnimation("30", 7, 7);
+	spriteHP->AddAnimation("20", 8, 8);
+	spriteHP->AddAnimation("10", 9, 9);
+	spriteHP->AddAnimation("0", 10, 10);
+	spriteHP->PlayAnim("100");
 	spriteHP->SetScale(2.5);
 	spriteHP->SetAnimationDuration(30);
 	spriteHP->SetPosition(30, 650);
 	spriteHP->SetBoundToCamera(true);
+
+	//Border
+	border = new Texture("Asset/UI/border.png");
+	borderwave = new Sprite(border, game->defaultSpriteShader, game->defaultQuad);
+	borderwave->SetNumXFrames(1);
+	borderwave->SetNumYFrames(1);
+	borderwave->AddAnimation("default", 0, 0);
+	borderwave->PlayAnim("default");
+	borderwave->SetScale(0.5);
+	borderwave->SetAnimationDuration(30);
+	float borderwavepos[2] = { game->setting->screenWidth / 2 - 75, game->setting->screenHeight - 70 };
+	borderwave->SetPosition(borderwavepos[0], borderwavepos[1]);
+	borderwave->SetBoundToCamera(true);
+
+	borderscore = new Sprite(border, game->defaultSpriteShader, game->defaultQuad);
+	borderscore->SetNumXFrames(1);
+	borderscore->SetNumYFrames(1);
+	borderscore->AddAnimation("default", 0, 0);
+	borderscore->PlayAnim("default");
+	borderscore->SetScale(0.5);
+	borderscore->SetAnimationDuration(30);
+	float borderscorepos[2] = { game->setting->screenWidth - 200, game->setting->screenHeight - 70 };
+	borderscore->SetPosition(borderscorepos[0], borderscorepos[1]);
+	borderscore->SetBoundToCamera(true);
+
+	borderammo = new Sprite(border, game->defaultSpriteShader, game->defaultQuad);
+	borderammo->SetNumXFrames(1);
+	borderammo->SetNumYFrames(1);
+	borderammo->AddAnimation("default", 0, 0);
+	borderammo->PlayAnim("default");
+	borderammo->SetScale(0.5);
+	borderammo->SetAnimationDuration(30);
+	float borderammopos[2] = { game->setting->screenWidth - 200, 0 };
+	borderammo->SetPosition(borderammopos[0], borderammopos[1]);
+	borderammo->SetBoundToCamera(true);
+
+	//HPBorder
+	borderHP = new Texture("Asset/UI/healthbarborder.png");
+	border2HP = new Sprite(borderHP, game->defaultSpriteShader, game->defaultQuad);
+	border2HP->SetNumXFrames(1);
+	border2HP->SetNumYFrames(1);
+	border2HP->AddAnimation("default", 0, 0);
+	border2HP->PlayAnim("default");
+	border2HP->SetScale(0.5);
+	border2HP->SetAnimationDuration(30);
+	float border2HPpos[2] = { 0, game->setting->screenHeight - 70 };
+	border2HP->SetPosition(border2HPpos[0], border2HPpos[1]);
+	border2HP->SetBoundToCamera(true);
+
+	//HP Bar
+	textureHPbar = new Texture("Asset/UI/healthbar.png");
+	spriteHPbar = new Sprite(textureHPbar, game->defaultSpriteShader, game->defaultQuad);
+	spriteHPbar->SetNumXFrames(11);
+	spriteHPbar->SetNumYFrames(1);
+	spriteHPbar->AddAnimation("100", 0, 0);
+	spriteHPbar->AddAnimation("90", 1, 1);
+	spriteHPbar->AddAnimation("80", 2, 2);
+	spriteHPbar->AddAnimation("70", 3, 3);
+	spriteHPbar->AddAnimation("60", 4, 4);
+	spriteHPbar->AddAnimation("50", 5, 5);
+	spriteHPbar->AddAnimation("40", 6, 6);
+	spriteHPbar->AddAnimation("30", 7, 7);
+	spriteHPbar->AddAnimation("20", 8, 8);
+	spriteHPbar->AddAnimation("10", 9, 9);
+	spriteHPbar->AddAnimation("0", 10, 10);
+	spriteHPbar->PlayAnim("100");
+	spriteHPbar->SetScale(0.5);
+	spriteHPbar->SetAnimationDuration(30);
+	spriteHPbar->SetPosition(border2HPpos[0], border2HPpos[1]);
+	spriteHPbar->SetBoundToCamera(true);
+
+	//Gun UI
+	texturegunUI = new Texture("Asset/UI/gunhud.png");
+	spritegunUI = new Sprite(texturegunUI, game->defaultSpriteShader, game->defaultQuad);
+
+	spritegunUI->SetNumXFrames(2);
+	spritegunUI->SetNumYFrames(1);
+	spritegunUI->AddAnimation("default", 0, 0);
+	spritegunUI->AddAnimation("rifle", 1, 0);
+	spritegunUI->PlayAnim("default");
+	spritegunUI->SetScale(2);
+	spritegunUI->SetAnimationDuration(30);
+	spritegunUI->SetPosition(game->setting->screenWidth - 200, 70);
+	spritegunUI->SetBoundToCamera(true);
 
 	//Text
 	enemiesLeftText = new Text("lucon.ttf", 24, game->defaultTextShader);
@@ -48,13 +142,15 @@ void Engine::ScreenGame::Init()
 	waveText = new Text("lucon.ttf", 24, game->defaultTextShader);
 	waveText->SetScale(1.0f);
 	waveText->SetColor(255, 255, 255);
-	waveText->SetPosition(game->setting->screenWidth/2, game->setting->screenHeight - 50);
+	float wavetextpos[2] = { borderwavepos[0] + 10, borderwavepos[1] + 35 };
+	waveText->SetPosition(wavetextpos[0], wavetextpos[1]);
 
 	//Cooin Text
 	coinText = new Text("lucon.ttf", 24, game->defaultTextShader);
 	coinText->SetScale(1.0f);
 	coinText->SetColor(255, 255, 255);
-	coinText->SetPosition(game->setting->screenWidth - 200, game->setting->screenHeight - 50);
+	float scoretextpos[2] = { borderscorepos[0] + 10, borderscorepos[1] + 35 };
+	coinText->SetPosition(scoretextpos[0], scoretextpos[1]);
 
 	//Enemies
 	enemiesTexture = new Texture("Warrior_Sheet-Effect.png");
@@ -365,6 +461,12 @@ void Engine::ScreenGame::Render()
 
 	//Render UI HARUS PALING BAWAH
 	//spriteHP->Draw();
+	borderwave->Draw();
+	borderscore->Draw();
+	borderammo->Draw();
+	border2HP->Draw();
+	spritegunUI->Draw();
+	spriteHPbar->Draw();
 	enemiesLeftText->Draw();
 	waveText->Draw();
 	coinText->Draw();
