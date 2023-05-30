@@ -67,6 +67,7 @@ namespace Engine {
 		Text* enemiesLeftText = NULL;
 		Text* waveText = NULL;
 		Text* coinText = NULL;
+		//Text* ammoText = NULL;
 
 		Engine::Texture* borderHP = NULL;
 		Engine::Sprite* border2HP = NULL;
