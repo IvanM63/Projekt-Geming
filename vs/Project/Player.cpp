@@ -69,6 +69,17 @@ void Engine::Player::Update()
 	//Text Info
 	healthText->SetText("HP : " + std::to_string(currentHealth));
 	//healthText->SetPosition(game->setting->screenWidth / 2, game->setting->screenHeight / 2 + 100);
+
+	//Time Counter Get Hit
+	if (isHit) {
+		currentHitCounter += game->GetGameTime();
+		sprite->coloradjusment = { 255,255,255 };
+	}
+	if (currentHitCounter > 100) {
+		sprite->coloradjusment = { 1.0f,1.0f,1.0f };
+		currentHitCounter = 0;
+		isHit = false;
+	}
 }
 
 void Engine::Player::Render()

@@ -72,6 +72,10 @@ namespace Engine {
         //Crosshair
         Texture* textureCrosshair = NULL;
         Sprite* spriteCrosshair = NULL;
+
+        //Reload Bar
+        Texture* reloadTexture = NULL;
+        std::vector<Sprite*> reloadSprites;
     };
 }
 

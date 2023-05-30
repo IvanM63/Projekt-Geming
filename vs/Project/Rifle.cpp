@@ -165,7 +165,7 @@ void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, flo
 {
 	//Fire Management
 	if (currentAmmo <= 0 || isReload) {
-		//Reload();
+		Reload();
 	}
 
 	//if (game->inputManager->PressKey()
@@ -204,12 +204,16 @@ void Engine::Rifle::Reload()
 	isReload = true;
 
 	currentReloadTime += game->GetGameTime();
-
+	reloadPercentage = currentReloadTime / reloadTime;
+	
 	if (currentReloadTime >= reloadTime) {
 		currentReloadTime = 0;
 		currentAmmo = totalAmmo;
 		isReload = false;
 	}
+
+	//Debug
+	//std::cout << std::fixed << std::setprecision(2) << reloadPercentage << std::endl;
 }
 
 

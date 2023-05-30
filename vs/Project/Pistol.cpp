@@ -139,7 +139,7 @@ void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, fl
 {
 	//Fire Management
 	if (currentAmmo <= 0 || isReload) {
-		//Reload();
+		Reload();
 	}
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
@@ -176,6 +176,7 @@ void Engine::Pistol::Reload()
 	isReload = true;
 
 	currentReloadTime += game->GetGameTime();
+	reloadPercentage = currentReloadTime / reloadTime;
 
 	if (currentReloadTime >= reloadTime) {
 		currentReloadTime = 0;

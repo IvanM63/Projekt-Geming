@@ -52,9 +52,7 @@ namespace Engine {
 		float bulletSpeed = 20.0f;
 
 		unsigned int duration = 0;
-		bool isReload = false;
-		int currentReloadTime;
-
+	
 		int fireAnimTime = 24;
 
 		//Hitbox Debug

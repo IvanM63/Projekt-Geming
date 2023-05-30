@@ -49,13 +49,33 @@ void Engine::WeaponManager::Init()
 	ammoText = new Text("lucon.ttf", 24, game->defaultTextShader);
 	ammoText->SetScale(1.0f);
 	ammoText->SetColor(255, 255, 255);
-	
+
+	//Reload Bar UI
+	reloadTexture = new Texture("Asset/UI/reloadBar.png");
+
+	reloadSprites.push_back(new Sprite(reloadTexture, game->defaultSpriteShader, game->defaultQuad));
+	reloadSprites.push_back(new Sprite(reloadTexture, game->defaultSpriteShader, game->defaultQuad));
+	reloadSprites.push_back(new Sprite(reloadTexture, game->defaultSpriteShader, game->defaultQuad));
+
+	for (size_t i = 0; i < reloadSprites.size(); i++) {
+		reloadSprites[i]->SetNumXFrames(1);
+		reloadSprites[i]->SetNumYFrames(3);
+		reloadSprites[i]->AddAnimation("idle", i, i);
+		reloadSprites[i]->PlayAnim("idle");
+		reloadSprites[i]->SetBoundToCamera(true);
+
+		if (i == 1) {
+			reloadSprites[i]->SetSize(reloadSprites[i]->GetScaleWidth(), reloadSprites[i]->GetScaleHeight()*3);
+		}
+	}
+
 }
 
 void Engine::WeaponManager::Update()
 {
+	//Reload
+	//std::cout << activeWeapon->reloadPercentage << "\n";
 	//Change Weapon
-
 	if (game->inputManager->IsKeyPressed("Rifle")) {
 		activeWeapon = rifle;
 	}
@@ -77,7 +97,20 @@ void Engine::WeaponManager::Update()
 	ammoText->SetText(std::to_string(activeWeapon->GetCurrentAmmo()));
 	ammoText->SetPosition(game->setting->screenWidth/2, game->setting->screenHeight/2 +100);
 
+	//Reload UI Bar
+	if (activeWeapon->isReload) {
+		for (size_t i = 0; i < reloadSprites.size(); i++) {
+			reloadSprites[i]->Update(game->GetGameTime());
+			reloadSprites[i]->SetPosition(game->setting->screenWidth / 2 - 90, game->setting->screenHeight / 2 + 100);
+
+			if (i == 1) {
+				//std::cout << 146 * activeWeapon->reloadPercentage << "\n";
+				reloadSprites[i]->SetSize(146 * activeWeapon->reloadPercentage, reloadSprites[i]->GetScaleHeight() * 3);
+			}
+		}
+	}
 	
+
 }
 
 void Engine::WeaponManager::Render()
@@ -93,6 +126,13 @@ void Engine::WeaponManager::Render()
 	
 	//Render Crosshair
 	spriteCrosshair->Draw();
+	
+	//Reload UI Bar
+	if (activeWeapon->isReload) {
+		for (size_t i = 0; i < reloadSprites.size(); i++) {
+			reloadSprites[i]->Draw();
+		}
+	}
 	
 }
 

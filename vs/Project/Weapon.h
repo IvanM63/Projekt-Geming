@@ -5,6 +5,9 @@
 #include "Texture.h"
 #include "Sprite.h"
 
+#include <iostream>
+#include <iomanip>
+
 namespace Engine {
 
 	class Game;
@@ -44,12 +47,16 @@ namespace Engine {
 		void ReduceBulletInChamberByOne();
 		virtual void Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle);
 		
+		//Reload
+		bool isReload = false;
+		float reloadPercentage = 0.0f;
+		float currentReloadTime;
+		float reloadTime;
 	protected:
 		Engine::Game* game = NULL;
 
 		//Basic Stat
 		int totalAmmo, currentAmmo;
-		int reloadTime;
 		int fireRate;
 		int damage;
 
@@ -60,6 +67,8 @@ namespace Engine {
 		//Pistol Texture and Sprite
 		Engine::Texture* textureWeapon = NULL;
 		Engine::Sprite* spriteWeapon = NULL;
+		
+		//Reload
 		
 		
 	};

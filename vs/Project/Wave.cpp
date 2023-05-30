@@ -56,6 +56,9 @@ std::vector<Engine::Enemy*> Engine::Wave::SpawnEnemies()
 		e->SetPosition(x, y);
 		e->setDebug(false);
 
+		//Color Adjusment Tes
+		//e->sprite->coloradjusment = { 255,255,255 };
+
 		enemiesWave.push_back(e);
 		std::cout << "Enemy spawned at (" << x << ", " << y << ")" << std::endl;
 	}

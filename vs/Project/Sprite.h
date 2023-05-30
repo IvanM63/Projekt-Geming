@@ -43,6 +43,8 @@ namespace Engine {
 		void SetSize(float width, float height);
 		float GetScaleWidth();
 		float GetScaleHeight();
+		float GetWidth();
+		float GetHeight();
 		BoundingBox* GetBoundingBox();
 		vec2 GetPosition();
 		vec2 GetRotatedPoint(float x, float y);
@@ -60,6 +62,8 @@ namespace Engine {
 		float centerY = 0;
 
 		int frameIndex = 0;
+
+		vec3 coloradjusment = { 1.0f,1.0f,1.0f };
 	private:
 		
 		vec4 min;

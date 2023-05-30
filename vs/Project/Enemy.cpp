@@ -74,6 +74,17 @@ void Engine::Enemy::Update()
 	}
 
 	currentFireRate += game->deltaTime;
+
+	//Time Counter Get Hit
+	if (isHit) {
+		currentHitCounter += game->GetGameTime();
+		sprite->coloradjusment = { 255,255,255 };
+	}
+	if (currentHitCounter > 50) {
+		sprite->coloradjusment = { 1.0f,1.0f,1.0f };
+		currentHitCounter = 0;
+		isHit = false;
+	}
 }
 
 void Engine::Enemy::Render()

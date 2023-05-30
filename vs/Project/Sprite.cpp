@@ -227,6 +227,8 @@ void Engine::Sprite::UpdateShaderData()
 	shader->setInt(numYFrames, "ny");
 	shader->setInt(frameIndex, "frameIndex");
 	shader->setMat4(CreateTransform(), "model");
+	//Normal
+	shader->setVec3(coloradjusment, "colorAdjustment");
 }
 
 AnimData* Engine::Sprite::GetAnimData(string name)

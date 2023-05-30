@@ -52,8 +52,6 @@ namespace Engine {
 		float bulletSpeed = 10.5f;
 
 		unsigned int duration = 0;
-		bool isReload = false;
-		int currentReloadTime;
 
 		int fireAnimTime = 400;
 

@@ -4,8 +4,11 @@ in vec2 TexCoord;
 
 // Texture samplers
 uniform sampler2D ourTexture;
+uniform vec3 colorAdjustment;
 
 void main()
 {
-    gl_FragColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0f);
+    vec4 texColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0f);
+    texColor.rgb *= colorAdjustment;
+    gl_FragColor = texColor;
 }

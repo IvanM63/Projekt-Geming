@@ -286,7 +286,7 @@ void Engine::ScreenGame::Update()
 
 		for (size_t j = 0; j < weapon->weapons.size(); j++) {
 			for (size_t x = 0; x < weapon->weapons[j]->GetProjectilesSize(); x++) {
-				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->weapons[j]->GetProjectileBoundingBoxByIndex(x))) {
+				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->weapons[j]->GetProjectileBoundingBoxByIndex(x)) && enemies[i]->getHealth()>0) {
 
 					//Impact Effect
 					vec2 posImpact = weapon->weapons[j]->GetProjectilePositionByIndex(x);
@@ -315,10 +315,14 @@ void Engine::ScreenGame::Update()
 					weapon->weapons[j]->RemoveProjectileByIndex(x);
 					enemies[i]->takeDamage(weapon->weapons[j]->GetDamage());
 
+					//Change enemies color to white if get hit
+					enemies[i]->isHit = true;
+					//enemies[i]->sprite->coloradjusment = { 255,255,255 };
 				}
 			}			
 		}
 
+		//if enemies dies, play die animation
 		if (enemies[i]->getHealth() <= 0) {
 			enemies[i]->sprite->PlayAnim("dies");
 			if (enemies[i]->sprite->isSpriteLastFrame()) {
@@ -349,8 +353,14 @@ void Engine::ScreenGame::Update()
 	for (size_t i = 0; i < enemies.size(); i++) {
 		if (enemies[i]->sprite->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
 			//std::cout << "HIT";
-			player->takeDamage(enemies[i]->GetDamage());
-			
+
+			int enemiesDamage = enemies[i]->GetDamage();
+
+			if (enemiesDamage > 0) {
+				player->isHit = true;
+				player->takeDamage(enemiesDamage);
+			}
+
 			if (player->getHealth() <= 0) {
 				manager->switchScreen(ScreenState::GAME_OVER);
 			}

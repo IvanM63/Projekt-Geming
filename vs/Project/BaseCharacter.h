@@ -40,6 +40,10 @@ namespace Engine {
         Engine::Texture* texture = NULL;
         Engine::Sprite* sprite = NULL;
 
+        //Time Counter
+        int currentHitCounter = 0;
+        bool isHit = false;
+
     protected:
        
         Engine::Game* game = NULL;
@@ -55,6 +59,8 @@ namespace Engine {
         //This chara Stat
         int maxHealth, currentHealth;
         int damage;
+
+        
 
     };
 }
