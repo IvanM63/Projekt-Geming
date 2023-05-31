@@ -21,6 +21,7 @@ void Engine::Enemy::Init()
 	sprite->AddAnimation("moving", 26, 33);
 	sprite->AddAnimation("idle", 0, 7);
 	sprite->AddAnimation("attack", 13, 19);
+	sprite->AddAnimation("special", 39, 51);
 	sprite->AddAnimation("dies", 65, 74);
 
 	sprite->PlayAnim("idle");
@@ -29,7 +30,7 @@ void Engine::Enemy::Init()
 
 	//Set Bounding Box
 	//sprite->SetSize(150, 32);
-	sprite->SetBoundingBoxSize(sprite->GetScaleWidth()-100, sprite->GetScaleHeight()-20);
+	sprite->SetBoundingBoxSize(sprite->GetScaleWidth()-50, sprite->GetScaleHeight()-25);
 
 	// This dot sprite is for visual debugging (to see the actual bounding box) 
 	dotTexture = new Texture("dot.png");
@@ -38,8 +39,6 @@ void Engine::Enemy::Init()
 	dotSprite3 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
 	dotSprite4 = new Sprite(dotTexture, game->defaultSpriteShader, game->defaultQuad);
 
-	isDebug = false;
-
 	//Enemy Stat Init()
 	//Health
 	maxHealth = 120;
@@ -47,13 +46,13 @@ void Engine::Enemy::Init()
 	//DPS
 	int fireRate = 500;
 	int currentFireRate = fireRate;
-
+	
 }
 
 void Engine::Enemy::Update()
 {
 	sprite->Update(game->GetGameTime());
-
+	//isDebug = true;
 	//Shape for debug
 	if (isDebug) {
 		BoundingBox* bb = sprite->GetBoundingBox();

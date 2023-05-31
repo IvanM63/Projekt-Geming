@@ -9,6 +9,16 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
+	//Red Screen Init
+	redTexture = new Texture("Asset/UI/redScreen.png");
+	redSprite = new Sprite(redTexture, game->defaultSpriteShader, game->defaultQuad);
+	redSprite->SetNumXFrames(1);
+	redSprite->SetNumYFrames(1);
+	redSprite->AddAnimation("default", 0, 0);
+	redSprite->PlayAnim("default");
+	redSprite->SetScale(1);
+	redSprite->SetAnimationDuration(150);
+	redSprite->SetBoundToCamera(true);
 	//Came Init
 	game->defaultSpriteShader->cameraPos = { 0,0 };
 
@@ -215,6 +225,10 @@ void Engine::ScreenGame::Update()
 		return;
 	}
 
+	//RedScreen Update
+	redSprite->Update(game->GetGameTime());
+	currentRedCounter += game->GetGameTime();
+
 	//Wave System
 	if (wave->GetSpawnStatus()) {
 		enemies = wave->SpawnEnemies();
@@ -357,6 +371,7 @@ void Engine::ScreenGame::Update()
 			int enemiesDamage = enemies[i]->GetDamage();
 
 			if (enemiesDamage > 0) {
+				isRedScreen = true;
 				player->isHit = true;
 				player->takeDamage(enemiesDamage);
 			}
@@ -398,8 +413,6 @@ void Engine::ScreenGame::Update()
 			enemies[i]->SetDirection(direction.x, direction.y);
 			enemies[i]->sprite->PlayAnim("moving");
 		}
-
-		
 
 		float rawAimAngle = atan2(direction.y, direction.x) * 180 / M_PI;
 
@@ -451,15 +464,13 @@ void Engine::ScreenGame::Render()
 	//Render Background
 	backgroundSprite->Draw();
 
-	
+	//Render Player
+	player->Render();
 
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Render();
 	}
-
-	//Render Player
-	player->Render();
 
 	//Render Weapon and Bullet
 	weapon->Render();
@@ -480,6 +491,18 @@ void Engine::ScreenGame::Render()
 	enemiesLeftText->Draw();
 	waveText->Draw();
 	coinText->Draw();
+
+	//Red Screen
+	if (isRedScreen) {
+		currentRedCounter += game->GetGameTime();
+		redSprite->Draw();
+	}
+	if (currentRedCounter > 1000) {
+		currentRedCounter = 0;
+		isRedScreen = false;
+	}
+
+	
 }
 
 void Engine::ScreenGame::forDebug()

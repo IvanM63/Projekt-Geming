@@ -45,7 +45,7 @@ void Engine::Player::Init()
 	healthText->SetPosition(10, game->setting->screenHeight - 100);
 
 	//Debug
-	isDebug = true;
+	isDebug = false;
 }
 
 void Engine::Player::Update()

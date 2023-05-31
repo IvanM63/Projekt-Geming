@@ -44,6 +44,7 @@ namespace Engine {
         int currentHitCounter = 0;
         bool isHit = false;
 
+        bool isSpecial = false;
     protected:
        
         Engine::Game* game = NULL;

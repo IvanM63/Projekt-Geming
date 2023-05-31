@@ -45,7 +45,8 @@ namespace Engine {
         //ENEMY STAT
         int damage = 10;
         int fireRate = 500;
-        int currentFireRate = fireRate;    
+        int currentFireRate = fireRate;
+        
     };
 }
 

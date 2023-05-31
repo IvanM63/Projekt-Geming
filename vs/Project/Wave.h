@@ -10,6 +10,9 @@
 
 #include "Enemy.h"
 
+#include <iostream>
+#include <random>
+
 namespace Engine {
 
     class Enemy;

@@ -44,23 +44,30 @@ std::vector<Engine::Enemy*> Engine::Wave::SpawnEnemies()
 	int x = std::rand() % (game->setting->screenWidth + 50 * 2) - 50;
 	int y = std::rand() % (game->setting->screenHeight + 50 * 2) - 50;
 
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::bernoulli_distribution dis(0.5);
+
+	bool randomBool = dis(gen);
+
 	// check if enemy is out of screen
 	if (x > game->setting->screenWidth - game->defaultSpriteShader->cameraPos.x ||
 		y > game->setting->screenHeight - game->defaultSpriteShader->cameraPos.y ||
 		x < -game->defaultSpriteShader->cameraPos.x ||
 		y < -game->defaultSpriteShader->cameraPos.y) {
-		//std::cout << "Enemy spawned out of screen at (" << x << ", " << y << ")" << std::endl;
+		std::cout << "Enemy spawned out of screen at (" << x << ", " << y << ", " << randomBool << ")" << std::endl;
 
 		Enemy* e = new Enemy(game);
 		e->Init();
 		e->SetPosition(x, y);
+		e->isSpecial = randomBool;
 		e->setDebug(false);
 
 		//Color Adjusment Tes
 		//e->sprite->coloradjusment = { 255,255,255 };
 
 		enemiesWave.push_back(e);
-		std::cout << "Enemy spawned at (" << x << ", " << y << ")" << std::endl;
+		//std::cout << "Enemy spawned at (" << x << ", " << y << ")" << std::endl;
 	}
 
 	 

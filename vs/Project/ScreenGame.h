@@ -48,6 +48,12 @@ namespace Engine {
 		float calculatePenetrationDepth(BoundingBox* box1, BoundingBox* box2, vec2 collisionNormal);
 
 	private:
+		//RedScreen
+		Texture* redTexture = NULL;
+		Sprite* redSprite = NULL;
+		int currentRedCounter = 0;
+		bool isRedScreen = false;
+
 		//Currency
 		int score = 0;
 
