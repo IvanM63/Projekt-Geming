@@ -8,7 +8,7 @@ uniform vec3 colorAdjustment;
 
 void main()
 {
-    vec4 texColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0f) * vec4(0.00784314f, 0.203922f, 0.211765f,0.9f);
+    vec4 texColor = texture(ourTexture, TexCoord) * vec4(ourColor, 1.0f);
     texColor.rgb *= colorAdjustment ;
     gl_FragColor = texColor;
 }
