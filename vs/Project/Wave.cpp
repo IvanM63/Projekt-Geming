@@ -48,7 +48,12 @@ std::vector<Engine::Enemy*> Engine::Wave::SpawnEnemies()
 	std::mt19937 gen(rd());
 	std::bernoulli_distribution dis(0.5);
 
-	bool randomBool = dis(gen);
+	bool randomBool = false;
+
+	if (currentWave >= 5) {
+		randomBool = dis(gen);
+	}
+	
 
 	// check if enemy is out of screen
 	if (x > game->setting->screenWidth - game->defaultSpriteShader->cameraPos.x ||

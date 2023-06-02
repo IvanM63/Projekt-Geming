@@ -32,7 +32,7 @@ namespace Engine {
         void SetFlipHorizontal(bool tf);
         void SetPosition(float x, float y);
         vec2 GetPosition();
-        void move(vec2 location);
+        virtual void move(vec2 location);
 
         //For Debuging purpose
         void setDebug(bool is);
@@ -44,7 +44,7 @@ namespace Engine {
         int currentHitCounter = 0;
         bool isHit = false;
 
-        bool isSpecial = false;
+        
     protected:
        
         Engine::Game* game = NULL;

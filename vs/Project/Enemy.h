@@ -28,6 +28,7 @@ namespace Engine {
 
         //MOVE FUNCTION
         void MoveWithVelocity();
+        void move(vec2 location);
 
         //Bounding Box Stuff
         BoundingBox* GetBoundingBox();
@@ -36,6 +37,9 @@ namespace Engine {
         //Behaviour
         int GetDamage();
 
+        //Special Behavior
+        bool isSpecial = false;
+        bool isSpecialMove = false;
     protected:
         //PERJALANAN MUSUH
         vec2 velocity = { 0,0 };

@@ -339,7 +339,7 @@ void Engine::ScreenGame::Update()
 		//if enemies dies, play die animation
 		if (enemies[i]->getHealth() <= 0) {
 			enemies[i]->sprite->PlayAnim("dies");
-			if (enemies[i]->sprite->isSpriteLastFrame()) {
+			if (enemies[i]->sprite->isSpriteLastFrame() && !enemies[i]->isSpecial) {
 				enemies.erase(enemies.begin() + i);
 				wave->RemoveEnemiesByOne(i);
 				score += 10;
@@ -347,6 +347,19 @@ void Engine::ScreenGame::Update()
 				break;
 			}
 			//std::cout << enemies[i]->sprite->frameIndex << "\n";
+
+			if (enemies[i]->isSpecial && enemies[i]->GetPosition().x > game->setting->screenWidth - game->defaultSpriteShader->cameraPos.x ||
+				enemies[i]->isSpecial && enemies[i]->GetPosition().y > game->setting->screenHeight - game->defaultSpriteShader->cameraPos.y ||
+				enemies[i]->isSpecial && enemies[i]->GetPosition().x < -game->defaultSpriteShader->cameraPos.x ||
+				enemies[i]->isSpecial && enemies[i]->GetPosition().y < -game->defaultSpriteShader->cameraPos.y) {
+
+				enemies.erase(enemies.begin() + i);
+				wave->RemoveEnemiesByOne(i);
+				score += 10;
+				game->setting->score += 10;
+				break;
+			}
+
 		}
 		
 	}
@@ -405,24 +418,34 @@ void Engine::ScreenGame::Update()
 		direction.y /= mag;
 
 		float distance = mag;
-		
-		if (enemies[i]->getHealth() <= 0) {
-			enemies[i]->SetDirection(0, 0);
-		}
-		else {
-			enemies[i]->SetDirection(direction.x, direction.y);
-			enemies[i]->sprite->PlayAnim("moving");
-		}
 
 		float rawAimAngle = atan2(direction.y, direction.x) * 180 / M_PI;
+		
+		if (enemies[i]->getHealth() <= 0 && !enemies[i]->isSpecial) {
+			enemies[i]->SetDirection(0, 0);
+		}
+		else if (enemies[i]->getHealth() <= 0 && enemies[i]->isSpecial) {
+			enemies[i]->sprite->SetRotation(rawAimAngle);
+			enemies[i]->SetDirection(direction.x, direction.y);
+			enemies[i]->sprite->PlayAnim("special");
+		}
+		else if (enemies[i]->getHealth()) {
+			enemies[i]->SetDirection(direction.x, direction.y);
+			enemies[i]->sprite->PlayAnim("moving");
 
-		//Setting rotation for Enemies
-		if (rawAimAngle > 90 || rawAimAngle < -90) {
-			enemies[i]->SetFlipHorizontal(true);
+			//Setting rotation for Enemies
+			if (rawAimAngle > 90 || rawAimAngle < -90) {
+				enemies[i]->SetFlipHorizontal(true);
+			}
+			else {
+				enemies[i]->SetFlipHorizontal(false);
+			}
+
 		}
-		else {
-			enemies[i]->SetFlipHorizontal(false);
-		}
+		
+		
+
+		
 
 		// If the player is moving, move the enemy towards the player at the specified speed
 		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {		

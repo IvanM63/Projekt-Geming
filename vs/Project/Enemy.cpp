@@ -21,7 +21,8 @@ void Engine::Enemy::Init()
 	sprite->AddAnimation("moving", 26, 33);
 	sprite->AddAnimation("idle", 0, 7);
 	sprite->AddAnimation("attack", 13, 19);
-	sprite->AddAnimation("special", 39, 51);
+	sprite->AddAnimation("transition", 39, 42); 
+	sprite->AddAnimation("special", 43, 60);
 	sprite->AddAnimation("dies", 65, 74);
 
 	sprite->PlayAnim("idle");
@@ -101,8 +102,22 @@ void Engine::Enemy::Render()
 
 void Engine::Enemy::SetDirection(float x, float y)
 {
-	this->direction.x = x;
-	this->direction.y = y;
+
+	if (getHealth() <= 0 && isSpecial && !isSpecialMove) {
+		isSpecialMove = true;
+		speed = 0.19f;
+		this->direction.x = x;
+		this->direction.y = y;
+	}
+	else if (getHealth() > 0 && isSpecial) {
+		this->direction.x = x;
+		this->direction.y = y;
+	}
+
+	if (!isSpecial) {
+		this->direction.x = x;
+		this->direction.y = y;
+	}
 }
 
 vec2 Engine::Enemy::GetDirection()
@@ -134,6 +149,11 @@ vec2 Engine::Enemy::GetVelocity()
 void Engine::Enemy::MoveWithVelocity()
 {
 	sprite->SetPosition(sprite->GetPosition().x + velocity.x * game->deltaTime, sprite->GetPosition().y + velocity.y * game->deltaTime);
+}
+
+void Engine::Enemy::move(vec2 location)
+{
+	sprite->SetPosition(sprite->GetPosition().x + location.x, sprite->GetPosition().y + location.y);
 }
 
 Engine::BoundingBox* Engine::Enemy::GetBoundingBox()
