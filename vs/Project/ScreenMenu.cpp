@@ -10,31 +10,43 @@ Engine::ScreenMenu::ScreenMenu(Game* game, ScreenManager* manager) : Screen(game
 void Engine::ScreenMenu::Init()
 {
 	// Create a Texture
-	Texture* texture = new Texture("buttons.png");
+	Texture* texture = new Texture("button.png");
 
 	// Create Sprites
 	Sprite* playSprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
-	playSprite->SetNumXFrames(6);
-	playSprite->SetNumYFrames(1);
-	playSprite->AddAnimation("normal", 5, 5);
-	playSprite->AddAnimation("hover", 3, 4);
-	playSprite->AddAnimation("press", 3, 4);
-	playSprite->SetAnimationDuration(400);
+	playSprite->SetNumXFrames(5);
+	playSprite->SetNumYFrames(4);
+	playSprite->AddAnimation("normal",10 , 10);
+	playSprite->AddAnimation("hover", 0, 4);
+	playSprite->AddAnimation("press", 4, 4);
+	playSprite->SetAnimationDuration(100);
+	playSprite->SetBoundToCamera(true);
 
 	Sprite* exitSprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
-	exitSprite->SetNumXFrames(6);
-	exitSprite->SetNumYFrames(1);
-	exitSprite->AddAnimation("normal", 2, 2);
-	exitSprite->AddAnimation("hover", 0, 1);
-	exitSprite->AddAnimation("press", 0, 1);
-	exitSprite->SetAnimationDuration(400);
+	exitSprite->SetNumXFrames(5);
+	exitSprite->SetNumYFrames(4);
+	exitSprite->AddAnimation("normal", 5, 5);
+	exitSprite->AddAnimation("hover", 15, 19);
+	exitSprite->AddAnimation("press", 19, 19);
+	exitSprite->SetAnimationDuration(100);
+	exitSprite->SetBoundToCamera(true);
+
+	textureTitle = new Texture("Asset/title.png");
+	spriteTitle = new Sprite(textureTitle, game->defaultSpriteShader, game->defaultQuad);
+	spriteTitle->SetNumXFrames(1);
+	spriteTitle->SetNumYFrames(1);
+	spriteTitle->AddAnimation("default", 0, 0);
+	spriteTitle->PlayAnim("default");
+	spriteTitle->SetAnimationDuration(30);
+	spriteTitle->SetPosition(game->setting->screenWidth - 968, game->setting->screenWidth - 406);
+	spriteTitle->SetBoundToCamera(true);
 
 	//Create Buttons
 	Button* playButton = new Button(playSprite, "play");
-	playButton->SetPosition(100, 350);
+	playButton->SetPosition(game->setting->screenWidth - 337, 400);
 	buttons.push_back(playButton);
 	Button* exitButton = new Button(exitSprite, "exit");
-	exitButton->SetPosition(100, 250);
+	exitButton->SetPosition(game->setting->screenWidth - 337, 300);
 	buttons.push_back(exitButton);
 
 	// Set play button into active button
@@ -42,10 +54,15 @@ void Engine::ScreenMenu::Init()
 	buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
 
 	// Create Text
-	text = new Text("8-bit Arcade In.ttf", 100, game->defaultTextShader);
-	text->SetText("Game Jombi-Jombian");
-	text->SetPosition(325, game->setting->screenHeight - 100);
-	text->SetColor(235, 229, 52);
+	text = new Text("8-bit Arcade In.ttf", 150, game->defaultTextShader);
+	text->SetText("Start");
+	text->SetPosition(325, game->setting->screenHeight - 150);
+	text->SetColor(194, 202, 174);
+
+	textoutline = new Text("8-bit Arcade In.ttf", 200, game->defaultTextShader);
+	textoutline->SetText("Jombi Jombian");
+	textoutline->SetPosition(325, game->setting->screenHeight - 180);
+	textoutline->SetColor(73, 79, 57);
 
 	// Add input mappings
 	game->inputManager->AddInputMapping("next", SDLK_DOWN);
@@ -57,7 +74,7 @@ void Engine::ScreenMenu::Init()
 void Engine::ScreenMenu::Update()
 {
 	// Set background
-	game->SetBackgroundColor(52, 155, 235);
+	game->SetBackgroundColor(30, 39, 73);
 
 	if (game->inputManager->IsKeyReleased("next")) {
 		// Set previous button to normal state
@@ -104,9 +121,10 @@ void Engine::ScreenMenu::Render()
 	for (Button* b : buttons) {
 		b->Draw();
 	}
-	// Render title 
-	text->Draw();
-
+	// Render title
+	//textoutline->Draw();
+	//text->Draw();
+	spriteTitle->Draw();
 
 }
 

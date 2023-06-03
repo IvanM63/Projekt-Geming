@@ -8,7 +8,7 @@ Engine::ScreenManager::ScreenManager(Game* game)
 	screenGameOver = new ScreenGameOver(game, this);
 
 	//Screen Awal Masuk game ganti di sini
-	screenState = ScreenState::IN_GAME;
+	screenState = ScreenState::MAIN_MENU;
 }
 
 Engine::ScreenManager::~ScreenManager()

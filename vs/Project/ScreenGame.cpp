@@ -139,7 +139,7 @@ void Engine::ScreenGame::Init()
 	spritegunUI->PlayAnim("default");
 	spritegunUI->SetScale(2);
 	spritegunUI->SetAnimationDuration(30);
-	spritegunUI->SetPosition(game->setting->screenWidth - 200, 70);
+	spritegunUI->SetPosition(game->setting->screenWidth - 200, 90);
 	spritegunUI->SetBoundToCamera(true);
 
 	//Text
@@ -451,6 +451,50 @@ void Engine::ScreenGame::Update()
 		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {		
 			enemies[i]->move(enemies[i]->GetDirection() * enemies[i]->GetSpeed() * game->deltaTime);
 		}
+	}
+
+	//healthbar
+	spriteHPbar->Update(game->GetGameTime());
+	if (player->getHealth() > 90) {
+		spriteHPbar->PlayAnim("100");
+	}
+	else if (player->getHealth() > 80) {
+		spriteHPbar->PlayAnim("90");
+	}
+	else if (player->getHealth() > 70) {
+		spriteHPbar->PlayAnim("80");
+	}
+	else if (player->getHealth() > 60) {
+		spriteHPbar->PlayAnim("70");
+	}
+	else if (player->getHealth() > 50) {
+		spriteHPbar->PlayAnim("60");
+	}
+	else if (player->getHealth() > 40) {
+		spriteHPbar->PlayAnim("50");
+	}
+	else if (player->getHealth() > 30) {
+		spriteHPbar->PlayAnim("40");
+	}
+	else if (player->getHealth() > 20) {
+		spriteHPbar->PlayAnim("30");
+	}
+	else if (player->getHealth() > 10) {
+		spriteHPbar->PlayAnim("20");
+	}
+	else if (player->getHealth() > 0) {
+		spriteHPbar->PlayAnim("10");
+	}
+	else {
+		spriteHPbar->PlayAnim("0");
+	}
+
+	spritegunUI->Update(game->GetGameTime());
+	if (game->inputManager->IsKeyPressed("Rifle")) {
+		spritegunUI->PlayAnim("rifle");
+	}
+	else if (game->inputManager->IsKeyPressed("Pistol")) {
+		spritegunUI->PlayAnim("pistol");
 	}
 
 	//std::cout << player->getHealth() << "\n";
