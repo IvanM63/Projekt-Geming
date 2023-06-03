@@ -604,13 +604,15 @@ void Engine::ScreenGame::Render()
 	//Render Player
 	player->Render();
 
-	//Render Weapon and Bullet
-	weapon->Render();
+	
 
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Render();
 	}
+
+	//Render Weapon and Bullet
+	weapon->Render();
 
 	//Render Bullet Impact
 	for (size_t i = 0; i < bulletImpacts.size(); i++) {
