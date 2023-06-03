@@ -43,6 +43,18 @@ void Engine::ScreenGame::Init()
 	redSprite->SetScale(1);
 	redSprite->SetAnimationDuration(150);
 	redSprite->SetBoundToCamera(true);
+
+	//Red Screen Init
+	redTexture2 = new Texture("Asset/UI/redScreen2.png");
+	redSprite2 = new Sprite(redTexture2, game->defaultSpriteShader, game->defaultQuad);
+	redSprite2->SetNumXFrames(1);
+	redSprite2->SetNumYFrames(1);
+	redSprite2->AddAnimation("default", 0, 0);
+	redSprite2->PlayAnim("default");
+	redSprite2->SetScale(1);
+	redSprite2->SetAnimationDuration(150);
+	redSprite2->SetBoundToCamera(true);
+
 	//Came Init
 	game->defaultSpriteShader->cameraPos = { 0,0 };
 
@@ -60,6 +72,8 @@ void Engine::ScreenGame::Init()
 	spriteImpact->SetAnimationDuration(150);
 
 	//UI SECTION
+
+	//HP 
 	textureHP = new Texture("Asset/UI/Health/HealthBar.png");
 	spriteHP = new Sprite(textureHP, game->defaultSpriteShader, game->defaultQuad);
 
@@ -274,14 +288,15 @@ void Engine::ScreenGame::Update()
 		if ("MainMenu" == screenName) {
 			manager->switchScreen(ScreenState::MAIN_MENU);
 		}
-		else if ("exit" == screenName) {
-			game->state = Engine::State::EXIT;
+		else if ("GameOver" == screenName) {
+			manager->switchScreen(ScreenState::GAME_OVER);
 		}
 
 	}
 
 	//RedScreen Update
 	redSprite->Update(game->GetGameTime());
+	redSprite2->Update(game->GetGameTime());
 	currentRedCounter += game->GetGameTime();
 
 	//Wave System
@@ -314,36 +329,40 @@ void Engine::ScreenGame::Update()
 	weapon->Update();
 
 	//Walk Management
-	if (game->inputManager->IsKeyPressed("walk-right")) {
-		x += velocity * game->GetGameTime();
-		//player->sprite->SetFlipHorizontal(true);
-		player->sprite->PlayAnim("Walk-Horizontal");
-		isPlayerMoving = true;
-		game->defaultSpriteShader->cameraPos.x -= velocity * game->GetGameTime();
-	}
+	if (!isRedScreen2) {
 
-	if (game->inputManager->IsKeyPressed("walk-left")) {
-		x -= velocity * game->GetGameTime();
-		//player->sprite->SetFlipHorizontal(false);
-		player->sprite->PlayAnim("Walk-Horizontal");
-		isPlayerMoving = true;
-		game->defaultSpriteShader->cameraPos.x += velocity * game->GetGameTime();
-	}
+		if (game->inputManager->IsKeyPressed("walk-right")) {
+			x += velocity * game->GetGameTime();
+			//player->sprite->SetFlipHorizontal(true);
+			player->sprite->PlayAnim("Walk-Horizontal");
+			isPlayerMoving = true;
+			game->defaultSpriteShader->cameraPos.x -= velocity * game->GetGameTime();
+		}
 
-	if (game->inputManager->IsKeyPressed("walk-up")) {
-		y += velocity * game->GetGameTime();
-		//sprite2->SetFlipHorizontal(true);
-		player->sprite->PlayAnim("Walk-Up");
-		isPlayerMoving = true;
-		game->defaultSpriteShader->cameraPos.y -= velocity * game->GetGameTime();
-	}
+		if (game->inputManager->IsKeyPressed("walk-left")) {
+			x -= velocity * game->GetGameTime();
+			//player->sprite->SetFlipHorizontal(false);
+			player->sprite->PlayAnim("Walk-Horizontal");
+			isPlayerMoving = true;
+			game->defaultSpriteShader->cameraPos.x += velocity * game->GetGameTime();
+		}
 
-	if (game->inputManager->IsKeyPressed("walk-down")) {
-		y -= velocity * game->GetGameTime();
-		//sprite2->SetFlipHorizontal(true);
-		player->sprite->PlayAnim("Walk-Down");
-		isPlayerMoving = true;
-		game->defaultSpriteShader->cameraPos.y += velocity * game->GetGameTime();
+		if (game->inputManager->IsKeyPressed("walk-up")) {
+			y += velocity * game->GetGameTime();
+			//sprite2->SetFlipHorizontal(true);
+			player->sprite->PlayAnim("Walk-Up");
+			isPlayerMoving = true;
+			game->defaultSpriteShader->cameraPos.y -= velocity * game->GetGameTime();
+		}
+
+		if (game->inputManager->IsKeyPressed("walk-down")) {
+			y -= velocity * game->GetGameTime();
+			//sprite2->SetFlipHorizontal(true);
+			player->sprite->PlayAnim("Walk-Down");
+			isPlayerMoving = true;
+			game->defaultSpriteShader->cameraPos.y += velocity * game->GetGameTime();
+		}
+
 	}
 
 	player->sprite->SetPosition(x, y);
@@ -445,7 +464,7 @@ void Engine::ScreenGame::Update()
 			}
 
 			if (player->getHealth() <= 0) {
-				manager->switchScreen(ScreenState::GAME_OVER);
+				isRedScreen2 = true;
 			}
 
 			//PLay enemies anim
@@ -585,13 +604,13 @@ void Engine::ScreenGame::Render()
 	//Render Player
 	player->Render();
 
+	//Render Weapon and Bullet
+	weapon->Render();
+
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Render();
 	}
-
-	//Render Weapon and Bullet
-	weapon->Render();
 
 	//Render Bullet Impact
 	for (size_t i = 0; i < bulletImpacts.size(); i++) {
@@ -610,7 +629,7 @@ void Engine::ScreenGame::Render()
 	waveText->Draw();
 	coinText->Draw();
 
-	//Red Screen
+	//Player Hit Red Screen
 	if (isRedScreen) {
 		currentRedCounter += game->GetGameTime();
 		redSprite->Draw();
@@ -620,6 +639,19 @@ void Engine::ScreenGame::Render()
 		isRedScreen = false;
 	}
 
+	//Player Died Red Screen2
+	if (isRedScreen2) {
+		currentRedCounter2 += game->GetGameTime();
+		redSprite2->Draw();
+	}
+	if (currentRedCounter2 > 1500) {
+		currentRedCounter2 = 0;
+		isRedScreen2 = false;
+		isSwitching = true;
+		screenName = "GameOver";
+	}
+	
+	//Switch Screen Animation
 	spriteIn->Draw();
 	spriteOut->Draw();
 }

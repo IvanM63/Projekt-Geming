@@ -67,6 +67,12 @@ namespace Engine {
 		Sprite* redSprite = NULL;
 		int currentRedCounter = 0;
 		bool isRedScreen = false;
+		
+		int currentRedCounter2 = 0;
+		bool isRedScreen2 = false;
+
+		Texture* redTexture2 = NULL;
+		Sprite* redSprite2 = NULL;
 
 		//Currency
 		int score = 0;
