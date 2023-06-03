@@ -18,12 +18,15 @@ Engine::ScreenManager::~ScreenManager()
 void Engine::ScreenManager::switchScreen(ScreenState state)
 {
 	if (state == ScreenState::MAIN_MENU) {
+		screenMenu = new ScreenMenu(game, this);
 		screenMenu->Init();
 	}
 	else if (state == ScreenState::IN_GAME) {
+		screenGame = new ScreenGame(game, this);
 		screenGame->Init();
 	}
 	else if (state == ScreenState::GAME_OVER) {
+		screenGameOver = new ScreenGameOver(game, this);
 		screenGameOver->Init();
 	}
 	screenState = state;

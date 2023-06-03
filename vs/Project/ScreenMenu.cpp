@@ -9,6 +9,32 @@ Engine::ScreenMenu::ScreenMenu(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenMenu::Init()
 {
+
+	//Switch Screen Anim In
+	textureIn = new Texture("Asset/UI/SwitchScreen_In.png");
+	spriteIn = new Sprite(textureIn, game->defaultSpriteShader, game->defaultQuad);
+
+	spriteIn->SetNumXFrames(1);
+	spriteIn->SetNumYFrames(1);
+	spriteIn->AddAnimation("normal", 0, 0);
+	spriteIn->SetAnimationDuration(100);
+	spriteIn->SetBoundToCamera(true);
+	spriteIn->SetPosition(-600, 0);
+
+	//Switch Screen Anim Out
+	textureOut = new Texture("Asset/UI/SwitchScreen_Out.png");
+	spriteOut = new Sprite(textureOut, game->defaultSpriteShader, game->defaultQuad);
+
+	spriteOut->SetNumXFrames(1);
+	spriteOut->SetNumYFrames(1);
+	spriteOut->AddAnimation("normal", 0, 0);
+	spriteOut->SetAnimationDuration(100);
+	spriteOut->SetBoundToCamera(true);
+	spriteOut->SetPosition(-2100, 0);
+
+	b = NULL;
+	isSwitching = false;
+
 	// Create a Texture
 	Texture* texture = new Texture("button.png");
 
@@ -73,6 +99,25 @@ void Engine::ScreenMenu::Init()
 
 void Engine::ScreenMenu::Update()
 {
+	//Switch Screen Anim Out
+	spriteOut->Update(game->GetGameTime());
+	spriteIn->Update(game->GetGameTime());
+
+	//Switch Anim In
+	if (spriteIn->GetPosition().x < 1400) {
+		spriteIn->SetPosition(spriteIn->GetPosition().x + 50, 0);
+	}
+
+	//Switch Anim Out
+	if (isSwitching) {
+		currentSwitchTime += game->GetGameTime();
+		if (spriteOut->GetPosition().x < -25) {
+			spriteOut->SetPosition(spriteOut->GetPosition().x + 50, 0);
+		}
+
+	}
+	
+
 	// Set background
 	game->SetBackgroundColor(30, 39, 73);
 
@@ -94,19 +139,36 @@ void Engine::ScreenMenu::Update()
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
 	}
 
-
+	//Get Pressed Key Information
 	if (game->inputManager->IsKeyReleased("press")) {
 		// Set current button to press state
-		Button* b = buttons[currentButtonIndex];
+		b = buttons[currentButtonIndex];
 		b->SetButtonState(Engine::ButtonState::PRESS);
-		// If play button then go to InGame, exit button then exit
-		if ("play" == b->GetButtonName()) {
-			manager->switchScreen(ScreenState::IN_GAME);
-		}
-		else if ("exit" == b->GetButtonName()) {
-			game->state = Engine::State::EXIT;
-		}
+		// Turn isSwitching to true if button pressed
+		isSwitching = true;
+
 	}
+
+	//Change Screen After Switch Screen Animation End
+	if (b != NULL) {
+		//std::cout << b->GetButtonName();
+
+		if (currentSwitchTime > 750) {
+
+			if ("play" == b->GetButtonName()) {
+				manager->switchScreen(ScreenState::IN_GAME);
+			}
+			else if ("exit" == b->GetButtonName()) {
+				game->state = Engine::State::EXIT;
+			}
+			
+		}
+
+	}
+
+	
+	//Update Switch Time
+	
 
 	// Update All buttons
 	for (Button* b : buttons) {
@@ -125,6 +187,10 @@ void Engine::ScreenMenu::Render()
 	//textoutline->Draw();
 	//text->Draw();
 	spriteTitle->Draw();
+
+	//Switch Screen Anim Out
+	spriteOut->Draw();
+	spriteIn->Draw();
 
 }
 

@@ -30,8 +30,20 @@ namespace Engine {
 		Text* text;
 		Text* textoutline;
 
+		Button* b = NULL;
+
+		//Switch Screen Purpose
 		Engine::Texture* textureTitle = NULL;
 		Engine::Sprite* spriteTitle = NULL;
+
+		Engine::Texture* textureIn = NULL;
+		Engine::Sprite* spriteIn = NULL;
+		
+		Engine::Texture* textureOut = NULL;
+		Engine::Sprite* spriteOut = NULL;
+
+		int currentSwitchTime = 0;
+		bool isSwitching = false;
 	};
 
 }
