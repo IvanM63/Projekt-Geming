@@ -154,7 +154,6 @@
     <None Include="text.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.h" />
     <ClInclude Include="BaseBullet.h" />
     <ClInclude Include="BaseCharacter.h" />
     <ClInclude Include="BulletRifle.h" />
@@ -190,7 +189,6 @@
     <ClInclude Include="WeaponManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\backup\Projekt\Projekt-Geming\vs\Project\Demo.cpp" />
     <ClCompile Include="BaseBullet.cpp" />
     <ClCompile Include="BaseCharacter.cpp" />
     <ClCompile Include="BulletRifle.cpp" />

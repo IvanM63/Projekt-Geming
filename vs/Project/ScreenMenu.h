@@ -28,7 +28,10 @@ namespace Engine {
 		int currentButtonIndex = 0;
 		vector<Button*> buttons;
 		Text* text;
+		Text* textoutline;
 
+		Engine::Texture* textureTitle = NULL;
+		Engine::Sprite* spriteTitle = NULL;
 	};
 
 }
