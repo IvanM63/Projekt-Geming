@@ -57,22 +57,67 @@ void Engine::ScreenMenu::Init()
 	exitSprite->SetAnimationDuration(100);
 	exitSprite->SetBoundToCamera(true);
 
+	texturekuru = new Texture("Asset/Character/kurukuru.png");
+	spritekuru = new Sprite(texturekuru, game->defaultSpriteShader, game->defaultQuad);
+	spritekuru->SetNumXFrames(6);
+	spritekuru->SetNumYFrames(1);
+	spritekuru->AddAnimation("normal", 0, 4);
+	spritekuru->PlayAnim("normal");
+	spritekuru->SetAnimationDuration(100);
+	spritekuru->SetScale(5);
+	spritekuru->SetPosition(387, game->setting->screenHeight / 2 - 200);
+	spritekuru->SetBoundToCamera(true);
+
+	texturejombi = new Texture("Asset/Enemy/Zombie.png");
+	spritejombi = new Sprite(texturejombi, game->defaultSpriteShader, game->defaultQuad);
+	spritejombi->SetNumXFrames(13);
+	spritejombi->SetNumYFrames(6);
+	spritejombi->AddAnimation("idle", 0, 7);
+	spritejombi->PlayAnim("idle");
+	spritejombi->SetAnimationDuration(100);
+	spritejombi->SetScale(10);
+	spritejombi->SetPosition(700, -100);
+	spritejombi->SetFlipHorizontal(true);
+	spritejombi->SetBoundToCamera(true);
+
+	spritejombi2 = new Sprite(texturejombi, game->defaultSpriteShader, game->defaultQuad);
+	spritejombi2->SetNumXFrames(13);
+	spritejombi2->SetNumYFrames(6);
+	spritejombi2->AddAnimation("idle", 0, 7);
+	spritejombi2->PlayAnim("idle");
+	spritejombi2->SetAnimationDuration(100);
+	spritejombi2->SetScale(10);
+	spritejombi2->SetPosition(230, game->setting->screenHeight-200);
+	spritejombi2->SetFlipVertical(true);
+	spritejombi2->SetBoundToCamera(true);
+
+	spritejombi3 = new Sprite(texturejombi, game->defaultSpriteShader, game->defaultQuad);
+	spritejombi3->SetNumXFrames(13);
+	spritejombi3->SetNumYFrames(6);
+	spritejombi3->AddAnimation("moving", 26, 33);
+	spritejombi3->PlayAnim("moving");
+	spritejombi3->SetAnimationDuration(100);
+	spritejombi3->SetScale(10);
+	spritejombi3->SetPosition(-150, game->setting->screenHeight/2 -200);
+	spritejombi3->SetBoundToCamera(true);
+
 	textureTitle = new Texture("Asset/title.png");
 	spriteTitle = new Sprite(textureTitle, game->defaultSpriteShader, game->defaultQuad);
 	spriteTitle->SetNumXFrames(1);
 	spriteTitle->SetNumYFrames(1);
 	spriteTitle->AddAnimation("default", 0, 0);
 	spriteTitle->PlayAnim("default");
+	spriteTitle->SetScale(0.8);
 	spriteTitle->SetAnimationDuration(30);
-	spriteTitle->SetPosition(game->setting->screenWidth - 968, game->setting->screenWidth - 406);
+	spriteTitle->SetPosition(game->setting->screenWidth - 618, game->setting->screenHeight - 206);
 	spriteTitle->SetBoundToCamera(true);
 
 	//Create Buttons
 	Button* playButton = new Button(playSprite, "play");
-	playButton->SetPosition(game->setting->screenWidth - 337, 400);
+	playButton->SetPosition(game->setting->screenWidth - 337, 300);
 	buttons.push_back(playButton);
 	Button* exitButton = new Button(exitSprite, "exit");
-	exitButton->SetPosition(game->setting->screenWidth - 337, 300);
+	exitButton->SetPosition(game->setting->screenWidth - 337, 170);
 	buttons.push_back(exitButton);
 
 	// Set play button into active button
@@ -102,6 +147,10 @@ void Engine::ScreenMenu::Update()
 	//Switch Screen Anim Out
 	spriteOut->Update(game->GetGameTime());
 	spriteIn->Update(game->GetGameTime());
+	spritekuru->Update(game->GetGameTime());
+	spritejombi->Update(game->GetGameTime());
+	spritejombi2->Update(game->GetGameTime());
+	spritejombi3->Update(game->GetGameTime());
 
 	//Switch Anim In
 	if (spriteIn->GetPosition().x < 1400) {
@@ -187,11 +236,14 @@ void Engine::ScreenMenu::Render()
 	//textoutline->Draw();
 	//text->Draw();
 	spriteTitle->Draw();
+	spritekuru->Draw();
+	spritejombi->Draw();
+	spritejombi2->Draw();
+	spritejombi3->Draw();
 
 	//Switch Screen Anim Out
 	spriteOut->Draw();
 	spriteIn->Draw();
-
 }
 
 

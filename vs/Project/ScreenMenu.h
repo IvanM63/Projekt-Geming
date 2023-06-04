@@ -42,6 +42,14 @@ namespace Engine {
 		Engine::Texture* textureOut = NULL;
 		Engine::Sprite* spriteOut = NULL;
 
+		Engine::Texture* texturekuru = NULL;
+		Engine::Sprite* spritekuru = NULL;
+
+		Engine::Texture* texturejombi = NULL;
+		Engine::Sprite* spritejombi = NULL;
+		Engine::Sprite* spritejombi2 = NULL;
+		Engine::Sprite* spritejombi3 = NULL;
+
 		int currentSwitchTime = 0;
 		bool isSwitching = false;
 	};

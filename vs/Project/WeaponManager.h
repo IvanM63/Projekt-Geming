@@ -31,6 +31,7 @@ namespace Engine {
         virtual void Render();
 
         void Fire(Weapon* weapon);
+        void RenderAmmoText();
 
         //Weapon List
         std::vector<Weapon*> weapons;
@@ -68,6 +69,7 @@ namespace Engine {
 
         //Text Info
         Text* ammoText = NULL;
+        Text* ammoText2 = NULL;
 
         //Crosshair
         Texture* textureCrosshair = NULL;

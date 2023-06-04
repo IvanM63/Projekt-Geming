@@ -50,6 +50,10 @@ void Engine::WeaponManager::Init()
 	ammoText->SetScale(1.0f);
 	ammoText->SetColor(255, 255, 255);
 
+	ammoText2 = new Text("lucon.ttf", 54, game->defaultTextShader);
+	ammoText2->SetScale(1.0f);
+	ammoText2->SetColor(255, 255, 255);
+
 	//Reload Bar UI
 	reloadTexture = new Texture("Asset/UI/reloadBar.png");
 
@@ -95,7 +99,9 @@ void Engine::WeaponManager::Update()
 
 	//Text Info
 	ammoText->SetText(std::to_string(activeWeapon->GetCurrentAmmo()));
-	ammoText->SetPosition(game->setting->screenWidth/2, game->setting->screenHeight/2 +100);
+	ammoText->SetPosition(mousePos.x - characterOffSet.x - 15 + 30 + 50, 755 - mousePos.y + characterOffSet.y + 20);
+	ammoText2->SetText(std::to_string(activeWeapon->GetCurrentAmmo()));
+	ammoText2->SetPosition(game->setting->screenWidth - 185, 15);
 
 	//Reload UI Bar
 	if (activeWeapon->isReload) {
@@ -111,6 +117,10 @@ void Engine::WeaponManager::Update()
 	}
 	
 
+}
+
+void Engine::WeaponManager::RenderAmmoText() {
+	ammoText2->Draw();
 }
 
 void Engine::WeaponManager::Render()
