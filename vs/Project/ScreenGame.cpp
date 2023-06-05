@@ -627,9 +627,10 @@ void Engine::ScreenGame::Render()
 	border2HP->Draw();
 	spritegunUI->Draw();
 	spriteHPbar->Draw();
-	enemiesLeftText->Draw();
+	//enemiesLeftText->Draw();
 	waveText->Draw();
 	coinText->Draw();
+	weapon->RenderAmmoText();
 
 	//Player Hit Red Screen
 	if (isRedScreen) {

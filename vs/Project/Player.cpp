@@ -94,6 +94,6 @@ void Engine::Player::Render()
 	}
 
 	//Render Text
-	healthText->Draw();
+	//healthText->Draw();
 }
 
