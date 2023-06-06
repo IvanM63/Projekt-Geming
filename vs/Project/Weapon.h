@@ -37,6 +37,8 @@ namespace Engine {
 
 		//Setter Getter Ammo
 		int GetCurrentAmmo();
+		int GetTotalAmmo();
+		void AddTotalAmmo(int ammo);
 
 		virtual int GetProjectilesSize();
 		virtual BoundingBox* GetProjectileBoundingBoxByIndex(int i);

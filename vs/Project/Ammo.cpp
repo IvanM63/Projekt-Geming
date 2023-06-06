@@ -15,13 +15,13 @@ void Engine::Ammo::Init()
 	spriteAmmo->AddAnimation("default", 0, 0);
 	
 	spriteAmmo->PlayAnim("default");
-	spriteAmmo->SetScale(1.5);
+	spriteAmmo->SetScale(1.3);
 	spriteAmmo->SetAnimationDuration(100);
 
 	//Randomly Generate ammo in range (5,12)
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> distribution(5, 12);
+	std::uniform_int_distribution<int> distribution(3, 5);
 	amount = distribution(gen);
 }
 

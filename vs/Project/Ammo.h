@@ -27,12 +27,13 @@ namespace Engine {
 		void SetPosition(float x, float y);
 		int GetAmount();
 
+		Engine::Sprite* spriteAmmo = NULL;
 	protected:
 		Engine::Game* game = NULL;
 
 		//Pistol Texture and Sprite
 		Engine::Texture* textureAmmo = NULL;
-		Engine::Sprite* spriteAmmo = NULL;
+		
 
 		//Ammo Stat
 		int amount;

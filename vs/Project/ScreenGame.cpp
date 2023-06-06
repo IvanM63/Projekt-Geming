@@ -484,6 +484,16 @@ void Engine::ScreenGame::Update()
 		}
 	}
 
+	//Collision Enemy -> Ammo Drop
+	for (size_t i = 0; i < ammos.size(); i++) {
+		if (ammos[i]->spriteAmmo->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
+			//std::cout << "HIT";
+			//weapon->activeWeapon->AddTotalAmmo(ammos[i]->GetAmount());
+			weapon->weapons[1]->AddTotalAmmo(ammos[i]->GetAmount());
+			ammos.erase(ammos.begin() + i);
+		}
+	}
+
 	duration += game->GetGameTime();
 
 	//std::cout << duration<<"\n";
@@ -611,6 +621,11 @@ void Engine::ScreenGame::Render()
 	//Render Background
 	backgroundSprite->Draw();
 
+	//Render Ammo drop
+	for (size_t i = 0; i < ammos.size(); i++) {
+		ammos[i]->Render();
+	}
+
 	//Render Player
 	player->Render();
 
@@ -621,11 +636,6 @@ void Engine::ScreenGame::Render()
 
 	//Render Weapon and Bullet
 	weapon->Render();
-
-	//Render Ammo drop
-	for (size_t i = 0; i < ammos.size(); i++) {
-		ammos[i]->Render();
-	}
 
 	//Render Bullet Impact
 	for (size_t i = 0; i < bulletImpacts.size(); i++) {

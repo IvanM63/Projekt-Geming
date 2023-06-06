@@ -9,12 +9,12 @@ Engine::Pistol::Pistol(Game* game) : Weapon(game)
 	this->currentAmmo = 12;
 	
 	//DPS Purpose
-	this->fireRate = 400; //Normal 400
-	this->damage = 100; //Normal 25
+	this->fireRate = 600; //Normal 400
+	this->damage = 40; //Normal 25
 	this->reloadTime = 1500; //2000 berart 2 detik
 
 	//Accuracy Purpose
-	accuracy = 0.1f; //0 Perfect, 1 Inaccurate
+	accuracy = 0.9f; //0 Perfect, 1 Inaccurate
 	MAX_ACCURACY_OFFSET = 0.2f; //to 0.2 to represent a maximum deviation of 20% of the total distance
 }
 
@@ -141,6 +141,8 @@ void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, fl
 	if (currentAmmo <= 0 || isReload) {
 		Reload();
 	}
+
+	//game->inputManager->
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
 		//Play sound if nembak

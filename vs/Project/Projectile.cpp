@@ -17,7 +17,7 @@ void Engine::Projectile::Init()
 	spriteBullet->AddAnimation("default", 0, 3);
 
 	spriteBullet->PlayAnim("default");
-	spriteBullet->SetScale(2.0);
+	spriteBullet->SetScale(2.5);
 	spriteBullet->SetAnimationDuration(100);
 
 	//Set Bounding Box

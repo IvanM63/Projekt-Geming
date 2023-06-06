@@ -49,7 +49,7 @@ namespace Engine {
 
 		std::vector<Projectile*> projectiles;
 		Projectile* projectile = NULL;
-		float bulletSpeed = 10.5f;
+		float bulletSpeed = 9.5f;
 
 		unsigned int duration = 0;
 

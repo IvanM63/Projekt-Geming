@@ -5,13 +5,13 @@ Engine::Rifle::Rifle(Game* game) : Weapon(game)
 	this->game = game;
 
 	//Ammo Purpose
-	this->totalAmmo = 30;
-	this->currentAmmo = 30;
+	this->totalAmmo = 0;
+	this->currentAmmo = 5;
 
 	//DPS Purpose
 	this->reloadTime = 2000; //2000 berart 2 detik
 	this->fireRate = 200; //Normal 400
-	this->damage = 33;
+	this->damage = 34;
 
 	//Accuracy Purpose
 	accuracy = 0.5f; //0 Perfect, 1 Inaccurate
@@ -57,8 +57,7 @@ void Engine::Rifle::Update()
 	spriteWeapon->Update(game->GetGameTime());
 
 	if (game->inputManager->IsKeyPressed("Fire") && !isReload) {
-		spriteWeapon->PlayAnim("fire");
-		fireAnimTime = 0;
+		
 	}
 	else {
 		
@@ -70,7 +69,7 @@ void Engine::Rifle::Update()
 		fireAnimTime = 64;
 	}
 
-	if (game->inputManager->IsKeyPressed("Reload") && currentAmmo < totalAmmo) {
+	if (game->inputManager->IsKeyPressed("Reload") && currentAmmo < 30 && totalAmmo > 0) {
 		Reload();
 	}
 
@@ -164,13 +163,13 @@ vec2 Engine::Rifle::GetProjectilePositionByIndex(int i)
 void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, float rawAimAngle)
 {
 	//Fire Management
-	if (currentAmmo <= 0 || isReload) {
+	if (isReload) {
 		Reload();
 	}
 
 	//if (game->inputManager->PressKey()
 
-	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
+	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload && currentAmmo>0) {
 		//Play sound if nembak
 		//sound->Play(false);
 
@@ -193,6 +192,10 @@ void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, flo
 
 		ReduceBulletInChamberByOne();
 
+		//Play Anim
+		spriteWeapon->PlayAnim("fire");
+		fireAnimTime = 0;
+
 		//Reset the duration
 		duration = 0;
 	}
@@ -207,8 +210,19 @@ void Engine::Rifle::Reload()
 	reloadPercentage = currentReloadTime / reloadTime;
 	
 	if (currentReloadTime >= reloadTime) {
+		int prevTotalAmmo = totalAmmo;
+		totalAmmo = totalAmmo - (30 - currentAmmo);
+		currentAmmo = currentAmmo + prevTotalAmmo;
+
+		if (currentAmmo >30) {
+			currentAmmo = 30;
+		}
+		
+		if (totalAmmo < 0) {
+			totalAmmo = 0;
+		}
+
 		currentReloadTime = 0;
-		currentAmmo = totalAmmo;
 		isReload = false;
 	}
 

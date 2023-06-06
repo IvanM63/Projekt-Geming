@@ -100,7 +100,7 @@ void Engine::WeaponManager::Update()
 	//Text Info
 	ammoText->SetText(std::to_string(activeWeapon->GetCurrentAmmo()));
 	ammoText->SetPosition(mousePos.x - characterOffSet.x - 15 + 30 + 50, 755 - mousePos.y + characterOffSet.y + 20);
-	ammoText2->SetText(std::to_string(activeWeapon->GetCurrentAmmo()));
+	ammoText2->SetText(std::to_string(activeWeapon->GetCurrentAmmo()) + "." + std::to_string(activeWeapon->GetTotalAmmo()));
 	ammoText2->SetPosition(game->setting->screenWidth - 185, 15);
 
 	//Reload UI Bar

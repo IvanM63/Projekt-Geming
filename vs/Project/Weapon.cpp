@@ -65,6 +65,16 @@ int Engine::Weapon::GetCurrentAmmo()
 	return currentAmmo;
 }
 
+int Engine::Weapon::GetTotalAmmo()
+{
+	return totalAmmo;
+}
+
+void Engine::Weapon::AddTotalAmmo(int ammo)
+{
+	this->totalAmmo += ammo;
+}
+
 
 
 int Engine::Weapon::GetProjectilesSize()
