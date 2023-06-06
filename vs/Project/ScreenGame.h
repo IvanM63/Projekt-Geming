@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "WeaponManager.h"
 #include "Wave.h"
+#include "Ammo.h"
 
 #include <set>
 #include <queue>
@@ -26,6 +27,7 @@ namespace Engine {
 	class Player;
 	class WeaponManager;
 	class Wave;
+	class Ammo;
 
 	class ScreenGame : public Screen {
 	public:
@@ -42,6 +44,9 @@ namespace Engine {
 
 		//AVOID COLLISION
 		void avoidCollision(Enemy* collidingEnemy, Enemy* otherEnemy);
+
+		//Randomly Return Boolean
+		bool getRandomBoolean(double truePercentage);
 
 		//Impulse Resoulution
 		void resolveCollision(Enemy* enemy1, Enemy* enemy2, float restitution);
@@ -79,6 +84,10 @@ namespace Engine {
 
 		//Wave System
 		Wave* wave = NULL;
+
+		//Ammo Drop
+		std::vector<Ammo*> ammos;
+
 		//Bullet Impact
 		std::vector<Sprite*> bulletImpacts;
 		Engine::Texture* textureImpact = NULL;

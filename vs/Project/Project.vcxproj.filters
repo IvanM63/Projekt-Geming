@@ -59,6 +59,9 @@
     <Filter Include="Wave System">
       <UniqueIdentifier>{b33cb13d-44e6-4f8a-a605-3b00b538fc4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Weapon System\Ammo">
+      <UniqueIdentifier>{9acbb99c-957a-4f98-b91e-ea5ee7b68c9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="sprite.frag">
@@ -172,6 +175,9 @@
     <ClInclude Include="ScreenGameOver.h">
       <Filter>Screen Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Ammo.h">
+      <Filter>Weapon System\Ammo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -269,6 +275,9 @@
     </ClCompile>
     <ClCompile Include="ScreenGameOver.cpp">
       <Filter>Screen Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Ammo.cpp">
+      <Filter>Weapon System\Ammo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

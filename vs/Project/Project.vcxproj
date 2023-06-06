@@ -154,6 +154,7 @@
     <None Include="text.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ammo.h" />
     <ClInclude Include="BaseBullet.h" />
     <ClInclude Include="BaseCharacter.h" />
     <ClInclude Include="BulletRifle.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="WeaponManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ammo.cpp" />
     <ClCompile Include="BaseBullet.cpp" />
     <ClCompile Include="BaseCharacter.cpp" />
     <ClCompile Include="BulletRifle.cpp" />

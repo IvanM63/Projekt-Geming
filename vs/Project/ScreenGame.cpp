@@ -414,6 +414,16 @@ void Engine::ScreenGame::Update()
 		if (enemies[i]->getHealth() <= 0) {
 			enemies[i]->sprite->PlayAnim("dies");
 			if (enemies[i]->sprite->isSpriteLastFrame() && !enemies[i]->isSpecial) {
+
+				//Drop ammo if enemies dies with probabilty 90% drop
+				if (getRandomBoolean(0.75)) {
+					Ammo* a = new Ammo(game);
+					a->Init();
+					a->SetPosition(enemies[i]->GetPosition().x, enemies[i]->GetPosition().y);
+
+					ammos.push_back(a);
+				}
+
 				enemies.erase(enemies.begin() + i);
 				wave->RemoveEnemiesByOne(i);
 				score += 10;
@@ -604,8 +614,6 @@ void Engine::ScreenGame::Render()
 	//Render Player
 	player->Render();
 
-	
-
 	//Render Enemies
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Render();
@@ -613,6 +621,11 @@ void Engine::ScreenGame::Render()
 
 	//Render Weapon and Bullet
 	weapon->Render();
+
+	//Render Ammo drop
+	for (size_t i = 0; i < ammos.size(); i++) {
+		ammos[i]->Render();
+	}
 
 	//Render Bullet Impact
 	for (size_t i = 0; i < bulletImpacts.size(); i++) {
@@ -691,6 +704,14 @@ void Engine::ScreenGame::avoidCollision(Enemy* collidingEnemy, Enemy* otherEnemy
 	//std::cout << clearDirectionX / clearDirectionLength * collidingEnemy->GetSpeed() << "\n";
 	vec2 todo = { clearDirectionX / clearDirectionLength * collidingEnemy->GetSpeed() , clearDirectionY / clearDirectionLength * collidingEnemy->GetSpeed() };
 	collidingEnemy->SetDirection(todo.x,todo.y);
+}
+
+bool Engine::ScreenGame::getRandomBoolean(double truePercentage)
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<double> distribution(0.0, 1.0);
+	return distribution(gen) < truePercentage;
 }
 
 
