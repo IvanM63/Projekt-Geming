@@ -368,12 +368,20 @@ void Engine::ScreenGame::Update()
 	player->sprite->SetPosition(x, y);
 	bool kirikanan = false;
 
+
+
 	//Collision: Bullet -> Enemy
 	for (size_t i = 0; i < enemies.size(); i++) {
 		enemies[i]->Update();
 
 		for (size_t j = 0; j < weapon->weapons.size(); j++) {
+
+			//bullet array
 			for (size_t x = 0; x < weapon->weapons[j]->GetProjectilesSize(); x++) {
+
+				//enemies[i] collide bullet[x]
+
+				//collide
 				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->weapons[j]->GetProjectileBoundingBoxByIndex(x)) && enemies[i]->getHealth()>0) {
 
 					//Impact Effect
@@ -460,31 +468,9 @@ void Engine::ScreenGame::Update()
 		
 	}
 
-	//Collision Enemy -> player
-	for (size_t i = 0; i < enemies.size(); i++) {
-		if (enemies[i]->sprite->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
-			//std::cout << "HIT";
+	
 
-			int enemiesDamage = enemies[i]->GetDamage();
-
-			if (enemiesDamage > 0) {
-				isRedScreen = true;
-				player->isHit = true;
-				player->takeDamage(enemiesDamage);
-			}
-
-			if (player->getHealth() <= 0) {
-				isRedScreen2 = true;
-			}
-
-			//PLay enemies anim
-			//enemies[i]->sprite->PlayAnim("attack");
-
-
-		}
-	}
-
-	//Collision Enemy -> Ammo Drop
+	//Collision Plauer -> Ammo Drop
 	for (size_t i = 0; i < ammos.size(); i++) {
 		if (ammos[i]->spriteAmmo->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
 			//std::cout << "HIT";
@@ -540,6 +526,44 @@ void Engine::ScreenGame::Update()
 		// If the player is moving, move the enemy towards the player at the specified speed
 		if (isPlayerMoving && distance > enemies[i]->GetSpeed() * game->deltaTime) {		
 			enemies[i]->move(enemies[i]->GetDirection() * enemies[i]->GetSpeed() * game->deltaTime);
+		}
+	}
+
+	//Collision Enemy -> player
+	for (size_t i = 0; i < enemies.size(); i++) {
+		if (enemies[i]->sprite->GetBoundingBox()->CollideWith(player->sprite->GetBoundingBox())) {
+			//std::cout << "HIT";
+
+
+
+			int enemiesDamage = enemies[i]->GetDamage();
+
+			if (enemiesDamage > 0) {
+				isRedScreen = true;
+
+				player->isHit = true;
+				player->takeDamage(enemiesDamage);
+
+				//Enemies attack Sprite
+				enemies[i]->isAttack = true;
+
+			}
+
+			if (player->getHealth() <= 0) {
+				isRedScreen2 = true;
+			}
+
+			//PLay enemies anim
+			//enemies[i]->sprite->PlayAnim("attack");
+
+
+		}
+		else {
+			enemies[i]->isAttack = false;
+		}
+
+		if (enemies[i]->isAttack == true) {
+			enemies[i]->sprite->PlayAnim("attack");
 		}
 	}
 

@@ -40,6 +40,7 @@ namespace Engine {
         //Special Behavior
         bool isSpecial = false;
         bool isSpecialMove = false;
+        bool isAttack = false;
     protected:
         //PERJALANAN MUSUH
         vec2 velocity = { 0,0 };
@@ -50,6 +51,7 @@ namespace Engine {
         int damage = 10;
         int fireRate = 500;
         int currentFireRate = fireRate;
+        
         
     };
 }

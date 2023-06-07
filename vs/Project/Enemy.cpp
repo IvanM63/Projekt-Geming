@@ -20,7 +20,7 @@ void Engine::Enemy::Init()
 	sprite->SetNumYFrames(6);
 	sprite->AddAnimation("moving", 26, 33);
 	sprite->AddAnimation("idle", 0, 7);
-	sprite->AddAnimation("attack", 13, 19);
+	sprite->AddAnimation("attack", 14, 18);
 	sprite->AddAnimation("transition", 39, 42); 
 	sprite->AddAnimation("special", 43, 60);
 	sprite->AddAnimation("dies", 65, 74);
