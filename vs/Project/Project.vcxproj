@@ -170,6 +170,8 @@
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenGame.h" />
     <ClInclude Include="ScreenGameOver.h" />
+    <ClInclude Include="ScreenHowToPlay.h" />
+    <ClInclude Include="ScreenHowToPlay2.h" />
     <ClInclude Include="ScreenMenu.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="Projectile.h" />
@@ -210,6 +212,8 @@
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenGame.cpp" />
     <ClCompile Include="ScreenGameOver.cpp" />
+    <ClCompile Include="ScreenHowToPlay.cpp" />
+    <ClCompile Include="ScreenHowToPlay2.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="ScreenMenu.cpp" />
     <ClCompile Include="Setting.cpp" />

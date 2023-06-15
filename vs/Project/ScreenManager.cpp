@@ -6,9 +6,10 @@ Engine::ScreenManager::ScreenManager(Game* game)
 	screenMenu = new ScreenMenu(game, this);
 	screenGame = new ScreenGame(game, this);
 	screenGameOver = new ScreenGameOver(game, this);
-
+	screenHowToPlay = new ScreenHowToPlay(game, this);
+	screenHowToPlay2 = new ScreenHowToPlay2(game, this);
 	//Screen Awal Masuk game ganti di sini
-	screenState = ScreenState::MAIN_MENU;
+	screenState = ScreenState::HOW_TO_PLAY2;
 }
 
 Engine::ScreenManager::~ScreenManager()
@@ -29,6 +30,14 @@ void Engine::ScreenManager::switchScreen(ScreenState state)
 		screenGameOver = new ScreenGameOver(game, this);
 		screenGameOver->Init();
 	}
+	else if (state == ScreenState::HOW_TO_PLAY) {
+		screenHowToPlay = new ScreenHowToPlay(game, this);
+		screenHowToPlay->Init();
+	}
+	else if (state == ScreenState::HOW_TO_PLAY2) {
+		screenHowToPlay2 = new ScreenHowToPlay2(game, this);
+		screenHowToPlay2->Init();
+	}
 	screenState = state;
 }
 
@@ -37,7 +46,8 @@ void Engine::ScreenManager::Init()
 	screenMenu->Init();
 	screenGame->Init();
 	screenGameOver->Init();
-	
+	screenHowToPlay->Init();
+	screenHowToPlay2->Init();
 }
 
 void Engine::ScreenManager::Update()
@@ -52,7 +62,12 @@ void Engine::ScreenManager::Update()
 	else if (screenState == ScreenState::GAME_OVER) {
 		screenGameOver->Update();
 	}
-
+	else if (screenState == ScreenState::HOW_TO_PLAY) {
+		screenHowToPlay->Update();
+	}
+	else if (screenState == ScreenState::HOW_TO_PLAY2) {
+		screenHowToPlay2->Update();
+	}
 }
 
 void Engine::ScreenManager::Render()
@@ -67,7 +82,12 @@ void Engine::ScreenManager::Render()
 	else if (screenState == ScreenState::GAME_OVER) {
 		screenGameOver->Render();
 	}
-
+	else if (screenState == ScreenState::HOW_TO_PLAY) {
+		screenHowToPlay->Render();
+	}
+	else if (screenState == ScreenState::HOW_TO_PLAY2) {
+		screenHowToPlay2->Render();
+	}
 }
 
 
