@@ -6,7 +6,7 @@ Engine::Rifle::Rifle(Game* game) : Weapon(game)
 
 	//Ammo Purpose
 	this->totalAmmo = 0;
-	this->currentAmmo = 5;
+	this->currentAmmo = 15;
 
 	//DPS Purpose
 	this->reloadTime = 2000; //2000 berart 2 detik
@@ -27,6 +27,11 @@ void Engine::Rifle::Init()
 	//Sound Effect
 	soundFire = new Sound("Asset/Sound/Weapon/wpn_fire_aug.ogg");
 	soundFire->SetVolume(100);
+	//Sound Effect
+	soundReloadStart = new Sound("Asset/Sound/Weapon/wpn_reload_start.ogg");
+	soundReloadStart->SetVolume(80);
+	soundReloadEnd = new Sound("Asset/Sound/Weapon/wpn_reload_end.ogg");
+	soundReloadEnd->SetVolume(80);
 
 	textureWeapon = new Texture("Asset/Weapon/Rifle/Rifle_12F_Single.png");
 	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
@@ -212,6 +217,10 @@ void Engine::Rifle::Reload()
 
 	currentReloadTime += game->GetGameTime();
 	reloadPercentage = currentReloadTime / reloadTime;
+
+	if (reloadPercentage < 0.05) {
+		soundReloadStart->Play(false);
+	}
 	
 	if (currentReloadTime >= reloadTime) {
 		int prevTotalAmmo = totalAmmo;
@@ -228,6 +237,7 @@ void Engine::Rifle::Reload()
 
 		currentReloadTime = 0;
 		isReload = false;
+		soundReloadEnd->Play(false);
 	}
 
 	//Debug

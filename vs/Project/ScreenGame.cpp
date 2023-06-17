@@ -9,6 +9,19 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenGame::Init()
 {
+	//BGM
+	bgm = new Music("Asset/Sound/AMBIENCE_HEARTBEAT_LOOP.wav");
+	bgm->SetVolume(50);
+	bgm->Play(true);
+
+	//Sound Effect
+	soundAmmoPickUp = new Sound("Asset/Sound/AmmoPickUp.ogg");
+	soundAmmoPickUp->SetVolume(80);
+	soundHitBullet = new Sound("Asset/Sound/HitBullet.ogg");
+	soundHitBullet->SetVolume(80);
+	soundHitChara = new Sound("Asset/Sound/CharaHit.ogg");
+	soundHitChara->SetVolume(100);
+
 	//Switch Screen Anim Out
 	textureOut = new Texture("Asset/UI/SwitchScreen_Out.png");
 	spriteOut = new Sprite(textureOut, game->defaultSpriteShader, game->defaultQuad);
@@ -264,6 +277,9 @@ void Engine::ScreenGame::Update()
 		return;
 	}
 
+	//Player Loc Tes
+	//std::cout << player->GetPosition().x << "\n";
+		
 	//Switch Screen Anim Out
 	spriteIn->Update(game->GetGameTime());
 	spriteOut->Update(game->GetGameTime());
@@ -332,7 +348,7 @@ void Engine::ScreenGame::Update()
 	//Walk Management
 	if (!isRedScreen2) {
 
-		if (game->inputManager->IsKeyPressed("walk-right")) {
+		if (game->inputManager->IsKeyPressed("walk-right") && player->GetPosition().x < 1360) {
 			x += velocity * game->GetGameTime();
 			//player->sprite->SetFlipHorizontal(true);
 			player->sprite->PlayAnim("Walk-Horizontal");
@@ -340,7 +356,7 @@ void Engine::ScreenGame::Update()
 			game->defaultSpriteShader->cameraPos.x -= velocity * game->GetGameTime();
 		}
 
-		if (game->inputManager->IsKeyPressed("walk-left")) {
+		if (game->inputManager->IsKeyPressed("walk-left") && player->GetPosition().x > -130) {
 			x -= velocity * game->GetGameTime();
 			//player->sprite->SetFlipHorizontal(false);
 			player->sprite->PlayAnim("Walk-Horizontal");
@@ -348,7 +364,7 @@ void Engine::ScreenGame::Update()
 			game->defaultSpriteShader->cameraPos.x += velocity * game->GetGameTime();
 		}
 
-		if (game->inputManager->IsKeyPressed("walk-up")) {
+		if (game->inputManager->IsKeyPressed("walk-up") && player->GetPosition().y < 768) {
 			y += velocity * game->GetGameTime();
 			//sprite2->SetFlipHorizontal(true);
 			player->sprite->PlayAnim("Walk-Up");
@@ -356,7 +372,7 @@ void Engine::ScreenGame::Update()
 			game->defaultSpriteShader->cameraPos.y -= velocity * game->GetGameTime();
 		}
 
-		if (game->inputManager->IsKeyPressed("walk-down")) {
+		if (game->inputManager->IsKeyPressed("walk-down") && player->GetPosition().y > -70) {
 			y -= velocity * game->GetGameTime();
 			//sprite2->SetFlipHorizontal(true);
 			player->sprite->PlayAnim("Walk-Down");
@@ -368,8 +384,6 @@ void Engine::ScreenGame::Update()
 
 	player->sprite->SetPosition(x, y);
 	bool kirikanan = false;
-
-
 
 	//Collision: Bullet -> Enemy
 	for (size_t i = 0; i < enemies.size(); i++) {
@@ -384,11 +398,11 @@ void Engine::ScreenGame::Update()
 
 				//collide
 				if (enemies[i]->sprite->GetBoundingBox()->CollideWith(weapon->weapons[j]->GetProjectileBoundingBoxByIndex(x)) && enemies[i]->getHealth()>0) {
+					//Sound Effect
+					soundHitBullet->Play(false);
 
 					//Impact Effect
 					vec2 posImpact = weapon->weapons[j]->GetProjectilePositionByIndex(x);
-					//Sprite* si = spriteImpact;
-
 					Sprite*  si = new Sprite(textureImpact, game->defaultSpriteShader, game->defaultQuad);
 					si->SetNumXFrames(5);
 					si->SetNumYFrames(1);
@@ -414,6 +428,7 @@ void Engine::ScreenGame::Update()
 
 					//Change enemies color to white if get hit
 					enemies[i]->isHit = true;
+
 					//enemies[i]->sprite->coloradjusment = { 255,255,255 };
 				}
 			}			
@@ -478,6 +493,9 @@ void Engine::ScreenGame::Update()
 			//weapon->activeWeapon->AddTotalAmmo(ammos[i]->GetAmount());
 			weapon->weapons[1]->AddTotalAmmo(ammos[i]->GetAmount());
 			ammos.erase(ammos.begin() + i);
+
+			//Play Sound
+			soundAmmoPickUp->Play(false);
 		}
 	}
 
@@ -540,6 +558,8 @@ void Engine::ScreenGame::Update()
 			int enemiesDamage = enemies[i]->GetDamage();
 
 			if (enemiesDamage > 0) {
+				//Sound Effect
+				soundHitChara->Play(false);
 				isRedScreen = true;
 
 				player->isHit = true;

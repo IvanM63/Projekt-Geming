@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "Sprite.h"
 #include "Game.h"
+#include "Sound.h"
 
 #include "Sound.h"
 #include "Weapon.h"
@@ -44,6 +45,9 @@ namespace Engine {
 	protected:
 		//Sound Effect
 		Sound* soundFire = NULL;
+		//Sound Effect
+		Sound* soundReloadStart = NULL;
+		Sound* soundReloadEnd = NULL;
 
 		Engine::Game* game = NULL;
 

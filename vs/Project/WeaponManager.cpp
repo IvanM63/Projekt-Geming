@@ -12,6 +12,12 @@ Engine::WeaponManager::~WeaponManager()
 
 void Engine::WeaponManager::Init()
 {
+	//Sound Effect
+	soundReloadStart = new Sound("Asset/Sound/Weapon/wpn_reload_start.ogg");
+	soundReloadStart->SetVolume(80);
+	soundReloadEnd = new Sound("Asset/Sound/Weapon/wpn_reload_end.ogg");
+	soundReloadEnd->SetVolume(80);
+
 	// W E A P O N  L I S T \\
 	//Weapon Init (Pistol, Rifle)
 	pistol = new Pistol(game);
@@ -113,6 +119,12 @@ void Engine::WeaponManager::Update()
 				//std::cout << 146 * activeWeapon->reloadPercentage << "\n";
 				reloadSprites[i]->SetSize(146 * activeWeapon->reloadPercentage, reloadSprites[i]->GetScaleHeight() * 3);
 			}
+			
+			if (activeWeapon->reloadPercentage == 0.1) {
+				soundReloadStart->Play(false);
+			}
+
+			//std::cout << activeWeapon->reloadPercentage<<"\n";
 		}
 	}
 	

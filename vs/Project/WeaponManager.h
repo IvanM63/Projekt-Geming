@@ -42,6 +42,10 @@ namespace Engine {
     protected:
         Engine::Game* game = NULL;
         
+        //Sound Effect
+        Sound* soundReloadStart = NULL;
+        Sound* soundReloadEnd = NULL;
+
         //Player Attach
         Player* player = NULL;
         vec2 playerPos = { 0,0 };

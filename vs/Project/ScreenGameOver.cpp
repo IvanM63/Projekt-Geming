@@ -10,6 +10,10 @@ Engine::ScreenGameOver::~ScreenGameOver()
 
 void Engine::ScreenGameOver::Init()
 {
+	//BGM
+	bgm = new Music("Asset/Sound/GameOverSound.ogg");
+	bgm->SetVolume(100);
+
 	//Sound Effect
 	soundSelection = new Sound("Asset/Sound/MainMenu/Bleep_05.ogg");
 	soundSelection->SetVolume(100);
@@ -139,6 +143,13 @@ void Engine::ScreenGameOver::Update()
 	//Switch Screen Anim Out
 	spriteOut->Update(game->GetGameTime());
 	spriteIn->Update(game->GetGameTime());
+
+	if (isFirstInit == false) {
+		bgm->Play(false);
+
+		//Let Go
+		isFirstInit = true;
+	}
 
 	//Switch Anim In
 	if (spriteIn->GetPosition().x < 1400) {

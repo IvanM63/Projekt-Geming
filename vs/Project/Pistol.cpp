@@ -27,6 +27,11 @@ void Engine::Pistol::Init()
 	//Sound Effect
 	soundFire = new Sound("Asset/Sound/Weapon/wpn_fire_fiveseven.ogg");
 	soundFire->SetVolume(100);
+	//Sound Effect
+	soundReloadStart = new Sound("Asset/Sound/Weapon/wpn_reload_start.ogg");
+	soundReloadStart->SetVolume(80);
+	soundReloadEnd = new Sound("Asset/Sound/Weapon/wpn_reload_end.ogg");
+	soundReloadEnd->SetVolume(80);
 
 	textureWeapon = new Texture("Asset/Weapon/Pistol/Pistol.png");
 	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
@@ -184,10 +189,15 @@ void Engine::Pistol::Reload()
 	currentReloadTime += game->GetGameTime();
 	reloadPercentage = currentReloadTime / reloadTime;
 
+	if (reloadPercentage < 0.05) {
+		soundReloadStart->Play(false);
+	}
+
 	if (currentReloadTime >= reloadTime) {
 		currentReloadTime = 0;
 		currentAmmo = totalAmmo;
 		isReload = false;
+		soundReloadEnd->Play(false);
 	}
 }
 

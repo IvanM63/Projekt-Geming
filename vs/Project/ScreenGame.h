@@ -15,6 +15,8 @@
 #include "WeaponManager.h"
 #include "Wave.h"
 #include "Ammo.h"
+#include "Sound.h"
+#include "Music.h"
 
 #include <set>
 #include <queue>
@@ -53,6 +55,14 @@ namespace Engine {
 		float calculatePenetrationDepth(BoundingBox* box1, BoundingBox* box2, vec2 collisionNormal);
 
 	private:
+		//Music
+		Music* bgm = NULL;
+
+		//Sound Effect
+		Sound* soundAmmoPickUp = NULL;
+		Sound* soundHitBullet = NULL;
+		Sound* soundHitChara = NULL;
+
 		//Switch Screen Purpose
 		Engine::Texture* textureTitle = NULL;
 		Engine::Sprite* spriteTitle = NULL;

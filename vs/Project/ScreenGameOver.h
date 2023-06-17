@@ -40,6 +40,9 @@ namespace Engine {
 		void Render();
 
 	private:
+		//Music
+		Music* bgm = NULL;
+
 		//Sound Effect
 		Sound* soundSelection = NULL;
 		Sound* soundComplete = NULL;
@@ -76,6 +79,8 @@ namespace Engine {
 		//Button Selection
 		int currentButtonIndex = 0;
 		vector<Button*> buttons;
+
+		bool isFirstInit = false;
 	};
 
 }
