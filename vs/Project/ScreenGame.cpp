@@ -189,9 +189,9 @@ void Engine::ScreenGame::Init()
 
 	spritegunUI->SetNumXFrames(2);
 	spritegunUI->SetNumYFrames(1);
-	spritegunUI->AddAnimation("default", 0, 0);
-	spritegunUI->AddAnimation("rifle", 1, 0);
-	spritegunUI->PlayAnim("default");
+	spritegunUI->AddAnimation("pistol", 0, 0);
+	spritegunUI->AddAnimation("rifle", 1, 1);
+	spritegunUI->PlayAnim("pistol");
 	spritegunUI->SetScale(2);
 	spritegunUI->SetAnimationDuration(30);
 	spritegunUI->SetPosition(game->setting->screenWidth - 200, 90);
