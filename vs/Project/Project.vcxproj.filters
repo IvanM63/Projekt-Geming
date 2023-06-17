@@ -178,6 +178,12 @@
     <ClInclude Include="Ammo.h">
       <Filter>Weapon System\Ammo</Filter>
     </ClInclude>
+    <ClInclude Include="ScreenHowToPlay.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenHowToPlay2.h">
+      <Filter>Screen Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -278,6 +284,12 @@
     </ClCompile>
     <ClCompile Include="Ammo.cpp">
       <Filter>Weapon System\Ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenHowToPlay.cpp">
+      <Filter>Screen Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenHowToPlay2.cpp">
+      <Filter>Screen Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

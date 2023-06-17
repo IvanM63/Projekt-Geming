@@ -7,6 +7,8 @@
 #include "ScreenMenu.h"
 #include "ScreenGame.h"
 #include "ScreenGameOver.h"
+#include "ScreenHowToPlay.h"
+#include "ScreenHowToPlay2.h"
 
 //Additional
 #include "Game.h"
@@ -20,7 +22,9 @@ namespace Engine {
     enum class ScreenState {
         MAIN_MENU,
         IN_GAME,
-        GAME_OVER
+        GAME_OVER,
+        HOW_TO_PLAY,
+        HOW_TO_PLAY2,
     };
    
     // Screen Manager class
@@ -44,6 +48,8 @@ namespace Engine {
         Screen* screenMenu = NULL;
         Screen* screenGame = NULL;
         Screen* screenGameOver = NULL;
+        Screen* screenHowToPlay = NULL;
+        Screen* screenHowToPlay2 = NULL;
         
     };
 
