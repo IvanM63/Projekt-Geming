@@ -38,13 +38,14 @@ void Engine::ScreenHowToPlay2::Init()
 
 	howtoplayButton = new Texture("Asset/howtoplaybutton.png");
 
-	textureTitle = new Texture("Asset/howtoplaybutton.png");
+	textureTitle = new Texture("Asset/HowToPLay.png");
 	spriteTitle = new Sprite(textureTitle, game->defaultSpriteShader, game->defaultQuad);
 	spriteTitle->SetNumXFrames(1);
 	spriteTitle->SetNumYFrames(1);
 	spriteTitle->AddAnimation("idle", 0, 0);
 	spriteTitle->PlayAnim("idle");
 	spriteTitle->SetAnimationDuration(100);
+	spriteTitle->SetPosition(game->setting->screenWidth * 1 / 2 - 250, game->setting->screenHeight - 100);
 	spriteTitle->SetBoundToCamera(true);
 
 	MainMenuSprite = new Sprite(howtoplayButton, game->defaultSpriteShader, game->defaultQuad);
@@ -90,7 +91,7 @@ void Engine::ScreenHowToPlay2::Init()
 	KeyBoardReloadSprite->AddAnimation("idle", 0, 3);
 	KeyBoardReloadSprite->PlayAnim("idle");
 	KeyBoardReloadSprite->SetScale(2.5);
-	KeyBoardReloadSprite->SetPosition(game->setting->screenWidth * 1 / 3 - 240, game->setting->screenHeight * 2 / 5 - 100);
+	KeyBoardReloadSprite->SetPosition(game->setting->screenWidth * 1 / 3 - 260, game->setting->screenHeight * 2 / 5 - 100);
 	KeyBoardReloadSprite->SetAnimationDuration(1000);
 	KeyBoardReloadSprite->SetBoundToCamera(true);
 
@@ -101,7 +102,7 @@ void Engine::ScreenHowToPlay2::Init()
 	rifle4Sprite->AddAnimation("fire", 0, 11);
 	rifle4Sprite->PlayAnim("idle");
 	rifle4Sprite->SetScale(2.5);
-	rifle4Sprite->SetPosition(game->setting->screenWidth * 1 / 3 - 250, game->setting->screenHeight * 3 / 5 - 100);
+	rifle4Sprite->SetPosition(game->setting->screenWidth * 1 / 3 - 270, game->setting->screenHeight * 3 / 5 - 100);
 	rifle4Sprite->SetAnimationDuration(12);
 	rifle4Sprite->SetBoundToCamera(true);
 
@@ -111,7 +112,7 @@ void Engine::ScreenHowToPlay2::Init()
 	player4sprite->AddAnimation("idle", 0, 0);
 	player4sprite->PlayAnim("idle");
 	player4sprite->SetScale(2.5);
-	player4sprite->SetPosition(game->setting->screenWidth * 1 / 3 - 250, game->setting->screenHeight * 3 / 5 - 100);
+	player4sprite->SetPosition(game->setting->screenWidth * 1 / 3 - 270, game->setting->screenHeight * 3 / 5 - 100);
 	player4sprite->SetAnimationDuration(175);
 	player4sprite->SetFlipHorizontal(false);
 	player4sprite->SetBoundToCamera(true);
@@ -129,7 +130,7 @@ void Engine::ScreenHowToPlay2::Init()
 		ReloadSprite[i]->AddAnimation("idle", i, i);
 		ReloadSprite[i]->PlayAnim("idle");
 		ReloadSprite[i]->SetBoundToCamera(true);
-		ReloadSprite[i]->SetPosition(game->setting->screenWidth * 1 / 3 - 250, game->setting->screenHeight * 4 / 5 - 100);
+		ReloadSprite[i]->SetPosition(game->setting->screenWidth * 1 / 3 - 270, game->setting->screenHeight * 4 / 5);
 
 		if (i == 1) {
 			ReloadSprite[i]->SetSize(ReloadSprite[i]->GetScaleWidth(), ReloadSprite[i]->GetScaleHeight() * 3);
@@ -146,7 +147,7 @@ void Engine::ScreenHowToPlay2::Init()
 	player5sprite->AddAnimation("idle", 0, 0);
 	player5sprite->PlayAnim("idle");
 	player5sprite->SetScale(2.5);
-	player5sprite->SetPosition(game->setting->screenWidth * 2 / 3 - 250, game->setting->screenHeight * 3 / 5 - 100);
+	player5sprite->SetPosition(game->setting->screenWidth * 2 / 3 - 280, game->setting->screenHeight * 3 / 5 - 100);
 	player5sprite->SetAnimationDuration(175);
 	player5sprite->SetFlipHorizontal(false);
 	player5sprite->SetBoundToCamera(true);
@@ -157,9 +158,9 @@ void Engine::ScreenHowToPlay2::Init()
 	enemy5sprite->SetNumYFrames(6);
 	enemy5sprite->AddAnimation("attack", 14, 18);
 	enemy5sprite->PlayAnim("attack");
-	enemy5sprite->SetScale(5);
+	enemy5sprite->SetScale(7.5);
 	enemy5sprite->SetAnimationDuration(120);
-	enemy5sprite->SetPosition(game->setting->screenWidth * 2 / 3 - 150, game->setting->screenHeight * 3 / 5 - 100);
+	enemy5sprite->SetPosition(game->setting->screenWidth * 2 / 3 - 180, game->setting->screenHeight * 3 / 5 - 100);
 	enemy5sprite->SetFlipHorizontal(true);
 	enemy5sprite->SetBoundToCamera(true);
 
@@ -192,7 +193,7 @@ void Engine::ScreenHowToPlay2::Init()
 	enemy6sprite->SetNumYFrames(6);
 	enemy6sprite->AddAnimation("dies", 65, 76);
 	enemy6sprite->PlayAnim("dies");
-	enemy6sprite->SetScale(5);
+	enemy6sprite->SetScale(7.5);
 	enemy6sprite->SetAnimationDuration(121);
 	enemy6sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 250, game->setting->screenHeight * 3 / 5 - 100);
 	enemy6sprite->SetFlipHorizontal(true);
@@ -450,7 +451,7 @@ void Engine::ScreenHowToPlay2::Render()
 
 	PrevSprite->Draw();
 	MainMenuSprite->Draw();
-	//spriteTitle->Draw();
+	spriteTitle->Draw();
 
 	//Render Bullet Impact
 

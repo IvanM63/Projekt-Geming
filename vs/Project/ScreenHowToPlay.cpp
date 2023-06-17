@@ -12,6 +12,7 @@ void Engine::ScreenHowToPlay::Init()
 	//Switch Screen Anim Out
 	textureOut = new Texture("Asset/UI/SwitchScreen_Out.png");
 	spriteOut = new Sprite(textureOut, game->defaultSpriteShader, game->defaultQuad);
+	pistol3 = new Texture("Asset/Weapon/Pistol/Pistol.png");
 
 	spriteOut->SetNumXFrames(1);
 	spriteOut->SetNumYFrames(1);
@@ -38,12 +39,13 @@ void Engine::ScreenHowToPlay::Init()
 
 	howtoplayButton = new Texture("Asset/howtoplaybutton.png");
 
-	textureTitle = new Texture("Asset/howtoplaybutton.png");
+	textureTitle = new Texture("Asset/HowToPLay.png");
 	spriteTitle = new Sprite(textureTitle, game->defaultSpriteShader, game->defaultQuad);
 	spriteTitle->SetNumXFrames(1);
 	spriteTitle->SetNumYFrames(1);
 	spriteTitle->AddAnimation("idle", 0, 0);
 	spriteTitle->PlayAnim("idle");
+	spriteTitle->SetPosition(game->setting->screenWidth * 1 / 2 - 250, game->setting->screenHeight - 100);
 	spriteTitle->SetAnimationDuration(100);
 	spriteTitle->SetBoundToCamera(true);
 
@@ -120,32 +122,43 @@ void Engine::ScreenHowToPlay::Init()
 		MouseSprite->AddAnimation("idle", 0, 1);
 		MouseSprite->PlayAnim("idle");
 		MouseSprite->SetScale(1);
-		MouseSprite->SetPosition(game->setting->screenWidth * 2 / 3 - 240, game->setting->screenHeight * 2 / 5 - 150);
-		MouseSprite->SetAnimationDuration(1000);
+		MouseSprite->SetPosition(game->setting->screenWidth * 2 / 3 - 260, game->setting->screenHeight * 2 / 5 - 150);
+		MouseSprite->SetAnimationDuration(400);
 
-		////PLayer Class
-		//player2 = new Player(game);
-		//player2->Init();
-		//player2->SetPosition(game->setting->screenWidth * 2 / 3 - 100, game->setting->screenHeight * 3 / 5);
+		//PLayer Class
+		player2sprite = new Sprite(Player1, game->defaultSpriteShader, game->defaultQuad);
+		player2sprite->SetNumXFrames(7);
+		player2sprite->SetNumYFrames(4);
+		player2sprite->AddAnimation("idle", 0, 0);
+		player2sprite->PlayAnim("idle");
+		player2sprite->SetScale(2.5);
+		player2sprite->SetPosition(game->setting->screenWidth * 2 / 3 - 340, game->setting->screenHeight * 3 / 5 - 100);
+		player2sprite->SetAnimationDuration(175);
+		player2sprite->SetFlipHorizontal(false);
+		player2sprite->SetBoundToCamera(true);
 
-		////Weapon Class
-		//weapon2 = new WeaponManager(game, player2);
-		//weapon2->Init();
+		pistol2Sprite = new Sprite(pistol3, game->defaultSpriteShader, game->defaultQuad);
+		pistol2Sprite->SetNumXFrames(4);
+		pistol2Sprite->SetNumYFrames(2);
+		pistol2Sprite->AddAnimation("idle", 0, 0);
+		pistol2Sprite->AddAnimation("fire", 4, 7); //4 Frame
+		pistol2Sprite->PlayAnim("fire");
+		pistol2Sprite->SetScale(1);
+		pistol2Sprite->SetPosition(game->setting->screenWidth * 2 / 3 - 280, game->setting->screenHeight * 3 / 5 - 60);
+		pistol2Sprite->SetAnimationDuration(102);
+		pistol2Sprite->SetBoundToCamera(true);
 
-		////enemy
-		//enemy2 = new Enemy(game);
-		//enemy2->Init();
-		//enemy2->SetPosition(game->setting->screenWidth * 2 / 3 + 100, game->setting->screenHeight * 3 / 5);
-
-		////Impact Effect
-		//textureImpact = new Texture("Asset/Weapon/Impact/impact01.png");
-		//spriteImpact = new Sprite(textureImpact, game->defaultSpriteShader, game->defaultQuad);
-		//spriteImpact->SetNumXFrames(5);
-		//spriteImpact->SetNumYFrames(1);
-		//spriteImpact->AddAnimation("default", 0, 4);
-		//spriteImpact->PlayAnim("default");
-		//spriteImpact->SetScale(1);
-		//spriteImpact->SetAnimationDuration(150);
+		//bullet :)
+		textureBullet = new Texture("Asset/Bullet/bullet-pistol.png");
+		spriteBullet = new Sprite(textureBullet, game->defaultSpriteShader, game->defaultQuad); 
+		spriteBullet->SetNumXFrames(4);
+		spriteBullet->SetNumYFrames(1);
+		spriteBullet->AddAnimation("default", 0, 3);
+		spriteBullet->PlayAnim("default");
+		spriteBullet->SetScale(2.5);
+		spriteBullet->SetAnimationDuration(100);
+		spriteBullet->SetPosition(game->setting->screenWidth * 2 / 3 - 240, game->setting->screenHeight * 3 / 5 - 60);
+		spriteBullet->SetBoundToCamera(true);
 
 	//How To Play 3 switch weapon
 			
@@ -161,7 +174,6 @@ void Engine::ScreenHowToPlay::Init()
 		KeyBoardSwitchSprite->SetAnimationDuration(1000);
 		KeyBoardSwitchSprite->SetBoundToCamera(true);
 
-		pistol3 = new Texture("Asset/Weapon/Pistol/Pistol.png");
 		pistol3Sprite = new Sprite(pistol3, game->defaultSpriteShader, game->defaultQuad);
 		pistol3Sprite->SetNumXFrames(4);
 		pistol3Sprite->SetNumYFrames(2);
@@ -195,14 +207,6 @@ void Engine::ScreenHowToPlay::Init()
 		player3sprite->SetFlipHorizontal(false);
 		player3sprite->SetBoundToCamera(true);
 
-		////PLayer Class
-		//player3 = new Player(game);
-		//player3->Init();
-		//player3->SetPosition(game->setting->screenWidth * 3 / 3, game->setting->screenHeight * 3 / 5);
-
-		////Weapon Class
-		//weapon3 = new WeaponManager(game, player3);
-		//weapon3->Init();
 
 	//Create background
 	game->SetBackgroundColor(30, 39, 73);
@@ -258,16 +262,26 @@ void Engine::ScreenHowToPlay::Update()
 		}
 		gametime1 += game -> GetGameTime();
 	
-	////How To Play 2 aim n shoot
-	//	player2->Update();
-	//	enemy2->Update();
-	//	weapon2->Update();
+	//How To Play 2 aim n shoot
+		pistol2Sprite->Update(game->GetGameTime());
+		gametime2 += game ->GetGameTime();
+		if (gametime2 > 400) {
+			pistol2Sprite->PlayAnim("idle");
+			if (gametime2 > 790) {
+				gametime2 = 0;
+				pistol2Sprite->PlayAnim("fire");
+			}
+		}
+		spriteBullet->Update(game->GetGameTime());
+		if (gametime2 < 10) {
+			spriteBullet->SetPosition(game->setting->screenWidth * 2 / 3 - 240, game->setting->screenHeight * 3 / 5 - 40);
+		}
+		else {
+			spriteBullet ->SetPosition(spriteBullet->GetPosition().x + bulletSpeed, spriteBullet->GetPosition().y);
+		}
 		MouseSprite->Update(game->GetGameTime());
 
-	//
-	////How To Play 3 switch
-	//	player3->Update();
-	//	weapon3->Update();
+	//How To Play 3 switch
 		KeyBoardSwitchSprite->Update(game->GetGameTime());
 		if (gametime3 >= 1000) {
 			if (currentweapon == 1) {
@@ -363,23 +377,13 @@ void Engine::ScreenHowToPlay::Render()
 	KeyBoardMoveSprite->Draw();
 	Player1Sprite->Draw();
 
-	////How to play 2 aim n shoot
-
-	//	player2->Render();
-
-	//	//Render Weapon and Bullet
-	//	weapon2->Render();
-	//	for (size_t i = 0; i < bulletImpacts.size(); i++) {
-	//		bulletImpacts[i]->Draw();
-	//	}
-
-	//	enemy2->Render();
-	MouseSprite->Draw();
+	//How to play 2 aim n shoot
+		player2sprite->Draw();
+		spriteBullet->Draw();
+		pistol2Sprite->Draw();
+		MouseSprite->Draw();
+		
 	////How to play 3 switch
-	//	player2->Render();
-
-	//	//Render Weapon and Bullet
-	//	weapon2->Render();
 	player3sprite->Draw();
 	if (currentweapon == 1) {
 		pistol3Sprite->Draw();
@@ -393,7 +397,7 @@ void Engine::ScreenHowToPlay::Render()
 
 	NextSprite->Draw();
 	MainMenuSprite->Draw();
-	//spriteTitle->Draw();
+	spriteTitle->Draw();
 
 	//Render Bullet Impact
 	

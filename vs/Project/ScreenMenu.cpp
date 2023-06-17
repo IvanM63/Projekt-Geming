@@ -51,18 +51,27 @@ void Engine::ScreenMenu::Init()
 	Sprite* playSprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
 	playSprite->SetNumXFrames(5);
 	playSprite->SetNumYFrames(4);
-	playSprite->AddAnimation("normal",10 , 10);
-	playSprite->AddAnimation("hover", 0, 4);
-	playSprite->AddAnimation("press", 4, 4);
+	playSprite->AddAnimation("normal",2 , 2);
+	playSprite->AddAnimation("hover", 15, 19);
+	playSprite->AddAnimation("press", 19, 19);
 	playSprite->SetAnimationDuration(100);
 	playSprite->SetBoundToCamera(true);
+
+	Sprite* tutorialSprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
+	tutorialSprite->SetNumXFrames(5);
+	tutorialSprite->SetNumYFrames(4);
+	tutorialSprite->AddAnimation("normal", 0, 0);
+	tutorialSprite->AddAnimation("hover", 10, 14);
+	tutorialSprite->AddAnimation("press", 14, 14);
+	tutorialSprite->SetAnimationDuration(100);
+	tutorialSprite->SetBoundToCamera(true);
 
 	Sprite* exitSprite = new Sprite(texture, game->defaultSpriteShader, game->defaultQuad);
 	exitSprite->SetNumXFrames(5);
 	exitSprite->SetNumYFrames(4);
-	exitSprite->AddAnimation("normal", 5, 5);
-	exitSprite->AddAnimation("hover", 15, 19);
-	exitSprite->AddAnimation("press", 19, 19);
+	exitSprite->AddAnimation("normal", 1, 1);
+	exitSprite->AddAnimation("hover", 5, 9);
+	exitSprite->AddAnimation("press", 9, 9);
 	exitSprite->SetAnimationDuration(100);
 	exitSprite->SetBoundToCamera(true);
 
@@ -123,10 +132,13 @@ void Engine::ScreenMenu::Init()
 
 	//Create Buttons
 	Button* playButton = new Button(playSprite, "play");
-	playButton->SetPosition(game->setting->screenWidth - 337, 300);
+	playButton->SetPosition(game->setting->screenWidth - 413, 350);
 	buttons.push_back(playButton);
+	Button* tutorialButton = new Button(tutorialSprite, "tutorial");
+	tutorialButton->SetPosition(game->setting->screenWidth - 413, 235);
+	buttons.push_back(tutorialButton);
 	Button* exitButton = new Button(exitSprite, "exit");
-	exitButton->SetPosition(game->setting->screenWidth - 337, 170);
+	exitButton->SetPosition(game->setting->screenWidth - 413, 120);
 	buttons.push_back(exitButton);
 
 	// Set play button into active button
@@ -217,6 +229,9 @@ void Engine::ScreenMenu::Update()
 
 			if ("play" == b->GetButtonName()) {
 				manager->switchScreen(ScreenState::IN_GAME);
+			}
+			else if ("tutorial" == b->GetButtonName()) {
+				manager->switchScreen(ScreenState::HOW_TO_PLAY);
 			}
 			else if ("exit" == b->GetButtonName()) {
 				game->state = Engine::State::EXIT;

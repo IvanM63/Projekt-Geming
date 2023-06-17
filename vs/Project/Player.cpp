@@ -19,7 +19,6 @@ void Engine::Player::Init()
 	sprite->AddAnimation("Walk-Horizontal", 21, 24);
 	sprite->AddAnimation("Walk-Up", 7, 13);
 	sprite->AddAnimation("Walk-Down", 14, 20);
-
 	sprite->AddAnimation("idle", 0, 0);
 	sprite->PlayAnim("idle");
 	sprite->SetScale(1);
