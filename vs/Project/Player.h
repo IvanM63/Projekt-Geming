@@ -19,6 +19,7 @@ namespace Engine {
         virtual void Update();
         virtual void Render();
 
+
     protected:
         Text* healthText = NULL;
 

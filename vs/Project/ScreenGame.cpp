@@ -230,8 +230,8 @@ void Engine::ScreenGame::Init()
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
 	backgroundSprite->SetNumXFrames(1);
 	backgroundSprite->SetNumYFrames(1);
-	backgroundSprite->SetSize(game->setting->screenWidth+750, game->setting->screenHeight+750);
-	backgroundSprite->SetPosition(-400, -350);
+	backgroundSprite->SetSize(game->setting->screenWidth+ 1708, game->setting->screenHeight+ 1806);
+	backgroundSprite->SetPosition(-850, -950);
 
 
 	//x = 980 || y = 720	

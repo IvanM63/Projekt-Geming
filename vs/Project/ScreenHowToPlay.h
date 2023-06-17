@@ -102,28 +102,24 @@ namespace Engine {
 			Texture* Mouse = NULL;
 			Sprite* MouseSprite = NULL;
 
-			////Weapon Objek
-			//WeaponManager* weapon2 = NULL;
+			Sprite* player2sprite = NULL;
+			Sprite* pistol2Sprite = NULL;
 
-			////Player Object TESTING
-			//Player* player2 = NULL;
+			float gametime2;
+			//Bullet Texture
+			Engine::Texture* textureBullet = NULL;
+			Engine::Sprite* spriteBullet = NULL;
 
-			//Enemy* enemy2 = NULL;
+			std::vector<Projectile*> projectiles;
+			Projectile* proj = NULL;
 
-			////Bullet Texture
-			//Engine::Texture* textureBullet = NULL;
-			//Engine::Sprite* spriteBullet = NULL;
+			float bulletSpeed = 10.5f;
 
-			//std::vector<Projectile*> projectiles;
-			//Projectile* proj = NULL;
-
-			//float bulletSpeed = 10.5f;
-
-			////Bullet Impact
-			//std::vector<Sprite*> bulletImpacts;
-			//Engine::Texture* textureImpact = NULL;
-			//Engine::Sprite* spriteImpact = NULL;
-			//float impactAnimTime = 100;
+			//Bullet Impact
+			std::vector<Sprite*> bulletImpacts;
+			Engine::Texture* textureImpact = NULL;
+			Engine::Sprite* spriteImpact = NULL;
+			float impactAnimTime = 100;
 
 		//HowToPlay3 switch
 			//Weapon Objek
