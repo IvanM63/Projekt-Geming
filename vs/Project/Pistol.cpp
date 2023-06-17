@@ -24,6 +24,10 @@ Engine::Pistol::~Pistol()
 
 void Engine::Pistol::Init()
 {
+	//Sound Effect
+	soundFire = new Sound("Asset/Sound/Weapon/wpn_fire_fiveseven.ogg");
+	soundFire->SetVolume(100);
+
 	textureWeapon = new Texture("Asset/Weapon/Pistol/Pistol.png");
 	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
 
@@ -146,7 +150,7 @@ void Engine::Pistol::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, fl
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload) {
 		//Play sound if nembak
-		//sound->Play(false);
+		soundFire->Play(false);
 
 		//Calculate Accuracy		
 		float offset = accuracy * MAX_ACCURACY_OFFSET;

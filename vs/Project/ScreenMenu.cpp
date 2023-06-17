@@ -9,6 +9,15 @@ Engine::ScreenMenu::ScreenMenu(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenMenu::Init()
 {
+	//Sound Effect
+	soundSelection = new Sound("Asset/Sound/MainMenu/Bleep_05.ogg");
+	soundSelection->SetVolume(100);
+
+	soundComplete = new Sound("Asset/Sound/MainMenu/Complete_02.ogg");
+	soundComplete->SetVolume(100);
+
+	soundConfirm = new Sound("Asset/Sound/MainMenu/Confirm_01.ogg");
+	soundConfirm->SetVolume(100);
 
 	//Switch Screen Anim In
 	textureIn = new Texture("Asset/UI/SwitchScreen_In.png");
@@ -177,6 +186,7 @@ void Engine::ScreenMenu::Update()
 		currentButtonIndex = currentButtonIndex < buttons.size() - 1 ? currentButtonIndex + 1 : currentButtonIndex;
 		// Set current button to hover state
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
+		soundSelection->Play(false);
 	}
 
 	if (game->inputManager->IsKeyReleased("prev")) {
@@ -186,6 +196,7 @@ void Engine::ScreenMenu::Update()
 		currentButtonIndex = currentButtonIndex > 0 ? currentButtonIndex - 1 : currentButtonIndex;
 		// Set current button to hover state
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
+		soundSelection->Play(false);
 	}
 
 	//Get Pressed Key Information
@@ -195,7 +206,7 @@ void Engine::ScreenMenu::Update()
 		b->SetButtonState(Engine::ButtonState::PRESS);
 		// Turn isSwitching to true if button pressed
 		isSwitching = true;
-
+		soundComplete->Play(false);
 	}
 
 	//Change Screen After Switch Screen Animation End

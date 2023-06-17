@@ -41,6 +41,9 @@ namespace Engine {
 		void Reload();
 
 	protected:
+		//Sound Effect
+		Sound* soundFire = NULL;
+
 		Engine::Game* game = NULL;
 
 		//Bullet Texture

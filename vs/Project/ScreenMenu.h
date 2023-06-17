@@ -8,6 +8,8 @@
 #include "ScreenManager.h"
 
 //Include Yang perlu perlu aja
+#include "Music.h"
+#include "Sound.h"
 #include "Button.h"
 #include "Text.h"
 #include "GameObject.h"
@@ -31,6 +33,11 @@ namespace Engine {
 		Text* textoutline;
 
 		Button* b = NULL;
+
+		//Sound Effect
+		Sound* soundSelection = NULL;
+		Sound* soundComplete = NULL;
+		Sound* soundConfirm = NULL;
 
 		//Switch Screen Purpose
 		Engine::Texture* textureTitle = NULL;

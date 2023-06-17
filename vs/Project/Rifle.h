@@ -6,6 +6,7 @@
 #include "Sprite.h"
 #include "Game.h"
 
+#include "Sound.h"
 #include "Weapon.h"
 #include "BulletRifle.h"
 
@@ -41,6 +42,9 @@ namespace Engine {
 		void Reload();
 
 	protected:
+		//Sound Effect
+		Sound* soundFire = NULL;
+
 		Engine::Game* game = NULL;
 
 		//Bullet Texture

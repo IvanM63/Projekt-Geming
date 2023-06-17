@@ -24,6 +24,10 @@ Engine::Rifle::~Rifle()
 
 void Engine::Rifle::Init()
 {
+	//Sound Effect
+	soundFire = new Sound("Asset/Sound/Weapon/wpn_fire_aug.ogg");
+	soundFire->SetVolume(100);
+
 	textureWeapon = new Texture("Asset/Weapon/Rifle/Rifle_12F_Single.png");
 	spriteWeapon = new Sprite(textureWeapon, game->defaultSpriteShader, game->defaultQuad);
 
@@ -171,7 +175,7 @@ void Engine::Rifle::Fire(vec2 playerPos, vec2 aimDir, float angleNoNegative, flo
 
 	if (game->inputManager->IsKeyPressed("Fire") && duration >= fireRate && !isReload && currentAmmo>0) {
 		//Play sound if nembak
-		//sound->Play(false);
+		soundFire->Play(false);
 
 		//Calculate Accuracy
 		float offset = accuracy * MAX_ACCURACY_OFFSET;

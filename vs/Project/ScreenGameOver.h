@@ -7,6 +7,8 @@
 #include "Game.h"
 
 //Include yg perlu perlu aja
+#include "Music.h"
+#include "Sound.h"
 #include "Texture.h"
 #include "Sprite.h"
 #include "Projectile.h"
@@ -38,6 +40,11 @@ namespace Engine {
 		void Render();
 
 	private:
+		//Sound Effect
+		Sound* soundSelection = NULL;
+		Sound* soundComplete = NULL;
+		Sound* soundConfirm = NULL;
+
 		//Switch Screen Purpose
 		Engine::Texture* textureTitle = NULL;
 		Engine::Sprite* spriteTitle = NULL;

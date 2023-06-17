@@ -319,6 +319,7 @@ void Engine::ScreenGame::Update()
 	float x = player->GetPosition().x;
 	float y = player->GetPosition().y;
 
+	//
 	//Wolk
 	float velocity = 0.10f;
 
