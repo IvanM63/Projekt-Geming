@@ -9,7 +9,7 @@ Engine::ScreenManager::ScreenManager(Game* game)
 	screenHowToPlay = new ScreenHowToPlay(game, this);
 	screenHowToPlay2 = new ScreenHowToPlay2(game, this);
 	//Screen Awal Masuk game ganti di sini
-	screenState = ScreenState::IN_GAME;
+	screenState = ScreenState::MAIN_MENU;
 }
 
 Engine::ScreenManager::~ScreenManager()
