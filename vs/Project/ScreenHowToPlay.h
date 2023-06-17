@@ -15,6 +15,7 @@
 #include "WeaponManager.h"
 #include "Wave.h"
 #include "Ammo.h"
+#include "Sound.h"
 
 #include <set>
 #include <queue>
@@ -54,6 +55,11 @@ namespace Engine {
 
 		int currentpage = 1;
 	private:
+		//Sound Effect
+		Sound* soundSelection = NULL;
+		Sound* soundComplete = NULL;
+		Sound* soundConfirm = NULL;
+
 		//Switch Screen Purpose
 		Engine::Texture* textureTitle = NULL;
 		Engine::Sprite* spriteTitle = NULL;

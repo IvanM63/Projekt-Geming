@@ -34,6 +34,11 @@ namespace Engine {
 
 		Button* b = NULL;
 
+		bool isFirstInit = false;
+
+		//Music
+		Music* bgm = NULL;
+
 		//Sound Effect
 		Sound* soundSelection = NULL;
 		Sound* soundComplete = NULL;

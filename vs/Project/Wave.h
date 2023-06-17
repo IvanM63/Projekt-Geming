@@ -41,6 +41,9 @@ namespace Engine {
     protected:
         Engine::Game* game = NULL;
 
+        //Sound Effect
+        Sound* soundBrains = NULL;
+
         float x;
         int currentWave; //currentWave : wave, x : tambah 0.5 tiap 5n -> tiap lawan boss;
         int numEnemies;

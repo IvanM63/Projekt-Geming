@@ -10,9 +10,9 @@ Engine::ScreenGame::ScreenGame(Game* game, ScreenManager* manager) : Screen(game
 void Engine::ScreenGame::Init()
 {
 	//BGM
-	bgm = new Music("Asset/Sound/AMBIENCE_HEARTBEAT_LOOP.wav");
-	bgm->SetVolume(50);
-	bgm->Play(true);
+	bgm = new Music("Asset/Sound/ingame.ogg");
+	bgm->SetVolume(40);
+	//bgm->Play(true);
 
 	//Sound Effect
 	soundAmmoPickUp = new Sound("Asset/Sound/AmmoPickUp.ogg");
@@ -21,6 +21,10 @@ void Engine::ScreenGame::Init()
 	soundHitBullet->SetVolume(80);
 	soundHitChara = new Sound("Asset/Sound/CharaHit.ogg");
 	soundHitChara->SetVolume(100);
+	soundZombieDies = new Sound("Asset/Sound/ZombieDiesM.ogg");
+	soundZombieDies->SetVolume(70);
+	soundZombieGroan = new Sound("Asset/Sound/ZombieGroan.ogg");
+	soundZombieGroan->SetVolume(90);
 
 	//Switch Screen Anim Out
 	textureOut = new Texture("Asset/UI/SwitchScreen_Out.png");
@@ -269,13 +273,32 @@ void Engine::ScreenGame::Init()
 
 void Engine::ScreenGame::Update()
 {
-	// If user press "Quit" key then exit
+	// If user press "Quit" key then Back To Main Menu
 	if (game->inputManager->IsKeyReleased("Quit")) {
 		isSwitching = true;
 		screenName = "MainMenu";
 		//manager->switchScreen(ScreenState::MAIN_MENU);
 		return;
 	}
+	
+	//BGM Play
+	if (isFirstInit == false) {
+		bgm->Play(true);
+
+		//Let Go
+		isFirstInit = true;
+	}
+
+	//Zombie Groan
+	if (soundZombieTime == 0) {
+		soundZombieGroan->Play(false);
+	}
+	else if (soundZombieTime > 13000) {
+		soundZombieGroan->Play(false);
+		soundZombieTime = 0;
+	}
+	soundZombieTime += game->GetGameTime();
+
 
 	//Player Loc Tes
 	//std::cout << player->GetPosition().x << "\n";
@@ -300,6 +323,9 @@ void Engine::ScreenGame::Update()
 
 	//Change Screen After Switch Screen Animation End
 	if (currentSwitchTime > 750) {
+
+		//Stop Music
+		bgm->Stop();
 
 		if ("MainMenu" == screenName) {
 			manager->switchScreen(ScreenState::MAIN_MENU);
@@ -335,7 +361,6 @@ void Engine::ScreenGame::Update()
 	float x = player->GetPosition().x;
 	float y = player->GetPosition().y;
 
-	//
 	//Wolk
 	float velocity = 0.10f;
 
@@ -348,7 +373,7 @@ void Engine::ScreenGame::Update()
 	//Walk Management
 	if (!isRedScreen2) {
 
-		if (game->inputManager->IsKeyPressed("walk-right") && player->GetPosition().x < 1360) {
+		if (game->inputManager->IsKeyPressed("walk-right") && player->GetPosition().x < 1568) {
 			x += velocity * game->GetGameTime();
 			//player->sprite->SetFlipHorizontal(true);
 			player->sprite->PlayAnim("Walk-Horizontal");
@@ -356,7 +381,7 @@ void Engine::ScreenGame::Update()
 			game->defaultSpriteShader->cameraPos.x -= velocity * game->GetGameTime();
 		}
 
-		if (game->inputManager->IsKeyPressed("walk-left") && player->GetPosition().x > -130) {
+		if (game->inputManager->IsKeyPressed("walk-left") && player->GetPosition().x > -160) {
 			x -= velocity * game->GetGameTime();
 			//player->sprite->SetFlipHorizontal(false);
 			player->sprite->PlayAnim("Walk-Horizontal");
@@ -364,7 +389,7 @@ void Engine::ScreenGame::Update()
 			game->defaultSpriteShader->cameraPos.x += velocity * game->GetGameTime();
 		}
 
-		if (game->inputManager->IsKeyPressed("walk-up") && player->GetPosition().y < 768) {
+		if (game->inputManager->IsKeyPressed("walk-up") && player->GetPosition().y < 835) {
 			y += velocity * game->GetGameTime();
 			//sprite2->SetFlipHorizontal(true);
 			player->sprite->PlayAnim("Walk-Up");
@@ -372,7 +397,7 @@ void Engine::ScreenGame::Update()
 			game->defaultSpriteShader->cameraPos.y -= velocity * game->GetGameTime();
 		}
 
-		if (game->inputManager->IsKeyPressed("walk-down") && player->GetPosition().y > -70) {
+		if (game->inputManager->IsKeyPressed("walk-down") && player->GetPosition().y > -50) {
 			y -= velocity * game->GetGameTime();
 			//sprite2->SetFlipHorizontal(true);
 			player->sprite->PlayAnim("Walk-Down");
@@ -436,10 +461,19 @@ void Engine::ScreenGame::Update()
 
 		//if enemies dies, play die animation
 		if (enemies[i]->getHealth() <= 0) {
+
+			//PLay Zombie Death Sound From M
+			if (isFirstInit2 == false) {
+				soundZombieDies->Play(false);
+
+				//Let Go
+				isFirstInit2 = true;
+			}
+
 			enemies[i]->sprite->PlayAnim("dies");
 			if (enemies[i]->sprite->isSpriteLastFrame() && !enemies[i]->isSpecial) {
 
-				//Drop ammo if enemies dies with probabilty 90% drop
+				//Drop ammo if enemies dies with probabilty 75% drop
 				if (getRandomBoolean(0.75)) {
 					Ammo* a = new Ammo(game);
 					a->Init();
@@ -448,6 +482,7 @@ void Engine::ScreenGame::Update()
 					ammos.push_back(a);
 				}
 
+				isFirstInit2 = false;
 				enemies.erase(enemies.begin() + i);
 				wave->RemoveEnemiesByOne(i);
 				score += 10;

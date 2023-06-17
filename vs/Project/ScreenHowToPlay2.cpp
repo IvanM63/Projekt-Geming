@@ -9,6 +9,16 @@ Engine::ScreenHowToPlay2::ScreenHowToPlay2(Game* game, ScreenManager* manager) :
 
 void Engine::ScreenHowToPlay2::Init()
 {
+	//Sound Effect
+	soundSelection = new Sound("Asset/Sound/MainMenu/Bleep_05.ogg");
+	soundSelection->SetVolume(100);
+
+	soundComplete = new Sound("Asset/Sound/MainMenu/Complete_02.ogg");
+	soundComplete->SetVolume(100);
+
+	soundConfirm = new Sound("Asset/Sound/MainMenu/Confirm_01.ogg");
+	soundConfirm->SetVolume(100);
+
 	//Switch Screen Anim Out
 	textureOut = new Texture("Asset/UI/SwitchScreen_Out.png");
 	spriteOut = new Sprite(textureOut, game->defaultSpriteShader, game->defaultQuad);
@@ -342,7 +352,7 @@ void Engine::ScreenHowToPlay2::Update()
 		}
 	}
 
-	cout << gametime6 << " " << currentloop << "/n";
+	//cout << gametime6 << " " << currentloop << "/n";
 	gametime6 += game->GetGameTime();
 
 	// If user press "Quit" key then exit
@@ -377,6 +387,9 @@ void Engine::ScreenHowToPlay2::Update()
 		currentButtonIndex = currentButtonIndex < buttons.size() - 1 ? currentButtonIndex + 1 : currentButtonIndex;
 		// Set current button to hover state
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
+
+		//Play SOund
+		soundSelection->Play(false);
 	}
 
 	if (game->inputManager->IsKeyReleased("prev")) {
@@ -386,6 +399,9 @@ void Engine::ScreenHowToPlay2::Update()
 		currentButtonIndex = currentButtonIndex > 0 ? currentButtonIndex - 1 : currentButtonIndex;
 		// Set current button to hover state
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::HOVER);
+
+		//Play SOund
+		soundSelection->Play(false);
 	}
 
 	//Get Pressed Key Information
@@ -396,6 +412,8 @@ void Engine::ScreenHowToPlay2::Update()
 		// Turn isSwitching to true if button pressed
 		isSwitching = true;
 
+		//Play SOund
+		soundComplete->Play(false);
 	}
 
 	//Change Screen After Switch Screen Animation End

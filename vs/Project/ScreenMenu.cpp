@@ -9,6 +9,10 @@ Engine::ScreenMenu::ScreenMenu(Game* game, ScreenManager* manager) : Screen(game
 
 void Engine::ScreenMenu::Init()
 {
+	//BGM
+	bgm = new Music("Asset/Sound/bgm.ogg");
+	bgm->SetVolume(100);
+
 	//Sound Effect
 	soundSelection = new Sound("Asset/Sound/MainMenu/Bleep_05.ogg");
 	soundSelection->SetVolume(100);
@@ -158,13 +162,23 @@ void Engine::ScreenMenu::Init()
 
 	// Add input mappings
 	game->inputManager->AddInputMapping("next", SDLK_DOWN);
+	game->inputManager->AddInputMapping("next", SDLK_RIGHT);
 	game->inputManager->AddInputMapping("prev", SDLK_UP);
+	game->inputManager->AddInputMapping("prev", SDLK_LEFT);
 	game->inputManager->AddInputMapping("press", SDLK_RETURN);
 
 }
 
 void Engine::ScreenMenu::Update()
 {
+	//BGM Play
+	if (isFirstInit == false) {
+		bgm->Play(true);
+
+		//Let Go
+		isFirstInit = true;
+	}
+
 	//Switch Screen Anim Out
 	spriteOut->Update(game->GetGameTime());
 	spriteIn->Update(game->GetGameTime());
@@ -228,6 +242,9 @@ void Engine::ScreenMenu::Update()
 		if (currentSwitchTime > 750) {
 
 			if ("play" == b->GetButtonName()) {
+				//BGM Stop
+				bgm->Stop();
+
 				manager->switchScreen(ScreenState::IN_GAME);
 			}
 			else if ("tutorial" == b->GetButtonName()) {

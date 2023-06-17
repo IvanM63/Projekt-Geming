@@ -172,7 +172,7 @@ void Engine::ScreenGameOver::Update()
 	scoreText->SetText("Score: " + std::to_string(game->setting->score));
 	scoreText->SetPosition(game->setting->screenWidth / 2 - 75, game->setting->screenHeight / 2 - 90);
 
-	if (game->inputManager->IsKeyReleased("walk-right")) {
+	if (game->inputManager->IsKeyReleased("walk-right") || game->inputManager->IsKeyReleased("next")) {
 		// Set previous button to normal state
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::NORMAL);
 		// Next Button
@@ -182,7 +182,7 @@ void Engine::ScreenGameOver::Update()
 		soundSelection->Play(false);
 	}
 
-	if (game->inputManager->IsKeyReleased("walk-left")) {
+	if (game->inputManager->IsKeyReleased("walk-left") || game->inputManager->IsKeyReleased("prev")) {
 		// Set previous button to normal state
 		buttons[currentButtonIndex]->SetButtonState(Engine::ButtonState::NORMAL);
 		// Prev Button

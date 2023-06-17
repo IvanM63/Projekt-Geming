@@ -18,10 +18,10 @@ void Engine::Ammo::Init()
 	spriteAmmo->SetScale(1.3);
 	spriteAmmo->SetAnimationDuration(100);
 
-	//Randomly Generate ammo in range (5,12)
+	//Randomly Generate ammo in range (6,15)
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<int> distribution(3, 5);
+	std::uniform_int_distribution<int> distribution(4, 12);
 	amount = distribution(gen);
 }
 

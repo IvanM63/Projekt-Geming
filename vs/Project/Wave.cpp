@@ -9,6 +9,10 @@ Engine::Wave::Wave(Game* game)
 	this->maxAvailEnemies = numEnemies / 2;
 	this->currentWave = 1;
 	this->x = 0.5;
+
+	//Sound Effect
+	soundBrains = new Sound("Asset/Sound/ZombieBrains.ogg");
+	soundBrains->SetVolume(50);
 }
 
 Engine::Wave::~Wave()
@@ -17,6 +21,9 @@ Engine::Wave::~Wave()
 
 void Engine::Wave::NextWave()
 {
+	//Play Sound
+	soundBrains->Play(false);
+
 	waveTime = 0;
 	currentWave += 1;
 	

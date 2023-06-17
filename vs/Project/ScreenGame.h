@@ -58,10 +58,17 @@ namespace Engine {
 		//Music
 		Music* bgm = NULL;
 
+		bool isFirstInit = false;
+		bool isFirstInit2 = false;
+
 		//Sound Effect
 		Sound* soundAmmoPickUp = NULL;
 		Sound* soundHitBullet = NULL;
 		Sound* soundHitChara = NULL;
+		Sound* soundZombieDies = NULL;
+		Sound* soundZombieGroan = NULL;
+
+		int soundZombieTime = 0;
 
 		//Switch Screen Purpose
 		Engine::Texture* textureTitle = NULL;
