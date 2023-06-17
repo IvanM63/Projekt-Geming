@@ -172,9 +172,9 @@ void Engine::ScreenGame::Init()
 
 	spritegunUI->SetNumXFrames(2);
 	spritegunUI->SetNumYFrames(1);
-	spritegunUI->AddAnimation("default", 0, 0);
-	spritegunUI->AddAnimation("rifle", 1, 0);
-	spritegunUI->PlayAnim("default");
+	spritegunUI->AddAnimation("pistol", 0, 0);
+	spritegunUI->AddAnimation("rifle", 1, 1);
+	spritegunUI->PlayAnim("pistol");
 	spritegunUI->SetScale(2);
 	spritegunUI->SetAnimationDuration(30);
 	spritegunUI->SetPosition(game->setting->screenWidth - 200, 90);
@@ -217,8 +217,8 @@ void Engine::ScreenGame::Init()
 	backgroundSprite = new Sprite(bgTexture, game->defaultSpriteShader, game->defaultQuad);
 	backgroundSprite->SetNumXFrames(1);
 	backgroundSprite->SetNumYFrames(1);
-	backgroundSprite->SetSize(game->setting->screenWidth+750, game->setting->screenHeight+750);
-	backgroundSprite->SetPosition(-400, -350);
+	backgroundSprite->SetSize(game->setting->screenWidth+750+ 958, game->setting->screenHeight+750 + 956);
+	backgroundSprite->SetPosition(-800, -800);
 
 
 	//x = 980 || y = 720	

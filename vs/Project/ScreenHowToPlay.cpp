@@ -38,13 +38,14 @@ void Engine::ScreenHowToPlay::Init()
 
 	howtoplayButton = new Texture("Asset/howtoplaybutton.png");
 
-	textureTitle = new Texture("Asset/howtoplaybutton.png");
+	textureTitle = new Texture("Asset/HowToPlay.png");
 	spriteTitle = new Sprite(textureTitle, game->defaultSpriteShader, game->defaultQuad);
 	spriteTitle->SetNumXFrames(1);
 	spriteTitle->SetNumYFrames(1);
 	spriteTitle->AddAnimation("idle", 0, 0);
 	spriteTitle->PlayAnim("idle");
 	spriteTitle->SetAnimationDuration(100);
+	spriteTitle->SetPosition(game->setting->screenWidth/2 - 250, game->setting->screenHeight - 100);
 	spriteTitle->SetBoundToCamera(true);
 
 	MainMenuSprite = new Sprite(howtoplayButton, game->defaultSpriteShader, game->defaultQuad);
@@ -120,7 +121,7 @@ void Engine::ScreenHowToPlay::Init()
 		MouseSprite->AddAnimation("idle", 0, 1);
 		MouseSprite->PlayAnim("idle");
 		MouseSprite->SetScale(1);
-		MouseSprite->SetPosition(game->setting->screenWidth * 2 / 3 - 240, game->setting->screenHeight * 2 / 5 - 150);
+		MouseSprite->SetPosition(game->setting->screenWidth * 2 / 3 - 260, game->setting->screenHeight * 2 / 5 - 150);
 		MouseSprite->SetAnimationDuration(1000);
 
 		////PLayer Class
@@ -157,7 +158,7 @@ void Engine::ScreenHowToPlay::Init()
 		KeyBoardSwitchSprite->AddAnimation("idle", 0, 1);
 		KeyBoardSwitchSprite->PlayAnim("idle");
 		KeyBoardSwitchSprite->SetScale(2.5);
-		KeyBoardSwitchSprite->SetPosition(game->setting->screenWidth * 3 / 3 - 240, game->setting->screenHeight * 2 / 5 - 100);
+		KeyBoardSwitchSprite->SetPosition(game->setting->screenWidth * 3 / 3 - 260, game->setting->screenHeight * 2 / 5 - 100);
 		KeyBoardSwitchSprite->SetAnimationDuration(1000);
 		KeyBoardSwitchSprite->SetBoundToCamera(true);
 
@@ -168,7 +169,7 @@ void Engine::ScreenHowToPlay::Init()
 		pistol3Sprite->AddAnimation("idle", 0, 0);
 		pistol3Sprite->PlayAnim("idle");
 		pistol3Sprite->SetScale(1);
-		pistol3Sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 190, game->setting->screenHeight * 3 / 5 - 60);
+		pistol3Sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 210, game->setting->screenHeight * 3 / 5 - 60);
 		pistol3Sprite->SetAnimationDuration(102);
 		pistol3Sprite->SetBoundToCamera(true);
 
@@ -180,7 +181,7 @@ void Engine::ScreenHowToPlay::Init()
 		rifle3Sprite->AddAnimation("fire", 0, 11);
 		rifle3Sprite->PlayAnim("idle");
 		rifle3Sprite->SetScale(2.5);
-		rifle3Sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 250, game->setting->screenHeight * 3 / 5 - 100);
+		rifle3Sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 270, game->setting->screenHeight * 3 / 5 - 100);
 		rifle3Sprite->SetAnimationDuration(12);
 		rifle3Sprite->SetBoundToCamera(true);
 
@@ -190,7 +191,7 @@ void Engine::ScreenHowToPlay::Init()
 		player3sprite->AddAnimation("idle", 0, 0);
 		player3sprite->PlayAnim("idle");
 		player3sprite->SetScale(2.5);
-		player3sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 250, game->setting->screenHeight * 3 / 5 - 100);
+		player3sprite->SetPosition(game->setting->screenWidth * 3 / 3 - 270, game->setting->screenHeight * 3 / 5 - 100);
 		player3sprite->SetAnimationDuration(175);
 		player3sprite->SetFlipHorizontal(false);
 		player3sprite->SetBoundToCamera(true);
@@ -393,7 +394,7 @@ void Engine::ScreenHowToPlay::Render()
 
 	NextSprite->Draw();
 	MainMenuSprite->Draw();
-	//spriteTitle->Draw();
+	spriteTitle->Draw();
 
 	//Render Bullet Impact
 	
